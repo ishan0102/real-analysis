@@ -1,0 +1,41 @@
+\section{August 30}
+
+\paragraph{Theorem:} $\sqrt{2}$ is irrational. \\
+\textbf{Proof:} Suppose not. Suppose that $\sqrt{2}$ is rational. Then $\exists m, n \in \Z$ such that $\sqrt{2} = \frac{m}{n}, n \neq 0$ and $m$ and $n$ share no common factors. Then,
+\begin{align*}
+    2 &= \frac{m^2}{n^2} \\
+    2n^2 &= m^2
+\end{align*}
+Thus, $m^2$ is even and $m$ is even. Then, $m = 2k$ for some $k \in \Z$. But, by substituting $m = 2k$ into the above equation, we get
+\begin{align*}
+    2n^2 &= (2k)^2 \\
+    2n^2 &= 4k^2 \\
+    n^2 &= 2k^2
+\end{align*}
+Thus, $n^2$ is even, so $n$ is even. So, $n$ is a perfect square, which is a contradiction. Thus, $\sqrt{2}$ is irrational. $\blacksquare$
+
+\subsection{Upper and Lower Bounds}
+\paragraph{Theorem:} Let $S$ be a subset of $\R$. If there exists a real number $m$ such that $m \geq s \forall s \in S$, $m$ is called an \textbf{upper bound} for $S$. If $m \leq s \forall s \in S$, $m$ is called a \textbf{lower bound} for $S$. \textbf{Minimums} and \textbf{maximums} must exist in the set to be valid.
+$$T = \{q \in \Q \mid 0 \leq q \leq \sqrt{2}\}$$
+\begin{itemize}
+    \item Lower bound: -420, -1
+    \item Upper bound: 100, 5, 2
+    \item Minimum: 0
+    \item Maximum: No max
+\end{itemize}
+Because rationals are not complete, there is no upper bound for $T$. \\\null\\
+\textbf{Supremum:} The least upper bound of a set is called the supremum of the set. \\
+\textbf{Infimum:} The greatest lower bound is called the infimum of the set.
+
+\subsection{Completeness Axiom}
+\paragraph{Completeness Axiom:} Every nonempty subset of $\R$ that is bounded above has a least upper bound. That is, $\sup S$ exists and is a real number.
+
+\paragraph{Theorem:} The set of natural numbers $\N$ is unbounded above. \\
+\textbf{Proof:} Suppose not. Suppose that $\N$ is bounded above. If $\N$ were bounded above, it must have a supremum $m$. Since $\sup \N = m$, $m - 1$ is not an upper bound. Thus, $\exists n_0 \in \N$ such that $n_0 > m - 1$. But then, $n_0 + 1 > m$. This is a contradiction since $n_0 + 1 \in N$. Thus, $N$ is unbounded above. $\blacksquare$
+
+\paragraph{Theorem:} If $A$ and $B$ are nonempty subsets of $\R$, let $C = \{x + y \mid x \in A, y \in B\}$. If $\sup A$ and $\sup B$ exist, then $\sup C = \sup A + \sup B$. \\
+\textbf{Proof:} Let $\sup A = a$ and $\sup B = b$. Then if $z \in C, z = x + y$ for some $x \in A, y \in B$. Then,
+$$ z = x + y \leq a + b = \sup A + \sup B $$
+By the completeness axiom, $\exists$ a least upper bound of $C, c = \sup C$. It must be that $c \leq a + b$, so we must show $c \geq a + b$. Let $\epsilon > 0$. Since $a = \sup A$, $a - \epsilon$ is not an upper bound for $A$. $\exists x \in A$ such that $a - \epsilon < x$. Likewise, $\exists y \in B$ such that $b - \epsilon < y$. Then,
+$$ (a - \epsilon) + (b - \epsilon) = a + b - 2 * \epsilon < x + y \leq c $$
+Thus, $a + b < c + 2 * \epsilon \forall \epsilon > 0$. So, $a + b \leq c \therefore c = a + b$.

@@ -1,0 +1,88 @@
+\section{August 25}
+\subsection{Algebraic Axioms} $\forall a, b, c \in \R$
+\begin{itemize}
+    \item (A1) $a + b = b + a$.
+    \item (A2) $(a + b) + c = a + (b + c)$.
+    \item (A3) $\exists$ an element $o \in \R$ such that $a + o = o + a = a$.
+    \item (A4) For each element $a \in \R$, $\exists$ an element $(-a) \in \R$ such that $a + (-a) = 0$.
+    \item (M1) $ab = ba$.
+    \item (M2) $(ab)c = a(bc)$.
+    \item (M3) $\exists$ an element $1 \in \R$ such that $a * 1 = 1 * a = a$.
+    \item (M4) For each element $a \in \R \setminus {0}$, $\exists$ an element $\frac{1}{a} \in \R$ such that $a * \frac{1}{a} = \frac{1}{a} * a = 1$.
+    \item (D) $a * (b + c) = a * b + a * c$.
+\end{itemize}
+$\implies$ If $a = b$ and $c = d$, then $a + c = b + d$ and $a * c = b * d$ (assumed properties of equality).
+
+\paragraph{Proofs} $\forall x, y, z \in \R$
+\begin{itemize}
+    \item If $x + z$ = $y + z$ then $x = y$.
+    \begin{align*}
+        x + z &= y + z \;\; (A4) \\
+        (x + z) + (-z) &= (y + z) + (-z) \;\; (A2) \\
+        x + (z + (-z)) &= y + (z + (-z)) \;\; (A4) \\
+        x + 0 &= y + 0 \;\; (A3) \\
+        x &= y
+    \end{align*}
+
+    \item For any $x \in \R$, $x * 0 = 0$
+    \begin{align*}
+        x * 0 &= x * (0 + 0) \\
+        x * 0 &= x * 0 + x * 0 \\
+        x * 0 + (-x * 0) &= (x * 0 + x * 0) + (-x * 0) \\
+        0 &= x * 0 + (x * 0 + (-x * 0)) \\
+        &= x * 0 + 0 \\
+        &= x * 0
+    \end{align*}
+
+    \item $-1 * x = -x$ i.e. $x + (-1) * x = 0$
+    \begin{align*}
+        x + (-1) * x &= x + x * (-1) \\
+        &= x * 1 + x * (-1) \\
+        &= x * (1 + (-1)) \\
+        &= x * 0 \\
+        &= 0
+    \end{align*}
+
+    \item \textbf{Theorem:} $\forall x, y \in \R$, $x * y = 0 \iff x = 0 \lor y = 0$ (zero-product property). \\
+    \textbf{Proof:} Let $x, y \in \R$, if $x = 0$ or $y = 0$, then $x * y = 0$. Suppose $x \neq 0$, then we must show $y = 0$. Since $x \neq 0$, $\frac{1}{x}$ exists. Thus, if:
+    \begin{align*}
+        xy &= 0 \\
+        \frac{1}{x} * (xy) &= \frac{1}{x} * 0 \\
+        (\frac{1}{x} * (xy)) * y &= 0 \\
+        1 * y &= 0 \\
+        y &= 0 \; \blacksquare
+    \end{align*}
+\end{itemize}
+
+\subsection{Order Axioms} $\forall x, y \in \R$
+\begin{itemize}
+    \item (O1) One of $x < y$, $x > y$ or $x = y$ is true.
+    \item (O2) If $x < y$ and $y < z$, then $x < z$.
+    \item (O3) If $x < y$ then $x + z < y + z$.
+    \item (O4) If $x < y$ and $z > 0$ then $xz < yz$.
+\end{itemize}
+
+\paragraph{Proofs}
+\begin{itemize}
+    \item If $x < y$ then $-y < -x$
+    \begin{align*}
+        x &< y \\
+        x + (-x + -y) &< y + (-x + -y) \\
+        (x + -x) + -y &< (y + -y) + -x \\
+        0 + -y &< 0 + -x \\
+        -y &< -x
+    \end{align*}
+
+    \item \textbf{Theorem:} If $x < y$ and $z > 0$ then $xz > yz$. \\
+    \textbf{Proof:} If $x < y$ and $z > 0$ then $-z > 0$. Thus, $x(-z) < y(-z)$. But,
+    \begin{align*}
+        x(-z) &= x(-1 * z) \\
+        &= (x * -1) * z \\
+        &= (-1 * x) * z \\
+        &= -1 (x * z) \\
+        &= -x * z
+    \end{align*}
+    Similarly, $y(-z) = -y * z$. Thus, $-x * z < -y * z$, so $xz > yz$. $\blacksquare$
+\end{itemize}
+
+$\implies \R$ is an ordered field. Reals are complete, rationals are not.
