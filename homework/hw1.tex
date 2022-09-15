@@ -1,0 +1,223 @@
+\documentclass[12pt]{article}
+
+\usepackage[margin=1in]{geometry}
+
+% Math and Algos
+\usepackage{amsmath, amsthm, amsfonts, amssymb}
+\usepackage{mathtools}
+\usepackage{algorithmicx, algpseudocode}
+\usepackage{verbatim}
+\newcommand\R{\mathbb{R}}
+\newcommand\N{\mathbb{N}}
+\newcommand\Q{\mathbb{Q}}
+\newcommand\Z{\mathbb{Z}}
+\newtheorem{theorem}{Theorem}[section]
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+
+% Graphics
+\usepackage{graphicx}
+\usepackage{color}
+\graphicspath{{./images/}}
+\usepackage{booktabs}
+
+% Hyperlinks
+\usepackage{hyperref}
+\hypersetup{
+    linkcolor=cyan
+}
+
+% Aesthetics
+\usepackage{enumitem}
+\allowdisplaybreaks
+\hfuzz=14pt
+
+\begin{document}
+
+\title{M 361K Homework 1}
+\author{Ishan Shah}
+\date{\today}
+\maketitle
+
+\section*{Section 2.1}
+Let $a, b \in \R$. Prove the following theorems:
+
+\paragraph{1a.} If $a + b = 0$, then $b = -a$.
+\begin{proof}
+    \begin{align*}
+        a + b &= 0 \\
+        a + (-a) + b &= 0 + (-a) \mathbf{\;(A4)} \\
+        0 + b &= 0 + (-a) \\
+        b &= -a
+    \end{align*}
+\end{proof}
+
+\paragraph{2b.} $(-a) * (-b) = a * b$. 
+\begin{proof}
+    \begin{align*}
+        (-a) * (-b) &= a * b \\
+        (-1 * a) * (-1 * b) &= 1 * a * 1 * b \\
+        (-1 * -1) * (a * b) &= (1 * 1) * (a * b) \\
+        1 * (a * b) &= 1 * (a * b) \\
+        &= a * b
+    \end{align*}
+\end{proof}
+
+\paragraph{2c.} $1 / (-a) = -(1 / a)$. 
+\begin{proof}
+    We can use the proof from \textbf{2b} to simplify the negative signs.
+    \begin{align*}
+        1/(-a) &= -(1/a) \\
+        1 &= (-a) * (-1/a) \\
+        1 &= a * (1/a) \\
+        1 &= 1 \\
+        1/(-a) &= -(1/a)
+    \end{align*}
+\end{proof}
+
+\paragraph{5.} If $a \neq 0$ and $b \neq 0$, $1 / (ab) = (1 / a)(1 / b)$. 
+\begin{proof}
+    We need to show that $(1/a)(1/b) * (ab) = 1$ and $(ab) * (1/a)(1/b) = 1$.
+    \begin{align*}
+        (1/a)(1/b) * (ab) &= (1/a)(1/b) * (ab) \\
+        &= (1/a) * (1/b) * (a * b) \\
+        &= (1/a * a) * (1/b * b) \mathbf{\;(M4)} \\
+        &= 1 * 1 \\
+        &= 1
+    \end{align*}
+    \begin{align*}
+        (ab) * (1/a)(1/b) &= (ab) * (1/a)(1/b) \\
+        &= (a * b) * (1/a) * (1/b) \\
+        &= (a * 1/a) * (b * 1/b) \mathbf{\;(M4)} \\
+        &= 1 * 1 \\
+        &= 1
+    \end{align*}
+    
+    Using the existence of reciprocals property,
+    $$1 / (ab) = (1 / a)(1 / b)$$
+\end{proof}
+
+\paragraph{18.} If for every $\epsilon > 0$ we have $a \leq b + \epsilon$, then $a \leq b$.
+\begin{proof}
+    Suppose not. Suppose that $b < a$. Then, $0 < a - b$. Let $\epsilon = \frac{a - b}{2}$. Then,
+    \begin{align*}
+        a &\leq b + \frac{a - b}{2} \\
+        a &\leq \frac{a + b}{2} \\
+        2a &\leq a + b \\
+        a &\leq b
+    \end{align*}
+    We have that $a \leq b$ and $b < a$, which is a contradiction. Therefore, $a \leq b$.
+\end{proof}
+
+\section*{Section 2.3}
+
+\paragraph{5.} Find the infimum and supremum, if they exist, of each of the following sets:
+\begin{enumerate}[label=(\alph*)]
+    \item $A := \{ x \in \R : 2x + 5 > 0 \}$
+    \begin{align*}
+        2x + 5 &> 0 \\
+        2x &> -5 \\
+        x &> -\frac{5}{2}
+    \end{align*}
+    \begin{itemize}
+        \item Infimum: $-\frac{5}{2}$
+        \item Supremum: DNE
+    \end{itemize}
+    
+    \item $B := \{ x \in \R : x + 2 \geq x^2 \}$
+    \begin{align*}
+        x + 2 &\geq x^2 \\
+        x^2 - x - 2 &\leq 0 \\
+        (x + 1)(x - 2) &\leq 0
+    \end{align*}
+    We have that $-1 \leq x \leq 2$.
+    \begin{itemize}
+        \item Infimum: $-1$
+        \item Supremum: 2
+    \end{itemize}
+
+    \item $C := \{ x \in \R : x < 1 / x \}$
+    \begin{align*}
+        x &< \frac{1}{x} \\
+        x - \frac{1}{x} &< 0 \\
+        \frac{x^2 - 1}{x} &< 0 \\
+        \frac{(x + 1)(x - 1)}{x} &< 0
+    \end{align*}
+    This is upper bounded by 1.
+    \begin{itemize}
+        \item Infimum: DNE
+        \item Supremum: 1
+    \end{itemize}
+
+    \item $D := \{ x \in \R : x^2 - 2x - 5 < 0 \}$
+    \begin{align*}
+        x^2 - 2x - 5 &< 0 \\
+        (x - (1 + \sqrt{6}))(x - (1 - \sqrt{6})) &< 0 \\
+    \end{align*}
+    We have that $1 - \sqrt{6} < x < 1 + \sqrt{6}$.
+    \begin{itemize}
+        \item Infimum: $1 - \sqrt{6}$
+        \item Supremum: $1 + \sqrt{6}$
+    \end{itemize}
+\end{enumerate}
+
+\paragraph{7.} If a set $S \subseteq \R$ contains one of its upper bounds, show that this upper bound is the supremum of $S$. 
+\begin{proof}
+    Let $S$ be any nonempty subset of $R$ with some upper bound $u$. By the completeness axiom, there exists some least upper bound $\sup S$. Then, $\sup S \leq u$ by the definition of supremum. Since $S$ contains $u$, we have that $u \leq \sup S$. Therefore, $\sup S = u$.
+\end{proof}
+
+\paragraph{10.} Show that if $A$ and $B$ are bounded subsets of $\R$, then $A \cup B$ is a bounded set. Show that $\sup(A \cup B) = \sup\{\sup A, \sup B\}$ 
+\begin{proof}
+    Let $a = \sup A$, $b = \sup B$, and $c = \sup\{a, b\}$. Then, $c$ is an upper bound of $A \cup B$. That is, $\forall x \in A, x \leq a \leq c$ and $\forall x \in B, x \leq b \leq c$. Let $d$ be any upper bound of $A \cup B$. Then, $a \leq d$ and $b \leq d$. Therefore, $c \leq d$. Therefore, $c$ is the supremum of $A \cup B$ and $\sup(A \cup B) = \sup\{\sup A, \sup B\}$.
+\end{proof}
+
+\section*{Section 2.5}
+\paragraph{2.} If $S \subseteq \R$ is nonempty, show that $S$ is bounded if and only if there exists a closed, bounded interval $I$ such that $S \subseteq I$. 
+\begin{proof}
+    Suppose $S$ is bounded. Then, $S$ has an lower bound $a$ and a upper bound $b$. That is, $\forall x \in S, a \leq x \leq b$, so $x \in [a, b]$. Therefore, $S \subseteq I$ where $I = [a, b]$.
+
+    Suppose there exist a closed, bounded interval $I = [a, b]$ such that $S \subseteq I$. Then, $\forall x \in S, x \in I$, so $a \leq x \leq b$. Therefore, $S$ is bounded above and below.
+\end{proof}
+
+\section*{Section 3.1}
+\paragraph{4.} For any $b \in \R$, prove that $\lim(b / n) = 0$. 
+\begin{proof}
+    If $b = 0$, the limit is obviously 0. When $b \neq 0$, we have that for any $\epsilon > 0$, $\frac{\epsilon}{|b|} > 0$. We know $\exists$ some $n_0$ such that $\frac{1}{n_0} < \frac{\epsilon}{|b|}$. $\forall n \geq n_0, \frac{1}{n} < \frac{\epsilon}{|b|}$, so $|\frac{b}{n} - 0| < \epsilon, \forall n \geq n_0$. Therefore, $\lim(b / n) = 0$.
+\end{proof}
+
+\paragraph{8.} Prove that $\lim(x_n) = 0$ if and only if $\lim(|x_n|) = 0$. Give an example to show that the converegence of $(|x_n|)$ need not imply the convergence of $(x_n)$. 
+\begin{proof}
+    $|x_n - 0| = ||x_n| - 0|$. Thus, for $\epsilon > 0, |x_n - 0| < \epsilon$ if and only if $||x_n| - 0| < \epsilon$. This implies that $\lim(x_n) = 0$ if and only if $\lim(|x_n|) = 0$.
+
+    An example of this is the sequence $x_n = \{1, -1, 1, -1, \dots\}$. This sequence is not convergent, but $|x_n| = \{1, 1, 1, 1, \dots\}$ is convergent.
+\end{proof}
+
+\paragraph{13.} Show that $\lim(1/3^n) = 0$. 
+\begin{proof}
+    Since $n \leq 3^n \iff \frac{1}{3^n} \leq \frac{1}{n}$, we have that $$ |\frac{1}{3^n} - 0| \leq \frac{1}{n} $$ Because we know that $\lim_n \frac{1}{n} = 0$, we have that $\lim_n \frac{1}{3^n} = 0$.
+\end{proof}
+
+\section*{Section 3.2}
+\paragraph{2.} Give an example of two divergent sequences $X$ and $Y$ such that:
+\begin{enumerate}[label=(\alph*)]
+    \item Their sum $X + Y$ converges.
+    \item Their product $XY$ converges. 
+\end{enumerate}
+\begin{proof}
+    Let $X = \{ 1, 0, 1, 0, 1, \ldots \}$ and $Y = \{ 0, 1, 0, 1, 0, \ldots \}$. Then, $X + Y = \{ 1, 1, 1, 1, 1, \ldots \}$ and $XY = \{ 0, 0, 0, 0, 0, \ldots \}$. Thus, both $X + Y$ and $XY$ converge.
+\end{proof}
+
+\paragraph{7.} If $(b_n)$ is a bounded sequence and $\lim(a_n) = 0$, show that $\lim(a_n b_n) = 0$. Explain why \textbf{Theorem 3.2.3} cannot be used. 
+\begin{proof}
+    Suppose that $(b_n)$ is a bounded sequence and $\lim(a_n) = 0$. Now, let $|b_n| \leq M$ for some $M \geq 0$. Then, $|a_n b_n - 0| = |a_n b_n| = |a_n| |b_n| \leq M |a_n|$. Since $\lim(a_n) = 0$, we have that $\lim(a_n b_n) = 0$.
+\end{proof}
+\begin{remark}
+    \textbf{Theorem 3.2.3} cannot be used here because it only applies when both sequences converge. We know that $a_n$ is convergent, but $b_n$ is not necessarily convergent since not all bounded sequences converge.
+\end{remark}
+
+\paragraph{22.} Suppose that $(x_n)$ is a convergent sequence and $(y_n)$ is such that for any $\epsilon > 0$ there exists $M$ such that $|x_n - y_n| < \epsilon$ for all $n \geq M$. Does it follow that $(y_n)$ is convergent?
+\begin{proof}
+    We have that $|x_n - y_n| < \epsilon = |(y_n - x_n) - 0| < \epsilon$. This means that $\lim(y_n - x_n) = 0$. We also know that $y_n = (y_n - x_n) + x_n$. Because $x_n$ is convergent, this means that $|(y_n - x_n) + x_n| < \epsilon \implies |y_n| < \epsilon$ so $(y_n)$ is convergent.
+\end{proof}
+
+\end{document}

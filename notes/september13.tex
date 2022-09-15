@@ -1,0 +1,30 @@
+\section{September 13}
+
+\subsection{Monotone Sequences}
+\begin{definition}[Monotone sequence]
+    A sequence $S_n$ of real numbers is said to be increasing $\iff S_n \leq S_{n+1} \;\forall\; n \in \N$ and decreasing $\iff S_n \geq S_{n+1} \;\forall\; n \in \N$.
+\end{definition}
+The Fibonacci sequence is an example of an increasing sequence.
+
+\begin{definition}[Monotone convergence theorem]
+    A monotone sequence is convergent if and only if it is bounded.
+\end{definition}
+
+\begin{theorem}
+    An increasing bounded sequence is convergent.
+\end{theorem}
+\begin{proof}
+    Suppose $S_n$ is a bounded increasing sequence. Let $S$ be the set $\{S_n \mid n \in \N\}$. By the completeness axiom, $\sup S$ exists. Let $s = \sup S$. We claim $\lim_{n \to \infty} S_n = s$. Given $\epsilon > 0, s - \epsilon$ is not an upper bound for $S$. \\ Thus, $\;\exists\; N \in \N$ such that $S_N > s - \epsilon$. Furthermore, since $S_n$ is increasing and $s$ is an upper bound for $S$, we have $s - \epsilon < S_N \leq S_n \leq s \;\forall\; n \geq N$.
+\end{proof}
+\begin{remark}
+    This is an elementary proof because it only uses axioms to make the conclusion.
+\end{remark}
+Ex. $S_{n+1} = \sqrt{1 + S_n}, S_1 = 1$.
+
+
+\begin{theorem}
+    If $S_n$ is an unbounded increasing sequence, then $\lim_{n \to \infty} S_n = \infty$.
+\end{theorem}
+\begin{proof}
+    Let $S_n$ be an increasing unbounded sequence. Then, $\{S_n \mid n \in \N\}$ is not bounded above, but $S$ is bounded below by $S_1$. Thus, given $M \in \R, \exists N \in \N$ such that $S \mid N > M$. But since $S_n$ is increasing, $S_n > M \;\forall\; n > N$. Thus $\lim_{n \to \infty} S_n = \infty$.
+\end{proof}

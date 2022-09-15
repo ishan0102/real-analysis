@@ -1,6 +1,7 @@
 % Document Styling
 \documentclass[12pt]{article}
 \usepackage[margin=1in]{geometry}
+% \setlength\parindent{0pt}
 
 % Math
 \usepackage{amsmath, amsthm, amsfonts, amssymb}
@@ -11,6 +12,12 @@
 \newcommand\N{\mathbb{N}}
 \newcommand\Q{\mathbb{Q}}
 \newcommand\Z{\mathbb{Z}}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{theorem}{Theorem}[section]
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
 
 % Page Breaks
 \allowdisplaybreaks
@@ -25,5 +32,8 @@
 \tableofcontents
 \input{notes/august25.tex}
 \input{notes/august30.tex}
+\input{notes/september6.tex}
+\input{notes/september8.tex}
+\input{notes/september13.tex}
 
 \end{document}
