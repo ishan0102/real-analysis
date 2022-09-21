@@ -33,7 +33,6 @@ In essence, if we show that there exists some one-to-one mapping between the two
 \end{theorem}
 
 \begin{theorem}
-\label{thm:nested-intervals}
     If $[a_n, b_n] \forall n \in \N$ is a nested sequence of closed bounded intervals, $\exists \delta \in \R$ such that $\delta \in I_n \forall n \in \N$.
 \end{theorem}
 \begin{proof}
@@ -49,5 +48,5 @@ In essence, if we show that there exists some one-to-one mapping between the two
     $[0, 1]$ is uncountable.
 \end{theorem}
 \begin{proof}
-    Assume $[0, 1]$ is countable. That is, $[0, 1] = I = \{x_1, x_2, x_3, \ldots\}$. Select a closed interval $I_1 \subseteq I$ such that $x_1 \not\in I_1$. Next, select a closed interval $I_2 \subseteq I_1$ such that $x_2 \not\in I_2$, and so on. Then, we have $$ I_n \subseteq \ldots \subseteq I_2 \subseteq I_1 \subseteq I $$ and $x_n \not\in I_n \forall n \in \N$. By \ref{thm:nested-intervals}, $\exists \delta \in I$ such that $\delta \in I_n \forall n \in \N$. This implies that $\delta \neq x_n \forall n \in \N$. Thus, $\delta \not\in I$, which is a contradiction. Therefore, $[0, 1]$ is uncountable.
+    Assume $[0, 1]$ is countable. That is, $[0, 1] = I = \{x_1, x_2, x_3, \ldots\}$. Select a closed interval $I_1 \subseteq I$ such that $x_1 \not\in I_1$. Next, select a closed interval $I_2 \subseteq I_1$ such that $x_2 \not\in I_2$, and so on. Then, we have $$ I_n \subseteq \ldots \subseteq I_2 \subseteq I_1 \subseteq I $$ and $x_n \not\in I_n \forall n \in \N$. By \textbf{Theorem 3.3}, $\exists \delta \in I$ such that $\delta \in I_n \forall n \in \N$. This implies that $\delta \neq x_n \forall n \in \N$. Thus, $\delta \not\in I$, which is a contradiction. Therefore, $[0, 1]$ is uncountable.
 \end{proof}
