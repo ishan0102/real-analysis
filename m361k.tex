@@ -1,7 +1,17 @@
 % Document Styling
 \documentclass[12pt]{article}
 \usepackage[margin=1in]{geometry}
-% \setlength\parindent{0pt}
+
+% Links
+\usepackage{color}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
 
 % Math
 \usepackage{amsmath, amsthm, amsfonts, amssymb}
@@ -30,6 +40,7 @@
 \maketitle
 
 \tableofcontents
+\pagebreak
 \input{notes/august25.tex}
 \input{notes/august30.tex}
 \input{notes/september6.tex}
