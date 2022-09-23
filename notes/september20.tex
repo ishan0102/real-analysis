@@ -40,9 +40,9 @@ Let $S \subseteq \R$ for the following definitions.
     $S \in \R$ is closed if and only if $S$ contains all of its accumulation points.
 \end{theorem}
 \begin{proof}
-    Suppose $S$ is closed. Let $x$ be an accumulation point of $S$. If $x \not\in S$, then $x \in S^c$. Thus, $\exists$ a neighborhood $N$ of $x$ such that $N \subseteq S^c$. But $N \cap S = \emptyset$, which contradicts $x$ being an accumulation point of $S$.
+    Suppose $S$ is closed. Let $x$ be an accumulation point of $S$. If $x \not\in S$, then $x \in S^\complement$. Thus, $\exists$ a neighborhood $N$ of $x$ such that $N \subseteq S^\complement$. But $N \cap S = \emptyset$, which contradicts $x$ being an accumulation point of $S$.
 
-    Conversely, suppose $S$ contains all of its accumulation points. Let $x \in S^c$, then $x$ is not an accumulation point of $S$. Thus, $\exists N^\star(x, \epsilon)$ that misses $S$. Since $x \not\in S$, $N(x, \epsilon)$ misses $S$. Therefore, $S^c$ is open, which means $S$ is closed.
+    Conversely, suppose $S$ contains all of its accumulation points. Let $x \in S^\complement$, then $x$ is not an accumulation point of $S$. Thus, $\exists N^\star(x, \epsilon)$ that misses $S$. Since $x \not\in S$, $N(x, \epsilon)$ misses $S$. Therefore, $S^\complement$ is open, which means $S$ is closed.
 \end{proof}
 
 \begin{theorem}
@@ -58,7 +58,7 @@ Let $S \subseteq \R$ for the following definitions.
 \end{definition}
 
 \begin{definition}[Boundary point]
-    $x \in S$ is a boundary point of $S$ if and only if every neighborhood $N$ of $x$ has $N \cap S \neq \emptyset$ and $N \cap S^c \neq \emptyset$.
+    $x \in S$ is a boundary point of $S$ if and only if every neighborhood $N$ of $x$ has $N \cap S \neq \emptyset$ and $N \cap S^\complement \neq \emptyset$.
 \end{definition}
 
 \subsection{Closure}
@@ -67,7 +67,7 @@ Let $S \subseteq \R$ for the following definitions.
 \end{definition}
 
 \begin{definition}[Closed set]
-    $S$ is a closed set if and only $S$ contains at least one of its boundary points. Additionally, $S^c$ must be an open set.
+    $S$ is a closed set if and only $S$ contains at least one of its boundary points. Additionally, $S^\complement$ must be an open set.
 \end{definition}
 
 \begin{remark}[Closure of $\R$]
@@ -116,22 +116,3 @@ Let $S \subseteq \R$ for the following definitions.
 \begin{remark}[Counterexample]
     $\bigcap_{i=1}^\infty (-\frac{1}{n}, \frac{1}{n}) = \emptyset$.
 \end{remark}
-
-\subsection{Set Covers}
-\begin{definition}[Open cover]
-    An open cover $F$ of some subset $S \in \R$ is a collection of open sets whose union contains $S$.
-\end{definition}
-\begin{remark}
-    If $E \subseteq F$ and $E$ also covers $S$, we call $E$ a \textbf{subcover}.
-\end{remark}
-
-\begin{definition}[Compact]
-    A set $S$ is said to be compact is and only if whenever $S$ is contained in the union of a family $F$ of open sets, then it is contained in a finite number of the sets in $F$ (every open cover has a finite subcover).
-\end{definition}
-\begin{remark}
-    It is hard to show that a set is compact since we have to consider \emph{every} open cover.
-\end{remark}
-
-\begin{theorem}[Heine-Borel]
-    A subset $S$ of $\R$ is compact if and only if $S$ is closed and bounded.
-\end{theorem}

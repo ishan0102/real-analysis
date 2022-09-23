@@ -1,0 +1,58 @@
+\section{September 22}
+
+\subsection{Set Covers}
+\begin{definition}[Open cover]
+    An open cover $F$ of some subset $S \in \R$ is a collection of open sets whose union contains $S$.
+\end{definition}
+\begin{remark}
+    If $E \subseteq F$ and $E$ also covers $S$, we call $E$ a \textbf{subcover}.
+\end{remark}
+
+\begin{definition}[Compact]
+    A set $S$ is said to be compact is and only if whenever $S$ is contained in the union of a family $F$ of open sets, then it is contained in a finite number of the sets in $F$ (every open cover has a finite subcover).
+\end{definition}
+\begin{remark}
+    It is hard to show that a set is compact since we have to consider \emph{every} open cover.
+\end{remark}
+
+\begin{theorem}[Heine-Borel]
+    A subset $S$ of $\R$ is compact if and only if $S$ is closed and bounded.
+\end{theorem}
+\begin{proof}
+    Let $S$ be a compact set. Observe the open cover $(-n, n) \forall n \in \N$. Since $S$ is compact, $\exists$ a finite subcover $(-n_1, n_1), (-n_2, n_2), \ldots, (-n_k, n_k)$. $\exists$ one of these sets such that $\bigcup_{i=1}^k (-n_i, n_i) = (-n_m, n_m)$ for some $m = 1, 2, \ldots k$. Thus, $S \subseteq (-n_m, n_m)$, so $S$ is bounded.
+
+    Let $S$ be a compact set. Suppose $S$ is not closed. Let $p$ be a boundary point of $S$, and Let $U_n = \R \setminus [p - \frac{1}{n}, p + \frac{1}{n}] \forall n \in \N$. $S \subseteq \bigcup U_n = \R \ {p}$. $\exists$ a finite subcover $n_1, n_2, \ldots, n_k$ such that $S \subseteq \bigcup_{i=1}^k U_{n_i}$. $\exists k$ such that $S \subseteq U_{n_k}$. But, this is a contradiction with $p$ being a boundary point. Therefore, $S$ is closed.
+
+    The proof in the other direction is similar, yet non-trivial.
+\end{proof}
+
+\begin{theorem}[Bolzano-Weierstrass]
+    If a bounded subset $S$ of $\R$ contains infinitely many points, then $\exists$ at least one accumulation point of $S$.
+\end{theorem}
+\begin{proof}
+    Let $S$ be a boudned infinite subset of $\R$. Suppose $S$ has no accumulation points, then $S$ is closed. By Heine-Borel, $S$ must be compact. Define neighorhoods $N_x$ such that $N_x(x) \cap S = {x} \forall x \in S$. Clearly, $S \subseteq \bigcup_x N_x$. But, the collection of all $N_x$ must contain a finite subcover. That is, $$S \subseteq N_{x_1} \cup N_{x_2} \cup \ldots \cup N_{x_k}$$ for some $k \in \N$. This contradicts that $S$ is infinite. Therefore, $S$ has an accumulation point.
+\end{proof}
+
+\subsection{Cauchy Convergence}
+\begin{theorem}
+    Every Cauchy sequence is convergent.
+\end{theorem}
+\begin{proof}
+    $S_n$ is Cauchy, so $S = \{S_n \mid n \in \N\}$. By Bolzano-Weierstrass, $\exists$ an accumulation point $s$ of $S$. We claim that $S_n \rightarrow s$. Given $\epsilon > 0$, $\exists$ $N$ such that $m, n > N$. Then $|S_m - S_n| < \frac{\epsilon}{2}$. $(S - \frac{\epsilon}{2}, S + \frac{\epsilon}{2})$ contains an infinite number of points. 
+    
+    $\exists m > N$ such that $S_m \in N(s, \frac{\epsilon}{2})$. But then, $|S_n - s| = |S_n - S_m + S_m - s| \leq |S_n - S_m| + |S_m - s| < \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon$. Therefore, $S_n \rightarrow s$.
+\end{proof}
+
+\begin{theorem}
+    Let $x_n$ be a sequence of non-negative real numbers. $\sum x_n$ converges if $S_k$, the sequence of partial sums is bounded.
+\end{theorem}
+\begin{proof}
+    $\sum_{n=1}^\infty x_n = \lim_{k \to \infty} S_k$. $S_k$ is increasing and bounded, it is convergent by the monotone convergence theorem.
+\end{proof}
+
+\begin{definition}[Limit of a function]
+    $\lim_{x \to c} f(x) = L$ if and only if given $\epsilon > 0, \exists \delta > 0$ such that if $|x - c| < \delta$, then $|f(x) - L| < \epsilon$.
+\end{definition}
+\begin{remark}
+    Suppose we want to show that $\lim_{x \to 2} S_x + 1 = 11$. We are looking for some $\delta > 0$ such that $0 \leq |x  - 2| < \delta$ and $|S_x + 1 - 11| < \epsilon$. This is structured similarly to proofs of limits of sequences.
+\end{remark}
