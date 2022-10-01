@@ -45,7 +45,7 @@
     Let $f:D \to \R$ and $c$ is an accumulation point of $D$. Then, $\lim_{x \to c} f(x) = L$ if and only if for every sequence $S_n \in D$ such that $S_n \to c$, $S_n \neq c \forall n$, then $f(S_n)$ converges to $L$.
 \end{theorem}
 \begin{proof}
-    $\lim_{x \to c} f(x) + L$ and $S_n \to L \implies f(S_n) \to L$. We need to find $N$ such that $n > N$ and $|f(S_n) - L| < \epsilon$. We know that $\exists \delta$ such that $0 < |x - c| < \delta \implies |f(x) - L| < \epsilon$ and $\exists N$ such that $n > N \implies |S_n - c| < \delta$. Thus, for $n > N$ we have $|f(S_n) - L| \in \epsilon$.
+    $\lim_{x \to c} f(x) = L$ and $S_n \to L \implies f(S_n) \to L$. We need to find $N$ such that $n > N$ and $|f(S_n) - L| < \epsilon$. We know that $\exists \delta$ such that $0 < |x - c| < \delta \implies |f(x) - L| < \epsilon$ and $\exists N$ such that $n > N \implies |S_n - c| < \delta$. Thus, for $n > N$ we have $|f(S_n) - L| \in \epsilon$.
 
     Suppose $L$ is not the limit of $f$ as $x$ approaches $c$. We must find $(S_n)$ that converges to $c$, but $f(S_n)$ does not converge to $L$ (contrapositive). $\exists \epsilon > 0$ such that $\forall \delta > 0, 0 < |x - c| < \delta \implies |f(x) - L| \geq \epsilon$. For each $n \in N, \exists S_n \in D$ such that $0 < |S_n - c| < \frac{1}{n}$ and $|f(S_n) - L| \geq \epsilon$. Then, $S_n \to c$, but $f(S_n) \not\to L$. This is a contradiction.
 \end{proof}
