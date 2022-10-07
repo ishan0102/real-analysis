@@ -1,0 +1,86 @@
+\section{October 6}
+
+\subsection{Derivatives}
+\begin{definition}[Derivative]
+    Let $f$ be a real-valued function defined on an open interval containing $c$. We say $f$ is differentiable at $c$ if $\lim_{x \to c} \frac{f(x) - f(c)}{x - c}$ exists. We call this limit $f'(c)$.
+\end{definition}
+
+\begin{theorem}
+    If $f$ is differentiable at $c$, then $f$ is continuous at $c$.
+\end{theorem}
+\begin{proof}
+    Let $f$ be defined on some interval $I$ containing $c$. Then if $f$ is differentiable at $c$, if and only if for $x \neq c$, $$f(x) = (x - c) \frac{f(x) - f(c)}{x - c} + f(c)$$ Then, $\lim_{x \to c} f(x) = \lim_{x \to c} (x - c) \frac{f(x) - f(c)}{x - c} + f(c) = \lim_{x \to c} (x - c) f'(c) + f(c) = f(c)$. Therefore, $f$ is continuous at $c$.
+\end{proof}
+
+\paragraph{Derivative Rules}
+\begin{itemize}
+    \item $\frac{d}{dx} kf = k \frac{df}{dx}$
+    \item $\frac{d}{dx} f + g = \frac{df}{dx} + \frac{dg}{dx}$
+    \item $\frac{d}{dx} f \cdot g = \frac{df}{dx} g + \frac{dg}{dx} f$
+    \item $\frac{d}{dx} \frac{f}{g} = \frac{\frac{df}{dx} g - \frac{dg}{dx} f}{g^2}$
+\end{itemize}
+
+\begin{theorem}[Product rule]
+    $$(fg)' = f'g + fg'$$
+\end{theorem}
+\begin{proof}
+    Suppose $f$ and $g$ are differentiable at $c$. Then,
+    \begin{align*}
+        \lim_{x \to c} \frac{(fg)(x) - (fg)(c)}{x - c} &= \lim_{x \to c} \frac{f(x)g(x) - f(c)g(c)}{x - c} \\
+        &= \lim_{x \to c} \frac{f(x)g(x) - f(x)g(c) + f(x)g(c) - f(c)g(c)}{x - c} \\
+        &= \lim_{x \to c} \frac{f(x) (g(x) - g(c))}{x - c} + \frac{g(x) (f(x) - f(c))}{x - c}. \\
+        &= f(c)g'(c) + g(c)f'(c)
+    \end{align*}
+\end{proof}
+
+\begin{theorem}[Quotient rule]
+    $$(\frac{f}{g})' = \frac{f'g - fg'}{g^2}$$
+\end{theorem}
+\begin{proof}
+    Let $f$ and $g$ be differentiable at $c$. Then,
+    \begin{align*}
+        \lim_{x \to c} \frac{\frac{f}{g}(x) - \frac{f}{g}(c)}{x - c} &= \lim_{x \to c} \frac{\frac{f(x)}{g(x)} - \frac{f(c)}{g(c)}}{x - c} \\
+        &= \lim_{x \to c} \frac{\frac{f(x)g(c) - f(c)g(x)}{g(x)g(c)}}{x - c} \\
+        &= \lim_{x \to c} \frac{f(x)g(c) - g(c)f(c) + g(c)f(c) - f(c)g(x)}{(x - c) g(x)g(c)} \\
+        &= \lim_{x \to c} \frac{g(c) \frac{f(x) - f(c)}{(x - c)} + f(c) \frac{g(x) - g(c)}{(x - c)}}{g(c)g(x)} \\
+        &= \lim_{x \to c} \frac{g(c)f'(c) - f(c)g'(c)}{g^2(c)}Aa
+    \end{align*}
+\end{proof}
+
+\begin{theorem}[Power rule]
+    $$(x^n)' = nx^{n - 1}f' \;\forall\; n \in \N$$
+\end{theorem}
+\begin{proof}[Proof by induction]
+    $p(n) = (x^n)' = nx^{n - 1}f'$.
+
+    $p(1)$: $f(x) = x$. $\lim_{x \to c} \frac{x - c}{x - c} = 1 = 1 \cdot x^0$.
+
+    $p(k) \rightarrow p(k + 1)$:
+    \begin{align*}
+        \frac{d}{dx} x^{k + 1} &= \frac{d}{dx} x^k \cdot x \\
+        &= (\frac{d}{dx} x^k) \cdot x + x^k (\frac{d}{dx} x) \\
+        &= kx^{k - 1} \cdot x + x^k \cdot 1 \\
+        &= kx^k + x^k \\
+        &= (k + 1)x^k
+    \end{align*}
+\end{proof}
+
+\begin{theorem}[Chain rule]
+    $$g(f(x))' = g'(f(x))f'(x)$$
+\end{theorem}
+\begin{proof}
+    \begin{align*}
+        \lim_{x \to c} \frac{g(f(x)) - g(f(c))}{x - c} &= \lim_{x \to c} \frac{g(f(x)) - g(f(c))}{f(x) - f(c)} \frac{f(x) - f(c)}{x - c} \\
+        &= g'(f(x)) f'(x)
+    \end{align*}
+\end{proof}
+\begin{remark}
+    This will not hold if $f(x) = f(c)$.
+\end{remark}
+
+\begin{theorem}
+    Let $f$ be defined on an interval $I$ containing $c$. Then, $f$ is differentiable at $c$ if and only if $\exists$ a function $\varphi$ on $I$ such that $\varphi$ is continuous at $c$ and $$f(x) - f(c) = \varphi(x)(x - c) \forall x \neq c$$ In this case, we have $\varphi(c) = f'(c)$.
+\end{theorem}
+\begin{remark}
+    Let $f(x) = x^3$. Then, $f(x) - f(c) = x^3 - c^3 = (x^2 + xc + c^2)(x - c)$. $\phi(c) = c^2 + c \cdot c + c^2 = 3c^2 = f'(c)$.
+\end{remark}
