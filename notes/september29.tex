@@ -1,7 +1,7 @@
 \section{September 29}
 
 \subsection{Sums of Limits}
-\begin{theorem}
+\begin{theorem}{}{}
     Let $lim_{x \to c} f(x) = L$, $lim_{x \to c} g(x) = M$. Then, $lim_{x \to c} (f + g)(x) = L + M$.
 \end{theorem}
 \begin{proof}[Proof (Definition 9.1)]
@@ -12,9 +12,9 @@
 \begin{proof}[Proof (Theorem 9.3)]
     Let $lim_{x \to c} f(x) = L$, $\lim_{x \to c} g(x) = M$, and $S_n$ be a sequence of real numbers such that $S_n \to c$. Then, $$\lim_{n \to \infty} (f + g)(S_n) = \lim_{n \to \infty} f(S_n) + g(S_n) = \lim_{n \to \infty} f(S_n) + \lim_{n \to \infty} g(S_n) = L + M$$ Thus, $\lim_{x \to c} (f + g)(x) = L + M$.
 \end{proof}
-\begin{remark}
+\begin{note}
     This is true for $-$, $\times$, and $\div$ as well.
-\end{remark}
+\end{note}
 
 \begin{definition}[Sequential criterion for functional limits]
     $\lim_{x \to c} f(x) = L$ if and only if whenever $S_n \to c$, $\lim_{n \to \infty} f(S_n) = L$.
@@ -28,21 +28,21 @@
 \end{proof}
 
 \subsection{Continuity of Functions}
-\begin{definition}[Continuous Function]
+\begin{definition}{Continuous Function}{}
     A function $f$ is continuous at $x = c$ if and only if $\lim_{x \to c} f(x) = f(c)$. Let $s$ be an accumulation point of the domain $f:D \to \R$. Then, $f$ is continuous at $s$ if and only if for each $\epsilon > 0$, $\exists \delta > 0$ such that whenever $0 < |x - s| < \delta$, $|f(x) - f(s)| < \epsilon$.
 \end{definition}
-\begin{remark}
+\begin{note}
     Let $f(x) = x\sin(\frac{1}{x})$ where $x \neq 0$, $f(0) = 0$. If we want to show that this function is continuous, we need to find some $\delta > 0$ such that $|x| < \delta \implies |f(x) - f(0)| < \epsilon$. Let $\delta = \epsilon$, then when $|x| < \delta$, $|f(x) - f(0)| = |x\sin(\frac{1}{x}) - 0| = |x\sin(\frac{1}{x})| \leq |x| < \epsilon$.
-\end{remark}
+\end{note}
 
-\begin{theorem}
+\begin{theorem}{}{}
     If $f$ and $g$ are continuous at $x = c$, then $f + g$ is also continuous at $x = c$.
 \end{theorem}
 \begin{proof}
     Let $f$ and $g$ be continuous at $c$ and $S_n$ be a sequence of real numbers such that $S_n \to c$. Then, $$\lim_{n \to \infty} (f + g)(S_n) = \lim_{n \to \infty} f(S_n) + \lim_{n \to \infty} g(S_n) = f(c) + g(c)$$ Thus, $\lim_{x \to c} (f + g)(x) = (f + g)(c)$.
 \end{proof}
 
-\begin{theorem}
+\begin{theorem}{}{}
     Let $f:D \to E$ be continuous at $x = c$ and let $g:E \to R$ be continuous at $x = f(c)$. Then, the composition $g \circ f$ is continuous at $x = c$.
 \end{theorem}
 \begin{proof}

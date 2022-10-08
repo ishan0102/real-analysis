@@ -1,30 +1,30 @@
 \section{September 13}
 
 \subsection{Monotone Sequences}
-\begin{definition}[Monotone sequence]
+\begin{definition}{Monotone sequence}{}
     A sequence $S_n$ of real numbers is said to be increasing $\iff S_n \leq S_{n+1} \;\forall\; n \in \N$ and decreasing $\iff S_n \geq S_{n+1} \;\forall\; n \in \N$.
 \end{definition}
 \begin{remark}
     The Fibonacci sequence is an example of an increasing sequence.
 \end{remark}
 
-\begin{definition}[Monotone convergence theorem]
+\begin{definition}{Monotone convergence theorem}{}
     A monotone sequence is convergent if and only if it is bounded.
 \end{definition}
 
-\begin{theorem}
+\begin{theorem}{}{}
     An increasing bounded sequence is convergent.
 \end{theorem}
 \begin{proof}
     Suppose $S_n$ is a bounded increasing sequence. Let $S$ be the set $\{S_n \mid n \in \N\}$. By the completeness axiom, $\sup S$ exists. Let $s = \sup S$. We claim $\lim_{n \to \infty} S_n = s$. Given $\epsilon > 0, s - \epsilon$ is not an upper bound for $S$. \\ Thus, $\;\exists\; N \in \N$ such that $S_N > s - \epsilon$. Furthermore, since $S_n$ is increasing and $s$ is an upper bound for $S$, we have $s - \epsilon < S_N \leq S_n \leq s \;\forall\; n \geq N$.
 \end{proof}
-\begin{remark}
+\begin{note}
     This is an elementary proof because it only uses axioms to make the conclusion.
-\end{remark}
+\end{note}
 Ex. $S_{n+1} = \sqrt{1 + S_n}, S_1 = 1$.
 
 
-\begin{theorem}
+\begin{theorem}{}{}
     If $S_n$ is an unbounded increasing sequence, then $\lim_{n \to \infty} S_n = \infty$.
 \end{theorem}
 \begin{proof}

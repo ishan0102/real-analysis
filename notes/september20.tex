@@ -1,14 +1,14 @@
 \section{September 20}
 
 \subsection{Empty Set}
-\begin{theorem}
+\begin{theorem}{}{}
     The empty set is a subset of any set.
 \end{theorem}
 \begin{proof}
     Suppose not. That is, suppose $\exists A$ such that $\emptyset \not\subset A$. Thus, $\exists x \in \emptyset$ such that $x \not\in A$. This is a contradiction because the empty set has no elements. Therefore, $\emptyset \subset A$.
 \end{proof}
 
-\begin{theorem}
+\begin{theorem}{}{}
     There is only one set with no elements.
 \end{theorem}
 \begin{proof}
@@ -28,14 +28,14 @@ Let $S \subseteq \R$ for the following definitions.
     A deleted neighborhood is the same as a neighborhood except that $x$ is not included, i.e. $N^\star(x, \epsilon) = \{ y \in R \mid 0 < |x - y| < \epsilon \}$.
 \end{definition}
 
-\begin{definition}[Accumulation point]
+\begin{definition}{Accumulation point}{}
     $x \in \R$ is an accumulation point of $S$ if and only if every deleted neighborhood of $x$ contains a point of $S$.
 \end{definition}
-\begin{remark}
+\begin{note}
     $(0, \infty)$ has accumulation points $[0, \infty)$. $(0, 1)$ does not contain all of its accumulation points since 0 and 1 are both accumulation points of the set.
-\end{remark}
+\end{note}
 
-\begin{theorem}
+\begin{theorem}{}{}
     $S \in \R$ is closed if and only if $S$ contains all of its accumulation points.
 \end{theorem}
 \begin{proof}
@@ -44,7 +44,7 @@ Let $S \subseteq \R$ for the following definitions.
     Conversely, suppose $S$ contains all of its accumulation points. Let $x \in S^\complement$, then $x$ is not an accumulation point of $S$. Thus, $\exists N^\star(x, \epsilon)$ that misses $S$. Since $x \not\in S$, $N(x, \epsilon)$ misses $S$. Therefore, $S^\complement$ is open, which means $S$ is closed.
 \end{proof}
 
-\begin{theorem}
+\begin{theorem}{}{}
     If $S$ is a nonempty closed bounded subset of $\R$, then $S$ has a max.
 \end{theorem}
 \begin{proof}
@@ -55,24 +55,24 @@ Let $S \subseteq \R$ for the following definitions.
     $x \in S$ is an interior point of $S$ if and only if $\exists N(x, t)$ such that $N(x, t) \subset S$.
 \end{definition}
 
-\begin{definition}[Boundary point]
+\begin{definition}{Boundary point}{}
     $x \in S$ is a boundary point of $S$ if and only if every neighborhood $N$ of $x$ has $N \cap S \neq \emptyset$ and $N \cap S^\complement \neq \emptyset$.
 \end{definition}
 
 \subsection{Closure}
-\begin{definition}[Open set]
+\begin{definition}{Open set}{}
     $S$ is an open set if and only if every point in $S$ is an interior point of $S$. $\forall x \in S, \exists$ a neighborhood $N(x, \epsilon)$ for some $\epsilon > 0$ such that $N(x, \epsilon) \subseteq S$.
 \end{definition}
 
-\begin{definition}[Closed set]
+\begin{definition}{Closed set}{}
     $S$ is a closed set if and only $S$ contains at least one of its boundary points. Additionally, $S^\complement$ must be an open set.
 \end{definition}
 
-\begin{remark}[Closure of $\R$]
+\begin{note}
     $\R$ is open because all of its points are interior points. $\R$ is also closed because $\R$ has no boundary points, therefore implying that it contains at least one of its boundary points (vacuously true).
-\end{remark}
+\end{note}
 
-\begin{theorem}
+\begin{theorem}{}{}
     The union of two open sets is open.
 \end{theorem}
 \begin{proof}
@@ -81,7 +81,7 @@ Let $S \subseteq \R$ for the following definitions.
     Thus, in either case, $\exists$ a neighborhood $N$ of $x$ such that $N \subseteq A \cup B$. Therefore, $A \cup B$ is open.
 \end{proof}
 
-\begin{theorem}
+\begin{theorem}{}{}
     An arbitrary union of open sets is open.
 \end{theorem}
 \begin{proof}
@@ -90,7 +90,7 @@ Let $S \subseteq \R$ for the following definitions.
     Thus, $\bigcup_{i=1}^n N_i$ is a neighborhood of $x$ such that $\bigcup_{i=1}^n N_i \subseteq \bigcup_{i=1}^n A_i$. Therefore, $\bigcup_{i=1}^n A_i$ is open.
 \end{proof}
 
-\begin{theorem}
+\begin{theorem}{}{}
     The intersection of two open sets is open.
 \end{theorem}
 \begin{proof}
@@ -99,7 +99,7 @@ Let $S \subseteq \R$ for the following definitions.
     Thus, $N(x, \epsilon) \subseteq A \cap B$. Therefore, $A \cap B$ is open.
 \end{proof}
 
-\begin{theorem}
+\begin{theorem}{}{}
     A finite intersection of open sets is open.
 \end{theorem}
 \begin{proof}
@@ -108,9 +108,9 @@ Let $S \subseteq \R$ for the following definitions.
     Thus, $\bigcap_{i=1}^n N_i$ is a neighborhood of $x$ such that $\bigcap_{i=1}^n N_i \subseteq \bigcap_{i=1}^n A_i$. Therefore, $\bigcap_{i=1}^n A_i$ is open.
 \end{proof}
 
-\begin{theorem}
+\begin{theorem}{}{}
     An arbitrary intersection of open sets is open.
 \end{theorem}
-\begin{remark}[Counterexample]
+\begin{note}
     $\bigcap_{i=1}^\infty (-\frac{1}{n}, \frac{1}{n}) = \emptyset$.
-\end{remark}
+\end{note}
