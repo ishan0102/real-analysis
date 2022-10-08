@@ -1,0 +1,122 @@
+\documentclass[12pt]{article}
+
+\usepackage[margin=1in]{geometry}
+
+% Math and Algos
+\usepackage{amsmath, amsthm, amsfonts, amssymb}
+\usepackage{mathtools}
+\usepackage{algorithmicx, algpseudocode}
+\usepackage{verbatim}
+\newcommand\R{\mathbb{R}}
+\newcommand\N{\mathbb{N}}
+\newcommand\Q{\mathbb{Q}}
+\newcommand\Z{\mathbb{Z}}
+\newcommand{\sgn}{\operatorname{sgn}}
+\newtheorem{theorem}{Theorem}[section]
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+
+% Graphics
+\usepackage{graphicx}
+\usepackage{color}
+\graphicspath{{./images/}}
+\usepackage{booktabs}
+
+% Hyperlinks
+\usepackage{hyperref}
+\hypersetup{
+    linkcolor=cyan
+}
+
+% Aesthetics
+\usepackage{enumitem}
+\allowdisplaybreaks
+\hfuzz=14pt
+
+\begin{document}
+
+\title{M 361K Homework 2}
+\author{Ishan Shah}
+\date{\today}
+\maketitle
+
+\section*{3.3}
+\paragraph{5.} Let $y_1 := \sqrt{p}$, where $p > 0$, and $y_{n + 1} := \sqrt{p + y_n} \;\forall\; n \in \N$. Show that $(y_n)$ converges and find the limit.
+
+\paragraph{8.} Let $(a_n)$ be an increasing sequence, $(b_n)$ be a decreasing sequence, and assume that $a_n \leq b_n \;\forall\; n \in \N$. Show that $\lim(a_n) \leq \lim(b_n)$, and thereby deduce the Nested Intervals Property 2.5.2 from the Monotone Convergence Theorem 3.3.2.
+
+\paragraph{12.} Establish the convergence and find the limits of the following sequences.
+\begin{enumerate}[label=(\alph*)]
+    \item $((1 + 1/n)^{n + 1})$
+    \item $((1 + 1/n)^2n)$
+\end{enumerate}
+
+\section*{3.4}
+\paragraph{1.} Give an example of an unbounded sequence that has a convergent subsequence.
+
+\paragraph{4b.}
+Show that the sequence $(\sin n\pi/4)$ is divergent.
+
+\paragraph{10.}
+Let $(x_n)$ be a bounded subsequence and for each $n \in \N$, let $s_n := \sup\{x_k : k \geq n\}$ and $S := \inf\{s_n\}$. Show that there exists a subsequence of $(x_n)$ that converges to $S$.
+
+\paragraph{12.}
+Show that if $(x_n)$ is unbounded, then there exists a subsequence $(x_{n_k})$ such that $\lim(1/x_{n_k}) = 0$.
+
+\section*{3.5}
+\paragraph{2.}
+Show directly from the definition that the following are Cauchy sequences.
+\begin{enumerate}[label=(\alph*)]
+    \item $(\frac{n + 1}{n})$
+    \item $(1 + \frac{1}{2!} + \cdots + \frac{1}{n!})$
+\end{enumerate}
+
+\paragraph{7.}
+Let $(x_n)$ be a Cauchy sequence such that $x_n$ is an inteeger for every $n \in \N$. Show that $(x_n)$ is ultimately constant.
+
+\paragraph{8.}
+Show directly that a bounded, monotone increasing sequence is a Cauchy sequence.
+
+\section*{4.1}
+\paragraph{2.} Determine a condition on $|x - 4|$ that will assure that:
+\begin{enumerate}[label=(\alph*)]
+    \item $|\sqrt{x} - 2| < \frac{1}{2}$
+    \item $|\sqrt{x} - 2| < 10^{-2}$
+\end{enumerate}
+
+\paragraph{6.} Let $I$ be an interval in $\R$, let $f: I \to \R$, and let $c \in I$. Suppose that there exists constants $K$ and $L$ such that $|f(x) - L| \leq K|x - c|$ for $x \in I$. Show that $\lim_{x \to c} f(x) = L$.
+
+\paragraph{9a.} Use either the $\epsilon$-$\delta$ definition of a limit or the Sequential Criterion for limits to establish that $\lim_{x \to 2} \frac{1}{1 - x} = -1$.
+
+\paragraph{10a.} Use the definition of the limit to show that $\lim_{x \to 2} (x^2 + 4x) = 12$.
+
+\paragraph{15.} Let $f: \R \to \R$ be defined by setting $f(x) := x$ if $x$ is rational, and $f(x) = 0$ if $x$ is irrational.
+\begin{enumerate}[label=(\alph*)]
+    \item Show that $f$ has a limit at $x = 0$.
+    \item Use a sequential argument to show that if $c \neq 0$, then $f$ does not have a limit at $c$.
+\end{enumerate}
+
+\section*{4.2}
+\paragraph{1.} Apply theorem 4.2.4 to determine the following limits:
+\begin{enumerate}[label=(\alph*)]
+    \item $\lim_{x \to 1} (x + 1)(2x + 3)$ where $(x \in \R)$
+    \item $\lim_{x \to 1} \frac{x^2 + 2}{x^2 - 2}$ where $(x > 0)$
+    \item $\lim_{x \to 2} (\frac{1}{x + 1} - \frac{1}{2x})$ where $(x > 0)$
+    \item $\lim_{x \to 0} \frac{x + 1}{x^2 + 2}$ where $(x \in \R)$
+\end{enumerate}
+
+\paragraph{4.} Prove that $\lim_{x \to 0} \cos(1/x)$ does not exist but that $\lim_{x \to 0} x \cos(1/x) = 0$.
+
+\paragraph{6.} Use the definition of the limit to prove the first assertion in Theorem 4.2.4(a).
+
+\paragraph{10.} Give examples of functions $f$ and $g$ such that $f$ and $g$ do not have limits at a point $c$, but such that both $f + g$ and $fg$ have limits at $c$.
+
+\paragraph{11.} Determine whether the following limits exist at $\R$.
+\begin{enumerate}[label=(\alph*)]
+    \item $\lim_{x \to 0} \sin(1/x^2)$ where $(x \neq 0)$.
+    \item $\lim_{x \to 0} x \sin(1/x^2)$ where $(x \neq 0)$.
+    \item $\lim_{x \to 0} \sgn \sin(1/x)$ where $(x \neq 0)$.
+    \item $\lim_{x \to 0} \sqrt{x} \sin(1/x^2)$ where $(x > 0)$.
+\end{enumerate}
+
+\end{document}
