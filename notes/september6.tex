@@ -1,16 +1,16 @@
 \section{September 6}
 
 \subsection{Cardinality}
-\begin{definition}[Cardinality]
+\begin{definition}{Cardinality}{}
     The cardinality of a set $A$ is the number of elements in $A$. We denote this as $|A|$. We say that two sets $A$ and $B$ have the same cardinality if and only if $\exists$ a bijection $f: A \rightarrow B$, or $|A| = |B|$.
 \end{definition}
-\begin{remark}
+\begin{note}
     This bijection holds true because cardinality is reflexive (via the identity function), symmetric (via the inverse function), and transitive (via composition).
-\end{remark}
+\end{note}
 
-\begin{remark}
+\begin{note}
     The following examples demonstrate how to prove whether two sets have the same cardinality.
-\end{remark}
+\end{note}
 \begin{itemize}
     \item $|\textnormal{even integers}| = |\textnormal{odd integers}|$: $f(2n) = 2n + 1$.
     \item $|\Z| = |\Z^+|$: $f(0) = 1$, $f(1) = 2$, $f(-1) = 3$, $f(2) = 4$, $\ldots$
@@ -21,18 +21,18 @@
 In essence, if we show that there exists some one-to-one mapping between the two sets we can claim that $|A| = |B|$.
 
 \subsection{Countability}
-\begin{definition}[Countable]
+\begin{definition}{Countable}{}
     If a set is finite or has the same cardinality as $\N$ (i.e. $\Z^+)$, we say that the set is countable.
 \end{definition}
 
-\begin{theorem}
+\begin{theorem}{}{}
     Any subset of a countable set is countable.
 \end{theorem}
-\begin{theorem}
+\begin{theorem}{}{}
     Any set that contains an uncountable set is uncountable.
 \end{theorem}
 
-\begin{theorem}
+\begin{theorem}{}{}
     If $[a_n, b_n] \forall n \in \N$ is a nested sequence of closed bounded intervals, $\exists \delta \in \R$ such that $\delta \in I_n \forall n \in \N$.
 \end{theorem}
 \begin{proof}
@@ -40,11 +40,11 @@ In essence, if we show that there exists some one-to-one mapping between the two
 
     We have now shown that $a_n \leq \delta \forall n \in \N$, and we need to show that $\delta \leq b_n \forall n \in \N$. This is left as an exercise for the reader.
 \end{proof}
-\begin{remark}
+\begin{note}
     A nested sequence means that successive subsets contain the previous subset. For example, $[0, 1] \subseteq [0, 2] \subseteq [0, 3] \subseteq \ldots$ is a nested sequence.
-\end{remark}
+\end{note}
 
-\begin{theorem}
+\begin{theorem}{}{}
     $[0, 1]$ is uncountable.
 \end{theorem}
 \begin{proof}

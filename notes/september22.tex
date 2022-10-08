@@ -1,21 +1,21 @@
 \section{September 22}
 
 \subsection{Set Covers}
-\begin{definition}[Open cover]
+\begin{definition}{Open cover}{}
     An open cover $F$ of some subset $S \in \R$ is a collection of open sets whose union contains $S$.
 \end{definition}
-\begin{remark}
+\begin{note}
     If $E \subseteq F$ and $E$ also covers $S$, we call $E$ a \textbf{subcover}.
-\end{remark}
+\end{note}
 
-\begin{definition}[Compact]
+\begin{definition}{Compact}{}
     A set $S$ is said to be compact is and only if whenever $S$ is contained in the union of a family $F$ of open sets, then it is contained in a finite number of the sets in $F$ (every open cover has a finite subcover).
 \end{definition}
-\begin{remark}
+\begin{note}
     It is hard to show that a set is compact since we have to consider \emph{every} open cover.
-\end{remark}
+\end{note}
 
-\begin{theorem}[Heine-Borel]
+\begin{theorem}{Heine-Borel}{}
     A subset $S$ of $\R$ is compact if and only if $S$ is closed and bounded.
 \end{theorem}
 \begin{proof}
@@ -26,7 +26,7 @@
     The proof in the other direction is similar, yet non-trivial.
 \end{proof}
 
-\begin{theorem}[Bolzano-Weierstrass]
+\begin{theorem}{Bolzano-Weierstrass}{}
     If a bounded subset $S$ of $\R$ contains infinitely many points, then $\exists$ at least one accumulation point of $S$.
 \end{theorem}
 \begin{proof}
@@ -34,7 +34,7 @@
 \end{proof}
 
 \subsection{Cauchy Convergence}
-\begin{theorem}
+\begin{theorem}{}{}
     Every Cauchy sequence is convergent.
 \end{theorem}
 \begin{proof}
@@ -43,7 +43,7 @@
     $\exists m > N$ such that $S_m \in N(s, \frac{\epsilon}{2})$. But then, $|S_n - s| = |S_n - S_m + S_m - s| \leq |S_n - S_m| + |S_m - s| < \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon$. Therefore, $S_n \rightarrow s$.
 \end{proof}
 
-\begin{theorem}
+\begin{theorem}{}{}
     Let $x_n$ be a sequence of non-negative real numbers. $\sum x_n$ converges if $S_k$, the sequence of partial sums is bounded.
 \end{theorem}
 \begin{proof}

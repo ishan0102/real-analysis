@@ -1,36 +1,9 @@
-% Document Styling
-\documentclass[12pt]{article}
-\usepackage[margin=1in]{geometry}
-
-% Links
-\usepackage{color}
-\usepackage{hyperref}
-\hypersetup{
-    colorlinks,
-    citecolor=black,
-    filecolor=black,
-    linkcolor=black,
-    urlcolor=black
-}
-
-% Math
-\usepackage{amsmath, amsthm, amsfonts, amssymb}
-\usepackage{enumitem}
-\usepackage{mathtools}
-\usepackage{blkarray, bigstrut}
+\documentclass{report}
+\input{preamble.tex}
 \newcommand\R{\mathbb{R}}
 \newcommand\N{\mathbb{N}}
 \newcommand\Q{\mathbb{Q}}
 \newcommand\Z{\mathbb{Z}}
-
-\theoremstyle{definition}
-\newtheorem{definition}{Definition}[section]
-\newtheorem{theorem}{Theorem}[section]
-\theoremstyle{remark}
-\newtheorem*{remark}{Remark}
-
-% Page Breaks
-\allowdisplaybreaks
 
 \begin{document}
 
@@ -41,7 +14,7 @@
 
 \tableofcontents
 \pagebreak
-\include{notes/august25.tex}
+\input{notes/august25.tex}
 \include{notes/august30.tex}
 \include{notes/september6.tex}
 \include{notes/september8.tex}
