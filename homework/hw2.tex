@@ -42,62 +42,172 @@
 
 \section*{3.3}
 \paragraph{5.} Let $y_1 := \sqrt{p}$, where $p > 0$, and $y_{n + 1} := \sqrt{p + y_n} \;\forall\; n \in \N$. Show that $(y_n)$ converges and find the limit.
+\begin{proof}
+    We want to show that $(y_n)$ is both monotonically increasing and bounded. First, we show that $(y_n)$ is monotonically increasing. We have that $y_1 = \sqrt{p}$ and $y_2 = \sqrt{p + y_1} = \sqrt{p + \sqrt{p}}$. Thus, $y_2^2 - y_1^2 = p + \sqrt{p} - p = \sqrt{p} > 0$. Thus, $y_2 > y_1$. We can continue this argument to show that $(y_{n + 1}) > (y_n)$ as $(y_{n + 1}) - (y_n) = (y_n) + (y_{n - 1}) > 0$. Thus, $(y_n)$ is monotonically increasing.
+    
+    Now, we show that $(y_n)$ is bounded. We have that $y_1 = \sqrt{p} < 1 + 2\sqrt{p}$. Next, we have that $(y_n) < 1 + 2\sqrt{p}$. From here, $(y_{n + 1}^2) < p + (y_n) < p + 1 + \sqrt{p} < (\sqrt{p} + 1)^2 < 1 + 2\sqrt{p}$. Thus, since $(y_n) < 1 + 2\sqrt{p}$, $(y_n)$ is bounded, so $(y_n)$ converges to some value $c$.
 
-\paragraph{8.} Let $(a_n)$ be an increasing sequence, $(b_n)$ be a decreasing sequence, and assume that $a_n \leq b_n \;\forall\; n \in \N$. Show that $\lim(a_n) \leq \lim(b_n)$, and thereby deduce the Nested Intervals Property 2.5.2 from the Monotone Convergence Theorem 3.3.2.
+    Now, we want to find this value $c$. We have that $\lim_{n \to \infty} (y_n) = \lim_{n \to \infty} \sqrt{p + y_{n - 1}} = \sqrt{p + \lim_{n \to \infty} (y_{n - 1})}$. Then, $c = \sqrt{p + c}$. Thus, $c^2 = p + c \implies c = \frac{1}{2}(1 + \sqrt{1 + 4p})$.
+\end{proof}
+
+\paragraph{8.} Let $(a_n)$ be an increasing sequence, $(b_n)$ be a decreasing sequence, and assume that $a_n \leq b_n \;\forall\; n \in \N$. Show that $\lim(a_n) \leq \lim(b_n)$.
+\begin{proof}
+    Since $(b_n)$ is decreasing, $b_1$ is the upper bound of $(b_n)$ and also the upper bound of $(a_n)$ since $a_n \leq b_n \;\forall\; n \in \N$. Thus, $(a_n)$ is bounded below by $a_1$ and above by $b_1$, and $(a_n)$ is monotonic, so it must converge to some limit. Similarly, $(b_n)$ is bounded below by $a_1$ and above by $b_1$, and $(b_n)$ is monotonic, so it must converge to some limit.
+
+    Now, we can use Theorem 3.2.5 which states that for two convergent sequences $(a_n)$ and $(b_n)$, if $a_n \leq b_n \;\forall\; n \in \N$, then $\lim(a_n) \leq \lim(b_n)$. Thus, $\lim(a_n) \leq \lim(b_n)$.
+\end{proof}
 
 \paragraph{12.} Establish the convergence and find the limits of the following sequences.
 \begin{enumerate}[label=(\alph*)]
     \item $((1 + 1/n)^{n + 1})$
-    \item $((1 + 1/n)^2n)$
+    \begin{align*}
+        \lim_{n \to \infty} (1 + 1/n)^{n + 1} &= \lim_{n \to \infty} (1 + 1/n)^n \cdot (1 + 1/n) \\
+        &= \lim_{n \to \infty} (1 + 1/n)^n \cdot \lim_{n \to \infty} (1 + 1/n) \\
+        &= e \cdot 1 \\
+        &= e
+    \end{align*}
+
+    \item $((1 + 1/n)^{2n})$
+    \begin{align*}
+        \lim_{n \to \infty} (1 + 1/n)^{n + 1} &= \lim_{n \to \infty} (1 + 1/n)^n \cdot (1 + 1/n)^n \\
+        &= \lim_{n \to \infty} (1 + 1/n)^n \cdot \lim_{n \to \infty} (1 + 1/n)^n \\
+        &= e \cdot e \\
+        &= e^2
+    \end{align*}
 \end{enumerate}
 
 \section*{3.4}
 \paragraph{1.} Give an example of an unbounded sequence that has a convergent subsequence.
+\begin{proof}
+    Let there be some sequence $(x_n)$ where $(x_n) = 1$ if $n$ is even and $(x_n) = n$ if $n$ is odd. Then, $(x_n)$ is an unbounded sequence, yet the susbequence $(x_{2n})$ is convergent as it is bounded and monotonic. Thus, $(x_n)$ has a convergent subsequence.
+\end{proof}
 
-\paragraph{4b.}
-Show that the sequence $(\sin n\pi/4)$ is divergent.
+\paragraph{4b.} Show that the sequence $(\sin n\pi/4)$ is divergent.
+\begin{proof}
+    Let $(x_n) = \sin n\pi/4$. We want to show that $(x_n)$ has two convergent subsequences whose limits are not equal. Let $(y_n) = (x_{4n})$ and $(z_n) = (x_{8n + 1})$ be subsequences of $(x_n)$.
 
-\paragraph{10.}
-Let $(x_n)$ be a bounded subsequence and for each $n \in \N$, let $s_n := \sup\{x_k : k \geq n\}$ and $S := \inf\{s_n\}$. Show that there exists a subsequence of $(x_n)$ that converges to $S$.
+    Then, $(y_n) = \sin (4n\pi/4) = \sin (n\pi) = 0$ and $(z_n) = \sin((8n + 1)\pi/4) = \sin(2n\pi + \pi/4) = \sin(\pi/4) = \sqrt{2}/2$. Thus, $(y_n)$ and $(z_n)$ are both convergent subsequences of $(x_n)$, yet their limits are not equal. Therefore, $(x_n)$ is divergent.
+\end{proof}
 
-\paragraph{12.}
-Show that if $(x_n)$ is unbounded, then there exists a subsequence $(x_{n_k})$ such that $\lim(1/x_{n_k}) = 0$.
+\paragraph{10.} Let $(x_n)$ be a bounded subsequence and for each $n \in \N$, let $s_n := \sup\{x_k : k \geq n\}$ and $S := \inf\{s_n\}$. Show that there exists a subsequence of $(x_n)$ that converges to $S$.
+\begin{proof}
+    For $\epsilon > 0$, there exists some $n \in \N$ such that $s_n < S + \epsilon$. We can choose $\epsilon = 1$ and $m_1$ such that $s_{m_1} - 1 < S + 1$ and $k_1 \geq m_1$ such that $s_{m_1} - 1 < x_{k_1} < s_{m_1}$ since $s_{m_1} = \sup\{x_n : k \geq m_1\}$.
+
+    Then, we can choose some $m_n > m_{n - 1}$ such that $S \leq s_{m_n} < S + \frac{1}{n}$ and $k_n \geq m_n$ and $k_n > k_{n - 1}$ such that $s_{m_n} - \frac{1}{n} < x_{k_n} < s_{m_n}$. Now, we have a subsequence $(x_{k_n})$ of $(x_n)$ where $|x_{k_n} - S| \leq \frac{1}{n}$. Finally, we know that $\lim_{n \to \infty} \frac{1}{n} = 0$. Thus, $\lim_{n \to \infty} x_{k_n} = S$.
+\end{proof}
+
+\paragraph{12.} Show that if $(x_n)$ is unbounded, then there exists a subsequence $(x_{n_k})$ such that $\lim_{k \to \infty} (1/x_{n_k}) = 0$.
+\begin{proof}
+    Let $(x_n)$ be unbounded. Then, there exists some $n_1 \in \N$ such that $|x_{n_1}| \geq 1$. There also exists some $n_2 > n_1 \in \N$ such that $|x_{n_2}| \geq 2$. We can continue this with some arbitrary sequence $n_i \in \N$ such that $|x_{n_k}| \geq k$ for all $k \in \N$ because this sequence is unbounded. Then, $$0 \leq \frac{1}{|x_{n_k}|} \leq \frac{1}{k}$$ We know that $\lim_{k \to \infty} \frac{1}{k} = 0$, so $\lim_{k \to \infty} \frac{1}{x_{n_k}} = 0$ by Theorem 3.2.7 (Squeeze Theorem).
+\end{proof}
 
 \section*{3.5}
-\paragraph{2.}
-Show directly from the definition that the following are Cauchy sequences.
+\paragraph{2.} Show directly from the definition that the following are Cauchy sequences.
 \begin{enumerate}[label=(\alph*)]
-    \item $(\frac{n + 1}{n})$
+    \item $(\frac{n + 1}{n})$ \\\null\\
+    We want to show that $\exists N \in \N$ such that $m, n > N$ and $|S_m - S_n| < \epsilon$. Let there be some arbitrary $N$ such that $\frac{1}{N} = \frac{\epsilon}{2}$ and some $m > n \geq N$. Then,
+    \begin{align*}
+        \left\lvert\frac{m + 1}{m} - \frac{n + 1}{n}\right\rvert &= \left\lvert\frac{1}{m} - \frac{1}{n}\right\rvert \\
+        &\leq \frac{1}{m} + \frac{1}{n} \\
+        &\leq \frac{2}{n} \\
+        &\leq \frac{2}{N} \\
+        &< \epsilon
+    \end{align*}
+    Thus, $(\frac{n + 1}{n})$ is a Cauchy sequence.
+
     \item $(1 + \frac{1}{2!} + \cdots + \frac{1}{n!})$
+    We want to show that $\exists N \in \N$ such that $m, n > N$ and $|S_m - S_n| < \epsilon$. Let there be some arbitrary $N$ such that $\frac{1}{2^N} < \epsilon$ and some $m > n \geq N$. Then,
+    \begin{align*}
+        \left\lvert\left(1 + \frac{1}{2!} + \cdots + \frac{1}{m!}\right) - \left(1 + \frac{1}{2!} + \cdots + \frac{1}{n!}\right)\right\rvert &= \frac{1}{(n + 1)!} + \cdots + \frac{1}{m!} \\
+        &\leq \frac{1}{2^{n + 1}} + \cdots + \frac{1}{2^m} \\
+        &= \frac{1}{2^n} \left(\frac{1}{2} + \frac{1}{2^2} + \cdots + \frac{1}{2^{m - n}}\right) \\
+        &\leq \frac{1}{2^n} \left(\frac{1}{2} + \frac{1}{4} + \cdots\right) \\
+        &= \frac{1}{2^n} * 1 \\
+        &\leq \frac{1}{2^N} \\
+        &< \epsilon
+    \end{align*}
+    Thus, $(1 + \frac{1}{2!} + \cdots + \frac{1}{n!})$ is a Cauchy sequence.
 \end{enumerate}
 
-\paragraph{7.}
-Let $(x_n)$ be a Cauchy sequence such that $x_n$ is an inteeger for every $n \in \N$. Show that $(x_n)$ is ultimately constant.
+\paragraph{7.} Let $(x_n)$ be a Cauchy sequence such that $x_n$ is an integer for every $n \in \N$. Show that $(x_n)$ is ultimately constant.
+\begin{proof}
+    Let $\epsilon = 1$. Then, there must exist some $N$ such that $m, n > N$ and $|x_m - x_n| < \epsilon$. However, since $x_m$ and $x_n$ are integers, $x_m = x_n$ in order to satisfy the Cauchy condition. Thus, $(x_n)$ is ultimately constant.
+\end{proof}
 
-\paragraph{8.}
-Show directly that a bounded, monotone increasing sequence is a Cauchy sequence.
+\paragraph{8.} Show directly that a bounded, monotone increasing sequence is a Cauchy sequence.
+\begin{proof}
+    Let there be some bounded, monotone increasing sequence $(x_n)$ that has some supremum $M$. We know that there exists some $n_0$ and $\epsilon > 0$ such that $M - \epsilon < x_{n_0} < M$. Since $(x_n)$ is increasing, we also know that there exists some $n_1$ and $n_2$ such that $x_{n_0} \leq x_{n_1} \leq x_{n_2}$. We can combine these inequalities to get that $M - \epsilon < x_{n_0} \leq x_{n_1} \leq x_{n_2} < M$.
+
+    Now, we want to show that $|x_{n_1} - x_{n_2}| < \epsilon$ to satisfy the definition of a Cauchy sequence. Since we know that $M - \epsilon < x_{n_1} < M$ and $M - \epsilon < x_{n_2} < M$, we know that $-M < -x_{n_2} < \epsilon - M$. Then, we can combine our equations like so:
+    \begin{align*}
+        M - \epsilon - M &< x_{n_1} - x_{n_2} < M + \epsilon - M \\
+        &\implies \epsilon < x_{n_1} - x_{n_2} < \epsilon \\
+        &\implies |x_{n_1} - x_{n_2}| < \epsilon
+    \end{align*}
+    Thus, $(x_n)$ is a Cauchy sequence.
+\end{proof}
 
 \section*{4.1}
-\paragraph{2.} Determine a condition on $|x - 4|$ that will assure that:
+\paragraph{2.} Determine a condition on $|x - 4|$ to assure the following inequalities. \\\null\\
+We can break down our original equation to yield a more useful form assuming that $x \geq 0$:
+\begin{align*}
+    x - 4 &= (\sqrt{x} + 2)(\sqrt{x} - 2) \\
+    |\sqrt{x} - 2| &= \frac{|x - 4|}{\sqrt{x} + 2} \\
+    |\sqrt{x} - 2| &\leq \frac{|x - 4|}{2}
+\end{align*}
+We can use this new form to easily solve these inequalities.
 \begin{enumerate}[label=(\alph*)]
     \item $|\sqrt{x} - 2| < \frac{1}{2}$
+    \begin{proof}
+        Let $|x - 4| < 1$. Then, $|\sqrt{x} - 2| < \frac{1}{2}$.
+    \end{proof}
     \item $|\sqrt{x} - 2| < 10^{-2}$
+    \begin{proof}
+        Let $|x - 4| < 2 \cdot 10^{-2}$. Then, $|\sqrt{x} - 2| < 10^{-2}$.
+    \end{proof}
+    
 \end{enumerate}
 
 \paragraph{6.} Let $I$ be an interval in $\R$, let $f: I \to \R$, and let $c \in I$. Suppose that there exists constants $K$ and $L$ such that $|f(x) - L| \leq K|x - c|$ for $x \in I$. Show that $\lim_{x \to c} f(x) = L$.
+\begin{proof}
+    We want to show that $\epsilon > 0$ as we can find some $\delta > 0$ such that if $|x - c| < \delta$, then $|f(x) - L| < \epsilon$. Because $|f(x) - L| \leq K|x - c|$, we have $\delta = \frac{\epsilon}{K}$. If $|x - c| < \frac{\epsilon}{K}$, then $|f(x) - L| \leq K|x - c| < \epsilon$. Thus, $|f(x) - L| < \epsilon$, so $\lim_{x \to c} f(x) = L$.
+\end{proof}
 
-\paragraph{9a.} Use either the $\epsilon$-$\delta$ definition of a limit or the Sequential Criterion for limits to establish that $\lim_{x \to 2} \frac{1}{1 - x} = -1$.
+\paragraph{9a.} Use either the $\epsilon-\delta$ definition of a limit or the Sequential Criterion for limits to establish that $\lim_{x \to 2} \frac{1}{1 - x} = -1$.
+\begin{proof}
+    We assume we have some $(s_n) \to 2$. Then, $$\lim_{n \to \infty} \frac{1}{1 - x} = \frac{1}{1 - 2} = -1$$ Then, by the Sequential Criterion for limits, we have that $\lim_{x \to 2} \frac{1}{1 - x} = -1$.
+\end{proof}
 
 \paragraph{10a.} Use the definition of the limit to show that $\lim_{x \to 2} (x^2 + 4x) = 12$.
+\begin{proof}
+    Let $\delta = \min\{1, \frac{epsilon}{9}\}$ and $\epsilon > 0$. We also have $x$ such that $|x - 2| < \delta$. We want to show that the difference at any two arbitrary points is less than $\epsilon$. Then,
+    \begin{align*}
+        |x^2 + 4x - 12| &= |(x - 2)(x + 6)| \\
+        &\leq |x - 2||x + 6| \\
+        &\leq \delta|x + 6| \\
+        &= \delta|x - 2 + 8| \\
+        &\leq \delta|\delta + 8| \\
+        &\leq \delta(1 + 8) \\
+        &= \delta(9) \\
+        &\leq \epsilon
+    \end{align*}
+    Thus, $\lim_{x \to 2} (x^2 + 4x) = 12$.
+\end{proof}
 
 \paragraph{15.} Let $f: \R \to \R$ be defined by setting $f(x) := x$ if $x$ is rational, and $f(x) = 0$ if $x$ is irrational.
 \begin{enumerate}[label=(\alph*)]
     \item Show that $f$ has a limit at $x = 0$.
+    \begin{proof}
+        For some $\epsilon > 0$, choose $\delta = \epsilon$ such that $|x - 0| = |x| < \delta$. Then, $|f(x) - 0| = |f(x)| \leq |x| \leq \delta = \epsilon$. Thus, $f(x)$ has a limit at $x = 0$.
+    \end{proof}
     \item Use a sequential argument to show that if $c \neq 0$, then $f$ does not have a limit at $c$.
+    \begin{proof}
+        Let there be some $(x_n) \in \Q$ and $(y_n) \in \R \setminus \Q$ such that they both converge to $c$ where $c \neq 0$. We know that $f(x_n) = x_n$ and $f(y_n) = 0$ from the definition of the function. Thus, we have two convergent subsequences that do not converge to the same limit. Therefore, $f$ does not have a limit at $c$.
+    \end{proof}
 \end{enumerate}
 
 \section*{4.2}
-\paragraph{1.} Apply theorem 4.2.4 to determine the following limits:
+\paragraph{1.} Apply Theorem 4.2.4 to determine the following limits:
 \begin{enumerate}[label=(\alph*)]
     \item $\lim_{x \to 1} (x + 1)(2x + 3)$ where $(x \in \R)$
     \item $\lim_{x \to 1} \frac{x^2 + 2}{x^2 - 2}$ where $(x > 0)$
@@ -109,7 +219,7 @@ Show directly that a bounded, monotone increasing sequence is a Cauchy sequence.
 
 \paragraph{6.} Use the definition of the limit to prove the first assertion in Theorem 4.2.4(a).
 
-\paragraph{10.} Give examples of functions $f$ and $g$ such that $f$ and $g$ do not have limits at a point $c$, but such that both $f + g$ and $fg$ have limits at $c$.
+\paragraph{10.} Give examples of functions $f$ and $g$ such that $f$ and $g$ do not have limits at a point $c$, but such that both $f + g$ and $f \cdot g$ have limits at $c$.
 
 \paragraph{11.} Determine whether the following limits exist at $\R$.
 \begin{enumerate}[label=(\alph*)]
