@@ -1,6 +1,6 @@
-\section{September 29}
+\chapter{September 29}
 
-\subsection{Sums of Limits}
+\section{Sums of Limits}
 \begin{theorem}{}{}
     Let $lim_{x \to c} f(x) = L$, $lim_{x \to c} g(x) = M$. Then, $lim_{x \to c} (f + g)(x) = L + M$.
 \end{theorem}
@@ -16,6 +16,10 @@
     This is true for $-$, $\times$, and $\div$ as well.
 \end{note}
 
+\begin{definition}{Sequential Criterion for Functional Limits}{}
+    $\lim_{x \to c} f(x) = L$ if and only if whenever $S_n \to c$, $\lim_{n \to \infty} f(S_n) = L$.
+\end{definition}
+
 \begin{theorem}{}{}
     Let $k \in \R$. If $\lim_{x \to c} f(x) = L$, then $\lim_{x \to c} kf(x) = kL$.
 \end{theorem}
@@ -23,7 +27,7 @@
     Let $\lim_{x \to c} f(x) = L$, $k \in \R$, and $S_n$ be a sequence of real numbers such that $S_n \to c$. Then, $$\lim_{n \to \infty} kf(S_n) = k\lim_{n \to \infty} f(S_n) = kL$$ Thus, $\lim_{x \to c} kf(x) = kL$.
 \end{proof}
 
-\subsection{Continuity of Functions}
+\section{Continuity of Functions}
 \begin{definition}{Continuous Function}{}
     A function $f$ is continuous at $x = c$ if and only if $\lim_{x \to c} f(x) = f(c)$. Let $s$ be an accumulation point of the domain $f:D \to \R$. Then, $f$ is continuous at $s$ if and only if for each $\epsilon > 0$, $\exists \delta > 0$ such that whenever $0 < |x - s| < \delta$, $|f(x) - f(s)| < \epsilon$.
 \end{definition}
