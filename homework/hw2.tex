@@ -161,6 +161,7 @@ We can use this new form to easily solve these inequalities.
     \begin{proof}
         Let $|x - 4| < 1$. Then, $|\sqrt{x} - 2| < \frac{1}{2}$.
     \end{proof}
+
     \item $|\sqrt{x} - 2| < 10^{-2}$
     \begin{proof}
         Let $|x - 4| < 2 \cdot 10^{-2}$. Then, $|\sqrt{x} - 2| < 10^{-2}$.
@@ -200,6 +201,7 @@ We can use this new form to easily solve these inequalities.
     \begin{proof}
         For some $\epsilon > 0$, choose $\delta = \epsilon$ such that $|x - 0| = |x| < \delta$. Then, $|f(x) - 0| = |f(x)| \leq |x| \leq \delta = \epsilon$. Thus, $f(x)$ has a limit at $x = 0$.
     \end{proof}
+
     \item Use a sequential argument to show that if $c \neq 0$, then $f$ does not have a limit at $c$.
     \begin{proof}
         Let there be some $(x_n) \in \Q$ and $(y_n) \in \R \setminus \Q$ such that they both converge to $c$ where $c \neq 0$. We know that $f(x_n) = x_n$ and $f(y_n) = 0$ from the definition of the function. Thus, we have two convergent subsequences that do not converge to the same limit. Therefore, $f$ does not have a limit at $c$.
@@ -210,23 +212,114 @@ We can use this new form to easily solve these inequalities.
 \paragraph{1.} Apply Theorem 4.2.4 to determine the following limits:
 \begin{enumerate}[label=(\alph*)]
     \item $\lim_{x \to 1} (x + 1)(2x + 3)$ where $(x \in \R)$
+    \begin{proof}
+        \begin{align*}
+            \lim_{x \to 1} (x + 1)(2x + 3) &= \lim_{x \to 1} (x + 1) \cdot \lim_{x \to 1} (2x + 3) \\
+            &= 2 \cdot 5 \\
+            &= 10
+        \end{align*}
+        Thus, $\lim_{x \to 1} (x + 1)(2x + 3) = 10$.
+    \end{proof}
+
     \item $\lim_{x \to 1} \frac{x^2 + 2}{x^2 - 2}$ where $(x > 0)$
+    \begin{proof}
+        \begin{align*}
+            \lim_{x \to 1} \frac{x^2 + 2}{x^2 - 2} &= \frac{\lim_{x \to 1} (x^2 + 2)}{\lim_{x \to 1} (x^2 - 2)} \\
+            &= \frac{3}{-1} \\
+            &= -3
+        \end{align*}
+        Thus, $\lim_{x \to 1} \frac{x^2 + 2}{x^2 - 2} = -3$.
+    \end{proof}
+
     \item $\lim_{x \to 2} (\frac{1}{x + 1} - \frac{1}{2x})$ where $(x > 0)$
+    \begin{proof}
+        \begin{align*}
+            \lim_{x \to 2} \left(\frac{1}{x + 1} - \frac{1}{2x}\right) &= \lim_{x \to 2} \left(\frac{1}{x + 1}\right) - \lim_{x \to 2} \left(\frac{1}{2x}\right) \\
+            &= \frac{1}{3} - \frac{1}{4} \\
+            &= \frac{1}{12}
+        \end{align*}
+        Thus, $\lim_{x \to 2} (\frac{1}{x + 1} - \frac{1}{2x}) = \frac{1}{12}$.
+    \end{proof}
+
     \item $\lim_{x \to 0} \frac{x + 1}{x^2 + 2}$ where $(x \in \R)$
+    \begin{proof}
+        \begin{align*}
+            \lim_{x \to 0} \frac{x + 1}{x^2 + 2} &= \frac{\lim_{x \to 0} (x + 1)}{\lim_{x \to 0} (x^2 + 2)} \\
+            &= \frac{1}{2}
+        \end{align*}
+        Thus, $\lim_{x \to 0} \frac{x + 1}{x^2 + 2} = \frac{1}{2}$.
+    \end{proof}
 \end{enumerate}
 
 \paragraph{4.} Prove that $\lim_{x \to 0} \cos(1/x)$ does not exist but that $\lim_{x \to 0} x \cos(1/x) = 0$.
+\begin{proof}
+    First, we will show that $\lim_{x \to 0} \cos(1/x)$ does not exist. Let $(x_n) = \frac{1}{n + \pi/2}$ and $(y_n) = \frac{1}{n + 2\pi}$. Then, $\lim_{n \to \infty} (x_n) = 0$ and $\lim_{n \to \infty} (y_n) = 0$. $\forall n \in \N$, $\cos(1/x_n) = \cos(n + \pi/2) = 0$ and $\cos(1/y_n) = \cos(n + 2\pi) = 1$. Thus, we have two convergent subsequences that do not converge to the same limit, so $\lim_{x \to 0} \cos(1/x)$ does not exist.
 
-\paragraph{6.} Use the definition of the limit to prove the first assertion in Theorem 4.2.4(a).
+    Now, we will show that $\lim_{x \to 0} x \cos(1/x) = 0$. Let $\epsilon > 0$. We know $\exists \delta = \epsilon$ such that $|x - 0| = |x| < \delta$. Then,
+    \begin{align*}
+        |x \cos(1/x) - 0| &= |x \cos(1/x)| \\
+        &\leq |x| \\
+        &\leq \delta \\
+        &= \epsilon
+    \end{align*}
+    Thus, $\lim_{x \to 0} x \cos(1/x) = 0$.
+\end{proof}
 
-\paragraph{10.} Give examples of functions $f$ and $g$ such that $f$ and $g$ do not have limits at a point $c$, but such that both $f + g$ and $f \cdot g$ have limits at $c$.
+\paragraph{6.} Use the definition of the limit to prove that if $\lim_{x \to c} f = L$ and $\lim_{x \to c} g = M$, then $\lim_{x \to c} (f + g) = L + M$.
+\begin{proof}
+    Let $\epsilon > 0$. Then, we know there exists some $\delta_f, \delta_g > 0$ such that $|x - c| < \delta_f$ and $|x - c| < \delta_g \implies |f(x) - L| < \frac{\epsilon}{2}$ and $|g(x) - M| < \frac{\epsilon}{2}$.
+    
+    We choose $\delta = \max\{\delta_f, \delta+g\}$. Then, for $|x - c| < \delta$, we have
+    \begin{align*}
+        |f(x) + g(x) - (L + M)| &= |(f(x) - L) + (g(x) - M)| \\
+        &\leq |f(x) - L| + |g(x) - M| \\
+        &< \frac{\epsilon}{2} + \frac{\epsilon}{2} \\
+        &= \epsilon
+    \end{align*}
+    Thus, $\lim_{x \to c} (f + g) = L + M$.
+\end{proof}
+
+\paragraph{10.} Give examples of functions $f$ and $g$ such that $f$ and $g$ do not have limits at a point $c$, but such that both $f + g$ and $fg$ have limits at $c$.
+\begin{proof}
+    Let $f(x) = \sgn(x)$ and $g(x) = -\sgn(x)$ and $c = 0$. Then, $f$ and $g$ do not have limits at $c$, but $f + g = 0$ and $fg = -1$. Thus, $f + g$ and $fg$ have limits at $c$.
+\end{proof}
+\pagebreak
 
 \paragraph{11.} Determine whether the following limits exist at $\R$.
 \begin{enumerate}[label=(\alph*)]
     \item $\lim_{x \to 0} \sin(1/x^2)$ where $(x \neq 0)$.
+    \begin{proof}
+        Let $(x_n) = \frac{1}{\sqrt{n\pi}}$ and $(y_n) = \frac{1}{\sqrt{2\pi n + \pi/2}}$. Then, $\lim_{n \to \infty} (x_n) = 0$ and $\lim_{n \to \infty} (y_n) = 0$. $\forall n \in \N$, $\sin(1/x_n^2) = \sin(n\pi) = 0$ and $\sin(1/y_n^2) = \sin(2\pi n + \pi/2) = 1$. Thus, we have two convergent subsequences that do not converge to the same limit, so $\lim_{x \to 0} \sin(1/x^2)$ does not exist.
+    \end{proof}
+
     \item $\lim_{x \to 0} x \sin(1/x^2)$ where $(x \neq 0)$.
+    \begin{proof}
+        We have some $\epsilon > 0$ and $\delta = \epsilon$ such that $|x - 0| = \delta$. Then,
+        \begin{align*}
+            |x \sin(1/x^2) - 0| &= |x \sin(1/x^2)| \\
+            &\leq |x| \\
+            &\leq \delta \\
+            &= \epsilon
+        \end{align*}
+        Thus, $\lim_{x \to 0} x \sin(1/x^2) = 0$.
+    \end{proof}
+
     \item $\lim_{x \to 0} \sgn \sin(1/x)$ where $(x \neq 0)$.
+    \begin{proof}
+        Let $(x_n) = \frac{1}{n\pi}$ and $(y_n) = \frac{1}{2\pi n + \pi/2}$. Then, $\lim_{n \to \infty} (x_n) = 0$ and $\lim_{n \to \infty} (y_n) = 0$. $\forall n \in \N$, $\sgn \sin(1/x_n) = \sgn \sin(n\pi) = 0$ and $\sgn \sin(1/y_n) = \sgn \sin(2\pi n + \pi/2) = 1$. Thus, we have two convergent subsequences that do not converge to the same limit, so $\lim_{x \to 0} \sgn \sin(1/x)$ does not exist.
+    \end{proof}
+
     \item $\lim_{x \to 0} \sqrt{x} \sin(1/x^2)$ where $(x > 0)$.
+    \begin{proof}
+        We have some $\epsilon > 0$ and $\delta = \epsilon$ such that $|\sqrt{x} - 0| = \delta$. Then,
+        \begin{align*}
+            |\sqrt{x} \sin(1/x^2) - 0| &= |\sqrt{x} \sin(1/x^2)| \\
+            &\leq |\sqrt{x}| \\
+            &\leq \delta \\
+            &= \epsilon
+        \end{align*}
+        Thus, $\lim_{x \to 0} \sqrt{x} \sin(1/x^2) = 0$.
+    \end{proof}
 \end{enumerate}
 
 \end{document}
