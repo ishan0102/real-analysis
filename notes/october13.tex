@@ -1,0 +1,76 @@
+\section{October 13}
+
+\begin{theorem}
+    Let $f$ be defined on an interval $I$ containing $c$. Then, $f$ is differentiable at $c$ if and only if $\exists$ a function $\varphi$ on $I$ such that $\varphi$ is continuous at $c$ and $$f(x) - f(c) = \varphi(x)(x - c) \forall x \neq c$$ In this case, we have $\varphi(c) = f'(c)$.
+\end{theorem}
+\begin{remark}
+    Let $f(x) = x^3$. Then, $f(x) - f(c) = x^3 - c^3 = (x^2 + xc + c^2)(x - c)$. $\phi(c) = c^2 + c \cdot c + c^2 = 3c^2 = f'(c)$.
+\end{remark}
+\begin{proof}
+    If $f'(c)$ exists, we can define $\varphi$ as 
+    $$\varphi(x) = 
+    \begin{cases}
+        \frac{f(x) - f(c)}{x - c} & \text{if } x \neq c \\
+        f'(c) & \text{if } x = c
+    \end{cases}$$
+    Then, $\varphi$ is continuous. Since $\lim_{x \to c} \varphi(x) = f'(c) = \varphi(c)$. Thus, the function is differentiable. If $x = c$, the equation from the theorem holds as $0 = 0$.
+
+    Assume $\varphi$ is continuous at $c$ and satisfies the equation. Then, continuity of $\varphi$ implies $\varphi(c) = \lim_{x \to c} \varphi(x) = \lim_{x \to c} \frac{f(x) - f(c)}{x - c} \implies \varphi(c) = f'(c)$ since $f$ is differentiable.
+\end{proof}
+
+\begin{theorem}[Chain rule]
+    $$g(f(c))' = g'(f(c)) \cdot f'(c)$$
+\end{theorem}
+\begin{proof}
+    Let $c \in I$. $f$ is continuous at $c$. Define
+    $$\varphi(x) = 
+    \begin{cases}
+        \frac{g(y) - g(f(c))}{y - f(c)} & \text{if } y \neq f(c) \\
+        g'(f(c)) & \text{if } y = f(c)
+    \end{cases}$$
+    Thus, $\varphi$ is continuous at $c$. Then,
+    \begin{align*}
+        \lim_{x \to c} \varphi(f(x)) &= \varphi(f(c)) = g'(f(c)) \\
+        g(y) - g(f(c)) &= \varphi(y)(y - f(c)) \\
+        g(f(x)) - g(f(c)) &= \varphi(f(x))(f(x) - f(c)) \\
+        \lim_{x \to c} \frac{g(f(x)) - g(f(c))}{x - c} &= \lim_{x \to c} \frac{\varphi(f(x))(f(x) - f(c))}{x - c} \\
+        g'(f(c)) &= \lim_{x \to c} \varphi(f(x)) \cdot \lim_{x \to c} \frac{f(x) - f(c)}{x - c} \\
+        g'(f(c)) &= g'(f(c)) \cdot f'(c)
+    \end{align*}
+    Thus, the chain rule holds.
+\end{proof}
+\pagebreak
+
+\begin{theorem}
+    If $S$ is a nonempty compact subset of $\R$, $S$ has a max and a min.
+\end{theorem}
+\begin{proof}
+    Let $m = \sup S$ exist by the completeness axiom. Given $t > 0$, $\exists x$ such that $m - t < x < m$. Then, $m$ is an accumulation point of $S$. But $S$ is closed by Heine-Borel. Thus, $m \in S$.
+
+    The same proof holds for the min.
+\end{proof}
+
+\begin{theorem}
+    If $f$ is continuous and $D$ is compact, then $f(D)$ is compact. (Note: this will be on the final).
+\end{theorem}
+\begin{proof}
+    We know that the inverse of a continuous function is continuous (final exam proof) and that if an open set is continuous its inverse is also continuous (exam 2 proof).
+    
+    Take an open cover $U = \{u_i\}$ of $f(D)$. Then, $f^{-1}(u_i)$ is an open cover for $D$. But, only a finite number are needed $(\{u_1, u_2, \ldots, u_n\})$. Then, $(\{f(u_1), f(u_2), \ldots, f(u_n)\})$ is a finite subcover of $u_i$ for $f(D)$.
+\end{proof}
+
+\begin{theorem}
+    Let $D$ be compact and suppose $f: D \to \R$ is continuous, then $f$ assumes a min and a max.
+\end{theorem}
+\begin{proof}
+    Since $D$ is compact, $f(D)$ is compact. Thus, $f(D)$ has a min $y_1$ and a max $y_2$. Since $y_1, y_2 \in f(D), \exists x_1, x_2 \in D$ such that $f(x_1) = y_1$ and $f(x_2) = y_2$. Thus, $f(x_1) \leq f(x) \leq f(x_2) \forall x \in D$.
+\end{proof}
+
+\begin{theorem}
+    If $f$ is differentiable on an $(a, b)$ and $f$ assumes a max or min for some $c \in (a, b)$, then $f'(c) = 0$.
+\end{theorem}
+\begin{proof}
+    Suppose $f$ assumes its max is at $c$. That is to say $f(x) \leq f(c) \forall x \in (a, b)$. Let $x_n$ be a sequence converging to $c$ such that $a < x_n < c$. Then, $$\frac{f(x_n) - f(c)}{x_n - c}$$ converges to $f'(c)$. But, each term is nonnegative. Therefore, the derivative is nonnegative $\implies f'(c) \geq 0$. Now, define $y_n$ as a sequence converging to $c$ such that $c < y_n < b$.
+
+    If we look at the sequence $\frac{f(y_n) - f(c)}{y_n - c}$, we see that it converges to $f'(c)$. But, each term is nonpositive. Therefore, the derivative is nonpositive, so $f'(c) \leq 0 \therefore 0 \leq f'(c) \leq 0$, so we must have that $f'(c) = 0$.
+\end{proof}
