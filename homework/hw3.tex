@@ -44,23 +44,55 @@
 \section*{5.1}
 \paragraph{3.} Let $a<b<c$. Suppose that $f$ is continuous on $[a, b]$, that $g$ is continuous on $[b, c]$, and that $f(b)=g(b)$. Define $h$ on $[a, c]$ by $h(x):=f(x)$ for $x \in[a, b]$ and $h(x):=g(x)$ for $x \in[b, c]$. Prove that $h$ is continuous on $[a, c]$.
 
-\paragraph{7.} Let $f: \mathbb{R} \rightarrow \mathbb{R}$ be continuous at $c$ and let $f(c)>0$. Show that there exists a neighborhood $V_\delta(c)$ of $c$ such that if $x \in V_\delta(c)$, then $f(x)>0$
+\paragraph{7.} Let $f: \mathbb{R} \rightarrow \mathbb{R}$ be continuous at $c$ and let $f(c)>0$. Show that there exists a neighborhood $V_\delta(c)$ of $c$ such that if $x \in V_\delta(c)$, then $f(x)>0$.
+\begin{proof}
+    Let $\epsilon = \frac{f(c)}{2} > 0$. Then, let there be some $\delta > 0$ such that there exists some $V_\delta(c) = (c - \delta, c + \delta)$. Then, let $x \in V_\delta(c) = (c - \delta, c + \delta)$. Then,
+    \begin{align*}
+        x \in (c - \delta, c + \delta) &\implies |f(x) - f(c)| < \epsilon \\
+        &\implies -\epsilon < f(x) - f(c) < \epsilon \\
+        &\implies f(c) - \frac{f(c)}{2} < f(x) \\
+        &\implies f(x) > 0
+    \end{align*}
+    Thus, $f(x) > 0$ for all $x \in V_\delta(c)$.
+\end{proof}
 
 \paragraph{12.} Suppose that $f: \mathbb{R} \rightarrow \mathbb{R}$ is continuous on $\mathbb{R}$ and that $f(r)=0$ for every rational number $r$. Prove that $f(x)=0$ for all $x \in \mathbb{R}$.
+\begin{proof}
+    Since $\Q$ is dense in $\R$, we can find some sequence of rational numbers $(x_n)$ that converges to some $x$ in $\R$. We know that $f$ is continuous at $x$, so we can say that $(f(x_n))$ converges to $f(x)$ and $f(x_n) = 0 \;\forall\; n \in \N$ because $f(r) = 0 \;\forall\; r \in \Q$. Thus, $f(x) = \lim f(x_n) = \lim(0) = 0$.
+\end{proof}
 
 %%%%%%%%%% 5.2 %%%%%%%%%%
 \section*{5.2}
 \paragraph{2.} Show that if $f: A \rightarrow \mathbb{R}$ is continuous on $A \subseteq \mathbb{R}$ and if $n \in \mathbb{N}$, then the function $f^n$ defined by $f^n(x)=(f(x))^n$, for $x \in A$, is continuous on $A$.
 
-\paragraph{3.} Give an example of functions $f$ and $g$ that are both discontinuous at a point $c$ in $\mathbb{R}$ such that
-\begin{enumerate}[label=(\alph*)]
-    \item The sum $f+g$ is continuous at $c$.
-    \item The product $f \cdot g$ is continuous at $c$.
-\end{enumerate}
+\paragraph{3.} Give an example of functions $f$ and $g$ that are both discontinuous at a point $c$ in $\mathbb{R}$ such that the sum $f + g$ is continuous at $c$ and the product $f \cdot g$ is continuous at $c$.
+\begin{proof}
+    Let $f(x)$ and $g(x)$ be defined as follows:
+    $$f(x) = \begin{cases}
+        1 & \text{if } x = c \\
+        0 & \text{if } x \neq c
+    \end{cases}$$
+    $$g(x) = \begin{cases}
+        0 & \text{if } x = c \\
+        1 & \text{if } x \neq c
+    \end{cases}$$
+    Then, $f + g$ is continuous at $c$ because $f(c) + g(c) = 1$ and $f \cdot g$ is continuous at $c$ because $f(c) \cdot g(c) = 0$ for all values of $x$.
+\end{proof}
 
 \paragraph{7.} Give an example of a function $f:[0,1] \rightarrow \mathbb{R}$ that is discontinuous at every point of $[0,1]$ but such that $|f|$ is continuous on $[0,1]$.
+\begin{proof}
+    The Density Theorem tells us that for every pair of rational numbers, there exists an irrational number between them, and vice versa. Thus, let $f$ be defined as follows:
+    $$f(x) = \begin{cases}
+        -1 & \text{if } x = \frac{p}{q} \text{ for some } p, q \in \mathbb{N} \\
+        \phantom{-}1 & \text{if } x \neq \frac{p}{q} \text{ for all } p, q \in \mathbb{N}
+    \end{cases}$$
+    Then, $|f|$ is 1 everywhere. Thus, $f$ is discontinuous at every point of $[0,1]$ but $|f|$ is continuous on $[0,1]$.
+\end{proof}
 
 \paragraph{8.} Let $f, g$ be continuous from $\mathbb{R}$ to $\mathbb{R}$, and suppose that $f(r)=g(r)$ for all rational numbers $r$. Is it true that $f(x)=g(x)$ for all $x \in \mathbb{R}$?
+\begin{proof}
+    The Density Theorem states that there is a irrational number between every pair of rational numbers. Because $f(r) = g(r)$ for the rationals, $f(s) = g(s)$ for all irrational numbers $s$ in order to maintain continuity for $f$ and $g$ using the Density Theorem. Thus, $f(x) = g(x)$ for all $x \in \mathbb{R}$ is true.
+\end{proof}
 
 %%%%%%%%%% 6.1 %%%%%%%%%%
 \section*{6.1}
@@ -78,11 +110,11 @@
 
 %%%%%%%%%% 6.2 %%%%%%%%%%
 \section*{6.2}
-\paragraph{5.} Let $a>b>0$ and let $n \in \mathbb{N}$ satisfy $n \geq 2$. Prove that $a^{1 / n}-b^{1 / n}<(a-b)^{1 / n}$. [Hint: Show that $f(x):=x^{1 / n}-(x-1)^{1 / n}$ is decreasing for $x \geq 1$, and evaluate $f$ at 1 and $a / b$.]
+\paragraph{5.} Let $a>b>0$ and let $n \in \mathbb{N}$ satisfy $n \geq 2$. Prove that $a^{1 / n}-b^{1 / n}<(a-b)^{1 / n}$. \emph{Hint: Show that $f(x):=x^{1 / n}-(x-1)^{1 / n}$ is decreasing for $x \geq 1$, and evaluate $f$ at 1 and $a / b$.}
 
 \paragraph{6.} Use the Mean Value Theorem to prove that $|\sin x-\sin y| \leq|x-y|$ for all $x, y$ in $\mathbb{R}$.
 
-\paragraph{8.} Let $f:[a, b] \rightarrow \mathbb{R}$ be continuous on $[a, b]$ and differentiable in $(a, b)$. Show that if $\lim _{x \rightarrow a} f^{\prime}(x)=A$, then $f^{\prime}(a)$ exists and equals $A$. [Hint: Use the definition of $f^{\prime}(a)$ and the Mean Value Theorem.]
+\paragraph{8.} Let $f:[a, b] \rightarrow \mathbb{R}$ be continuous on $[a, b]$ and differentiable in $(a, b)$. Show that if $\lim _{x \rightarrow a} f^{\prime}(x)=A$, then $f^{\prime}(a)$ exists and equals $A$. \emph{Hint: Use the definition of $f^{\prime}(a)$ and the Mean Value Theorem.}
 
 \paragraph{10.} Let $g: \mathbb{R} \rightarrow \mathbb{R}$ be defined by $g(x):=x+2 x^2 \sin (1 / x)$ for $x \neq 0$ and $g(0):=0$. Show that $g^{\prime}(0)=1$, but in every neighborhood of 0 the derivative $g^{\prime}(x)$ takes on both positive and negative values. Thus $g$ is not monotonic in any neighborhood of 0.
 
