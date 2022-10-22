@@ -1,12 +1,12 @@
 \section{October 13}
-\subsection{Differentiability and Continuity}
+\section{Differentiability and Continuity}
 
 \begin{theorem}
     Let $f$ be defined on an interval $I$ containing $c$. Then, $f$ is differentiable at $c$ if and only if $\exists$ a function $\varphi$ on $I$ such that $\varphi$ is continuous at $c$ and $$f(x) - f(c) = \varphi(x)(x - c) \forall x \neq c$$ In this case, we have $\varphi(c) = f'(c)$.
 \end{theorem}
-\begin{remark}
+\begin{note}
     Let $f(x) = x^3$. Then, $f(x) - f(c) = x^3 - c^3 = (x^2 + xc + c^2)(x - c)$. $\phi(c) = c^2 + c \cdot c + c^2 = 3c^2 = f'(c)$.
-\end{remark}
+\end{note}
 \begin{proof}
     If $f'(c)$ exists, we can define $\varphi$ as 
     $$\varphi(x) = 
@@ -19,7 +19,7 @@
     Assume $\varphi$ is continuous at $c$ and satisfies the equation. Then, continuity of $\varphi$ implies $\varphi(c) = \lim_{x \to c} \varphi(x) = \lim_{x \to c} \frac{f(x) - f(c)}{x - c} \implies \varphi(c) = f'(c)$ since $f$ is differentiable.
 \end{proof}
 
-\begin{theorem}[Chain rule]
+\begin{theorem}{Chain rule}{}
     $$g(f(c))' = g'(f(c)) \cdot f'(c)$$
 \end{theorem}
 \begin{proof}

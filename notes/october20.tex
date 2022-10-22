@@ -1,14 +1,14 @@
 \section{October 20}
 
-\subsection{Mean Value Theorem}
-\begin{theorem}[Rolle's theorem]
+\section{Mean Value Theorem}
+\begin{theorem}{Rolle's theorem}{}
     Let $f$ be continuous on $[a,b]$ and differentiable on $(a,b)$, and let $f(a) = f(b)$. Then $\exists c \in (a,b)$ such that $f'(c) = 0$.
 \end{theorem}
 \begin{proof}
     Since $f$ is continuous and $[a, b]$ is compact, $\exists x_1, x_2 \in [a, b]$ such that $f(x_1) \leq f(x) \leq f(x_2) \forall x \in [a, b]$. If $x_1$ and $x_2$ are the endpoints of the interval, then $f$ is a compact function, thus $f'(c) = 0 \forall c \in (a, b)$. Otherwise, $f$ contains a max at $x_2 \therefore f'(x_2) = 0$. Thus $\exists c \in (a, b)$ such that $f'(c) = 0$.
 \end{proof}
 
-\begin{theorem}[Mean value theorem]
+\begin{theorem}{Mean value theorem}{}
     Let $f$ be continuous on $[a,b]$ and differentiable on $(a,b)$. Then $\exists c \in (a,b)$ such that $f'(c) = \frac{f(b) - f(a)}{b - a}$.
 \end{theorem}
 \begin{proof}
@@ -31,8 +31,8 @@
     Suppose $f'(x) > 0 \forall x \in I$ and $x_1, x_2 \in I$ such that $x_1 < x_2$. Mean Value Theorem implies that $\exists c \in (x_1, x_2)$ such that $f'(c) = \frac{f(x_2) - f(x_1)}{x_2 - x_1}$. Which is to say that $$f(x_2) - f(x_1) = f'(c) (x_2 - x_1)$$ Thus, $f(x_2) - f(x_1)$ is positive since $f'(c)$ and $(x_2 - x_1)$ are both positive. Therefore, $f$ is increasing.
 \end{proof}
 
-\subsection{Intermediate Value Theorem}
-\begin{theorem}[Intermediate value theorem]
+\section{Intermediate Value Theorem}
+\begin{theorem}{Intermediate value theorem}{}
     Let $f$ be continuous on $[a,b]$ and suppose $f(a) < 0 < f(b)$. Then $\exists c \in (a,b)$ such that $f(c) = 0$.
 \end{theorem}
 \begin{proof}
