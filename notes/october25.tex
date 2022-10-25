@@ -1,7 +1,7 @@
-\section{October 25}
+\chapter{October 25}
 
-\subsection{Cauchy Mean Value Theorem}
-\begin{theorem}[Cauchy mean value theorem]
+\section{Cauchy Mean Value Theorem}
+\begin{theorem}{Cauchy mean value theorem}{}
     Let $f$ and $g$ be continuous on $[a, b]$ and differentiable on $(a, b)$. Then, $\exists$ at least one $c \in (a, b)$ such that $$(f(b) - f(a)) g'(c) = (g(b) - g(a)) f'(c)$$
 \end{theorem}
 \begin{proof}
@@ -20,8 +20,8 @@
     Thus, $h$ is continuous on $[a, b]$, differentiable on $(a, b)$, and $h(a) = h(b)$. Therefore, by Rolle's theorem, $\exists c \in (a, b)$ such that $h'(c) = 0$. That is to say, $$h'(c) = (f(b) - f(a)) g'(c) - (g(b) - g(a)) f'(c) = 0$$ which implies the desired equality.
 \end{proof}
 
-\subsection{L'Hospital's Rule}
-\begin{theorem}[L'Hospital's rule]
+\section{L'Hospital's Rule}
+\begin{theorem}{L'Hospital's rule}{}
     Let $f$ and $g$ be continuous on $[a, b]$ and differentiable on $(a, b)$ and $f(c) = g(c) = 0$. Also suppose that $g'(c) \neq 0$ in some neighborhood of $c$. \\
     If $$\lim_{x \to c} \frac{f'(x)}{g'(x)} = L$$ then $$\lim_{x \to c} \frac{f(x)}{g(x)} = L$$
 \end{theorem}
@@ -31,8 +31,8 @@
     Furthermore, since $x_n \to c$ and $c_n \to c$, we have that if $\lim_{n \to \infty} \frac{f'(c_n)}{g'(c_n)} = L$, then $\lim_{h \to \infty} \frac{f(x_n)}{g(x_n)} = \lim_{x \to c} \frac{f(x)}{g(x)} = L$.
 \end{proof}
 
-\subsection{Taylor's Theorem}
-\begin{theorem}[Taylor's theorem]
+\section{Taylor's Theorem}
+\begin{theorem}{Taylor's theorem}{}
     Let $f$ and its first $n$ derivatives be continuous on $[a, b]$ (implying that they are also differentiable). Let $x_0 \in [a, b]$. Then, for each $x \in [a, b]$ with $x \neq x_0$, $\exists$ a $c$ between $x$ and $x_0$ such that
     \begin{align*}
         f(x) = f(x_0) + f'(x_0)(x - x_0) + \frac{f''(c)}{2!}(x - x_0)^2 + \cdots + \frac{f^{(n + 1)}(c)}{(n + 1)!}(x - x_0)^{n + 1}
