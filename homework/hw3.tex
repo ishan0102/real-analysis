@@ -43,6 +43,11 @@
 %%%%%%%%%% 5.1 %%%%%%%%%%
 \section*{5.1}
 \paragraph{3.} Let $a<b<c$. Suppose that $f$ is continuous on $[a, b]$, that $g$ is continuous on $[b, c]$, and that $f(b)=g(b)$. Define $h$ on $[a, c]$ by $h(x):=f(x)$ for $x \in[a, b]$ and $h(x):=g(x)$ for $x \in[b, c]$. Prove that $h$ is continuous on $[a, c]$.
+\begin{proof}
+    We have that $h$ is continuous from $[a, b) \cup (b, c]$ from the definition of $h$ and the continuity of $f$ and $g$. We now need to show that $h$ is continuous at $b$. Now, $\lim_{x \to b^-} = \lim_{x \to b^-} = f(b)$ and $\lim_{x \to b^+} = \lim_{x \to b^+} = g(b)$. 
+    
+    Because $f(b) = g(b)$, $\lim_{x \to b^-} h(x) = \lim_{x \to b^+} h(x) = h(b)$. Thus, $\lim_{x \to b} h(x) = h(b)$. Therefore, since $h$ is continuous from $[a, b) \cup [b] \cup (b, c]$, $h$ is continuous on $[a, c]$.
+\end{proof}
 
 \paragraph{7.} Let $f: \mathbb{R} \rightarrow \mathbb{R}$ be continuous at $c$ and let $f(c)>0$. Show that there exists a neighborhood $V_\delta(c)$ of $c$ such that if $x \in V_\delta(c)$, then $f(x)>0$.
 \begin{proof}
@@ -64,6 +69,11 @@
 %%%%%%%%%% 5.2 %%%%%%%%%%
 \section*{5.2}
 \paragraph{2.} Show that if $f: A \rightarrow \mathbb{R}$ is continuous on $A \subseteq \mathbb{R}$ and if $n \in \mathbb{N}$, then the function $f^n$ defined by $f^n(x)=(f(x))^n$, for $x \in A$, is continuous on $A$.
+\begin{proof}
+    We can do a proof by induction where the base case is $n = 1$. Then, $f^1(x) = f(x)$ which is trivially continuous on $A$ by our original assumption.
+    
+    Our inductive case is that $f^{n + 1} = f^n f$ which is true by Theorem 5.2.1 which states that the product of two continuous functions is continuous. Thus, $f^{n + 1}$ is continuous on $A$.
+\end{proof}
 
 \paragraph{3.} Give an example of functions $f$ and $g$ that are both discontinuous at a point $c$ in $\mathbb{R}$ such that the sum $f + g$ is continuous at $c$ and the product $f \cdot g$ is continuous at $c$.
 \begin{proof}
@@ -99,12 +109,45 @@
 \paragraph{3.} Let $I \subseteq \mathbb{R}$ be an interval, let $c \in I$, and let $f: I \rightarrow \mathbb{R}$ and $g: I \rightarrow \mathbb{R}$ be functions that are differentiable at $c$. Prove the following:
 \begin{enumerate}[label=(\alph*)]
     \item If $\alpha \in \mathbb{R}$, then the function $\alpha f$ is differentiable at $c$.
+    \begin{proof}
+        We can use the definition of the derivative to show this.
+        \begin{align*}
+            (\alpha f)'(c) &= \lim_{x \to c} \frac{\alpha f(x) - \alpha f(c)}{x - c} \\
+            &= \alpha \lim_{x \to c} \frac{f(x) - f(c)}{x - c} \\
+            &= \alpha f'(c)
+        \end{align*}
+    \end{proof}
+
     \item The function $f + g$ is differentiable at $c$ and $(f + g)^{\prime}(c) = f^{\prime}(c) + g^{\prime}(c)$.
+    \begin{proof}
+        \begin{align*}
+            (f + g)'(c) &= \lim_{x \to c} \frac{(f + g)(x) - (f + g)(c)}{x - c} \\
+            &= \lim_{x \to c} \frac{f(x) + g(x) - f(c) - g(c)}{x - c} \\
+            &= \lim_{x \to c} \frac{f(x) - f(c)}{x - c} + \lim_{x \to c} \frac{g(x) - g(c)}{x - c} \\
+            &= f'(c) + g'(c)
+        \end{align*}
+    \end{proof}
 \end{enumerate}
 
-\paragraph{4.} Let $f: \mathbb{R} \rightarrow \mathbb{R}$ be defined by $f(x):=x^2$ for $x$ rational, $f(x):=0$ for $x$ irrational. Show that $f$ is differentiable at $x=0$, and find $f^{\prime}(0)$
+\paragraph{4.} Let $f: \mathbb{R} \rightarrow \mathbb{R}$ be defined by $f(x):=x^2$ for $x$ rational, $f(x):=0$ for $x$ irrational. Show that $f$ is differentiable at $x=0$, and find $f^{\prime}(0)$.
+\begin{proof}
+    Let $g(x) = \frac{f(x) - f(0)}{x - 0} = \frac{f(x)}{x}$ so that $g(x) := x$ for $x$ rational and $g(x) := 0$ for $x$ irrational. To show that $f$ is differentiable at 0 we have to show that $\lim_{x \to 0} g(x) = f'(0)$ exists. 
+    
+    We know that $-|x| \leq g(x) \leq |x|$ for all $x \in \mathbb{R}$ and that $\lim_{x \to 0} -|x| = -0$ and $\lim_{x \to 0} |x| = 0$. Thus, $\lim_{x \to 0} g(x) = 0$ by Theorem 3.2.7 (Squeeze Theorem) so $f$ is differentiable at $x = 0$ and $f'(0) = 0$.
+\end{proof}
+\pagebreak
 
 \paragraph{7.} Suppose that $f: \mathbb{R} \rightarrow \mathbb{R}$ is differentiable at $c$ and that $f(c)=0$. Show that $g(x):=|f(x)|$ is differentiable at $c$ if and only if $f^{\prime}(c)=0$.
+\begin{proof}
+    Suppose that $g(x)$ is differentiable at $c$ and we want to show that $f'(c) = 0$.
+    \begin{align*}
+        g'(c) &= \lim_{x \to c} \frac{g(x) - g(c)}{x - c} \\
+        &= \lim_{x \to c} \frac{|f(x)| - |f(c)|}{x - c} \\
+        &= \lim_{x \to c} \frac{f(x) - f(c)}{x - c} \text{ by the definition of $g$}
+    \end{align*}
+
+    Suppose that $f'(c) = 0$ and we want to show that $g(x)$ is differentiable at $c$.
+\end{proof}
 
 \paragraph{9.} Prove that if $f: \mathbb{R} \rightarrow \mathbb{R}$ is an even function (that is, $f(-x)=f(x)$ for all $x \in \mathbb{R}$) and has a derivative at every point, then the derivative $f^{\prime}$ is an odd function (that is, $f^{\prime}(-x)=-f^{\prime}(x)$ for all $x \in \mathbb{R})$. Also prove that if $g: \mathbb{R} \rightarrow \mathbb{R}$ is a differentiable odd function, then $g^{\prime}$ is an even function.
 
