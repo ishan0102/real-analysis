@@ -1,0 +1,55 @@
+\section{October 25}
+
+\subsection{Cauchy Mean Value Theorem}
+\begin{theorem}[Cauchy mean value theorem]
+    Let $f$ and $g$ be continuous on $[a, b]$ and differentiable on $(a, b)$. Then, $\exists$ at least one $c \in (a, b)$ such that $$(f(b) - f(a)) g'(c) = (g(b) - g(a)) f'(c)$$
+\end{theorem}
+\begin{proof}
+    Let $h(x) = (f(b) - f(a)) g'(x) - (g(b) - g(a)) f'(x) \forall x \in [a, b]$. \\
+    Note that
+    \begin{align*}
+        h(a) &= (f(b) - f(a)) g(a) - (g(b) - g(a)) f(a) = 0 \\
+        &= f(b)g(a) - f(a)g(b)
+    \end{align*}
+    and
+    \begin{align*}
+        h(b) &= (f(b) - f(a)) g(b) - (g(b) - g(a)) f(b) = 0 \\
+        &= f(b)g(a) - f(a)g(b)
+    \end{align*}
+
+    Thus, $h$ is continuous on $[a, b]$, differentiable on $(a, b)$, and $h(a) = h(b)$. Therefore, by Rolle's theorem, $\exists c \in (a, b)$ such that $h'(c) = 0$. That is to say, $$h'(c) = (f(b) - f(a)) g'(c) - (g(b) - g(a)) f'(c) = 0$$ which implies the desired equality.
+\end{proof}
+
+\subsection{L'Hospital's Rule}
+\begin{theorem}[L'Hospital's rule]
+    Let $f$ and $g$ be continuous on $[a, b]$ and differentiable on $(a, b)$ and $f(c) = g(c) = 0$. Also suppose that $g'(c) \neq 0$ in some neighborhood of $c$. \\
+    If $$\lim_{x \to c} \frac{f'(x)}{g'(x)} = L$$ then $$\lim_{x \to c} \frac{f(x)}{g(x)} = L$$
+\end{theorem}
+\begin{proof}
+    Let $x_n$ be a sequence that converges to $c$. By the Cauchy mean value theorem $\exists$ a sequence $c_n$ such that $c_n$ is between $x_n$ and $c$ for each $n$ and $$(f(x_n) - f(c)) g'(c_n) = (g(x_n) - g(c)) f'(c_n)$$ Thus, $$\frac{f(x_n)}{g(x_n)} = \frac{f(x_n) - f(c)}{g(x_n) - g(c)} = \frac{f'(c_n)}{g'(c_n)}$$
+
+    Furthermore, since $x_n \to c$ and $c_n \to c$, we have that if $\lim_{n \to \infty} \frac{f'(c_n)}{g'(c_n)} = L$, then $\lim_{h \to \infty} \frac{f(x_n)}{g(x_n)} = \lim_{x \to c} \frac{f(x)}{g(x)} = L$.
+\end{proof}
+
+\subsection{Taylor's Theorem}
+\begin{theorem}[Taylor's theorem]
+    Let $f$ and its first $n$ derivatives be continuous on $[a, b]$ (implying that they are also differentiable). Let $x_0 \in [a, b]$. Then, for each $x \in [a, b]$ with $x \neq x_0$, $\exists$ a $c$ between $x$ and $x_0$ such that
+    \begin{align*}
+        f(x) = f(x_0) + f'(x_0)(x - x_0) + \frac{f''(c)}{2!}(x - x_0)^2 + \cdots + \frac{f^{(n + 1)}(c)}{(n + 1)!}(x - x_0)^{n + 1}
+    \end{align*}
+\end{theorem}
+\begin{proof}
+    Let $x_0$ and $x$ be given and let $J = [x_0, x]$ or $[x, x_0]$. We will define $F$ on $J$ as follows:
+    \begin{align*}
+        F(t) = f(x) - f(t) - (x - t)f'(t) - \frac{(x - t)^2}{2!}f''(t) - \cdots - \frac{(x - t)^{n}}{(n)!}f^{(n)}(t)
+    \end{align*}
+    Note that $$F'(t) = \frac{-(x - t)^n}{n!} f^{(n + 1)} (t) $$ and define $G$ by $$G(t) = F(t) - \left(\frac{x - t}{x - x_0}\right)^{n + 1} F(x_0)$$
+    Note that $G(x_0) = 0 = G(x)$. Then, by Rolle's Theorem, $\exists c$ between $x$ and $x_0$ such that $G'(c) = 0$. That is, $$0 = G'(c) = F'(c) + (n + 1) \frac{(x - c)^n}{(x - x_0)^{n + 1}} F(x_0)$$ 
+    Hence, 
+    \begin{align*}
+        F(x_0) &= - \left(\frac{1}{n + 1}\right) \left(\frac{(x - x_0)^{n + 1}}{(x - c)^n}\right) F'(c) \\
+        &= \left(\frac{1}{n + 1}\right) \left(\frac{(x - x_0)^{n + 1}}{(x - c)^n}\right) \left(\frac{(x - c)^n}{n!}\right) f^{(n + 1)} (c) \\
+        &= \left(\frac{(x - x_0)^{n + 1}}{(n + 1)!}\right) f^{(n + 1)} (c)
+    \end{align*}
+    which implies the desired equality.
+\end{proof}
