@@ -181,14 +181,39 @@
 \paragraph{5.} Let $a>b>0$ and let $n \in \mathbb{N}$ satisfy $n \geq 2$. Prove that $a^{1 / n}-b^{1 / n}<(a-b)^{1 / n}$. \emph{Hint: Show that $f(x):=x^{1 / n}-(x-1)^{1 / n}$ is decreasing for $x \geq 1$, and evaluate $f$ at 1 and $a / b$.}
 \begin{proof}
     Let $f(x):=x^{1 / n}-(x-1)^{1 / n}$. Then, $f^{\prime}(x)=\frac{1}{n}(x^{\frac{1}{n}-1}-(x-1)^{\frac{1}{n}-1})$. Since $n \geq 2$, $1-\frac{1}{n} \geq \frac{1}{2}$ which means that $x^{1-\frac{1}{n}}>(x-1)^{1-\frac{1}{n}}$ when $x>1$. Thus, $f^{\prime}(x)<0$ when $x>1$, so $f(x)$ is decreasing when $x \geq 1$. For $a>b>0$, we get $\frac{a}{b}>1$ so that $f(\frac{a}{b})=(\frac{a}{b})^{1 / n}-(\frac{a}{b}-1)^{1 / n}<f(1)=1$, i.e. $a^{1 / n}-b^{1 / n}<(a-b)^{1 / n}$.
-\end{proof}   
+\end{proof}
 
 \paragraph{6.} Use the Mean Value Theorem to prove that $|\sin x-\sin y| \leq |x-y|$ for all $x, y$ in $\mathbb{R}$.
+\begin{proof}
+    The Mean Value Theorem states $f'(c) = \frac{f(b) - f(a)}{b - a} \implies f(b) - f(a) = f'(c)(b - a)$. We can apply the $\sin$ function here because it is continuous and differentiable. Then,
+    \begin{align*}
+        |\sin x - \sin y| &= |\cos c (x - y)| \\
+        \frac{|\sin x - \sin y|}{|x - y|} &= |\cos c| \\
+    \end{align*}
+    Since $\cos c$ is bounded by 1, we get that $$\frac{|\sin x - \sin y|}{|x - y|} \leq 1$$ Therefore, $|\sin x - \sin y| \leq |x - y|$.
+\end{proof}
 
 \paragraph{8.} Let $f:[a, b] \rightarrow \mathbb{R}$ be continuous on $[a, b]$ and differentiable in $(a, b)$. Show that if $\lim _{x \rightarrow a} f^{\prime}(x)=A$, then $f^{\prime}(a)$ exists and equals $A$. \emph{Hint: Use the definition of $f^{\prime}(a)$ and the Mean Value Theorem.}
+\begin{proof}
+    $f^{\prime}(a) = \lim_{x \to a} \frac{f(x) - f(a)}{x - a}$ by the definition of the derivative. Using the Mean Value Theorem, we have that $f'(c) = \frac{f(x) - f(a)}{x - a}$. Then, $$\lim_{x \to a} \frac{f(x) - f(a)}{x - a} = \lim_{c \to a} f'(x) = A$$
+    Thus, $f^{\prime}(a)$ exists and equals $A$.
+\end{proof}
 
 \paragraph{10.} Let $g: \mathbb{R} \rightarrow \mathbb{R}$ be defined by $g(x):=x+2 x^2 \sin (1 / x)$ for $x \neq 0$ and $g(0):=0$. Show that $g^{\prime}(0)=1$, but in every neighborhood of 0 the derivative $g^{\prime}(x)$ takes on both positive and negative values. Thus $g$ is not monotonic in any neighborhood of 0.
+\begin{proof}
+    The derivative $g'(x) = 4x\sin(1/x) - 2\cos(1/x) + 1$. We can compute $g'(0)$ from the limit definition:
+    \begin{align*}
+        g'(0) &= \lim_{x \to 0} \frac{g(x) - g(0)}{x - 0} \\
+        &= \lim_{x \to 0} \frac{x + 2x^2\sin(1/x) - 0}{x - 0} \\
+        &= \lim_{x \to 0} 1 + 2x\sin(1/x) \\
+        &= 1
+    \end{align*}
+    Then, we can let $x_n = \frac{1}{2n\pi}$ and $y_n = \frac{1}{(4n + 1)\pi}$. This means $g'(x_n) = -1 < 0$ and $g'(y_n) ~ 1 + \frac{4}{(4n + 1) \frac{\pi}{2}} > 0$. Thus, in every neighborhood of 0 $g'(x)$ takes both positive and negative values so $g$ is not monotonic in any neighborhood of 0.
+\end{proof}
 
 \paragraph{13.} Let $I$ be an interval and let $f: I \rightarrow \mathbb{R}$ be differentiable on $I$. Show that if $f^{\prime}$ is positive on $I$, then $f$ is strictly increasing on $I$.
+\begin{proof}
+    Let there be some $x, y \in I$ such that $x < y$. From the Mean Value Theorem we have that $f(y) - f(x) = f'(c)(y - x)$. Since $f'$ is positive on $I$, $f'(c)(y - x) > 0$. Thus, $f(y) - f(x) > 0$ for all $x, y \in I$ so $f$ is strictly increasing on $I$.
+\end{proof}
 
 \end{document}
