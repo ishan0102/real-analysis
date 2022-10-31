@@ -2,7 +2,7 @@
 
 \subsection{Cauchy Sequences}
 \begin{definition}[Cauchy sequence]
-    A sequence of real numbers $S_n$ is called a Cauchy sequence if and only if for each $\epsilon > 0$, $\exists N$ such that $m, n > N \implies |S_m - S_n| < \epsilon$.
+    A sequence of real numbers $S_n$ is called a Cauchy sequence if and only if for each $\varepsilon > 0$, $\exists N$ such that $m, n > N \implies |S_m - S_n| < \varepsilon$.
 \end{definition}
 \begin{remark}
     This means the elements of the sequence get closer to each other as $N$ increases.
@@ -12,12 +12,12 @@
     Every convergent sequence is Cauchy.
 \end{theorem}
 \begin{proof}
-    Let $S_n$ be a convergent sequence. Then $\exists N$ such that $n > N \implies |S_n - s| < \frac{\epsilon}{2}$ for some $s \in \R$. Then, for $n, m > N$, we have
+    Let $S_n$ be a convergent sequence. Then $\exists N$ such that $n > N \implies |S_n - s| < \frac{\varepsilon}{2}$ for some $s \in \R$. Then, for $n, m > N$, we have
     \begin{align*}
         |S_n - S_m| &= |S_n - s + s - S_m| \\
         &\leq |S_n - s| + |s - S_m| \\
-        &< \frac{\epsilon}{2} + \frac{\epsilon}{2} \\
-        &= \epsilon
+        &< \frac{\varepsilon}{2} + \frac{\varepsilon}{2} \\
+        &= \varepsilon
     \end{align*}
     Thus, $S_n$ is Cauchy.
 \end{proof}

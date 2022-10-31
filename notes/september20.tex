@@ -22,10 +22,10 @@
 Let $S \subseteq \R$ for the following definitions.
 
 \begin{definition}[Neighborhood]
-    A neighborhood of $x$ in $S$ can be thought of an epsilon-sized ball around $x$, i.e. $N(x, \epsilon) = \{ y \in R \mid 0 \leq |x - y| < \epsilon \}$.
+    A neighborhood of $x$ in $S$ can be thought of an varepsilon-sized ball around $x$, i.e. $N(x, \varepsilon) = \{ y \in R \mid 0 \leq |x - y| < \varepsilon \}$.
 \end{definition}
 \begin{definition}[Deleted neighborhood]
-    A deleted neighborhood is the same as a neighborhood except that $x$ is not included, i.e. $N^\star(x, \epsilon) = \{ y \in R \mid 0 < |x - y| < \epsilon \}$.
+    A deleted neighborhood is the same as a neighborhood except that $x$ is not included, i.e. $N^\star(x, \varepsilon) = \{ y \in R \mid 0 < |x - y| < \varepsilon \}$.
 \end{definition}
 
 \begin{definition}[Accumulation point]
@@ -41,7 +41,7 @@ Let $S \subseteq \R$ for the following definitions.
 \begin{proof}
     Suppose $S$ is closed. Let $x$ be an accumulation point of $S$. If $x \not\in S$, then $x \in S^\complement$. Thus, $\exists$ a neighborhood $N$ of $x$ such that $N \subseteq S^\complement$. But $N \cap S = \emptyset$, which contradicts $x$ being an accumulation point of $S$.
 
-    Conversely, suppose $S$ contains all of its accumulation points. Let $x \in S^\complement$, then $x$ is not an accumulation point of $S$. Thus, $\exists N^\star(x, \epsilon)$ that misses $S$. Since $x \not\in S$, $N(x, \epsilon)$ misses $S$. Therefore, $S^\complement$ is open, which means $S$ is closed.
+    Conversely, suppose $S$ contains all of its accumulation points. Let $x \in S^\complement$, then $x$ is not an accumulation point of $S$. Thus, $\exists N^\star(x, \varepsilon)$ that misses $S$. Since $x \not\in S$, $N(x, \varepsilon)$ misses $S$. Therefore, $S^\complement$ is open, which means $S$ is closed.
 \end{proof}
 
 \begin{theorem}
@@ -61,7 +61,7 @@ Let $S \subseteq \R$ for the following definitions.
 
 \subsection{Closure}
 \begin{definition}[Open set]
-    $S$ is an open set if and only if every point in $S$ is an interior point of $S$. $\forall x \in S, \exists$ a neighborhood $N(x, \epsilon)$ for some $\epsilon > 0$ such that $N(x, \epsilon) \subseteq S$.
+    $S$ is an open set if and only if every point in $S$ is an interior point of $S$. $\forall x \in S, \exists$ a neighborhood $N(x, \varepsilon)$ for some $\varepsilon > 0$ such that $N(x, \varepsilon) \subseteq S$.
 \end{definition}
 
 \begin{definition}[Closed set]
@@ -94,9 +94,9 @@ Let $S \subseteq \R$ for the following definitions.
     The intersection of two open sets is open.
 \end{theorem}
 \begin{proof}
-    Let $A$ and $B$ be open sets. Let $x \in A \cap B$. Then $x \in A$ and $x \in B$. Thus, $\exists$ neighborhoods $N_1(x, \epsilon_1)$ and $N_2(x, \epsilon_2)$. Let $\epsilon = min\{\epsilon_1, \epsilon_2\}$. Then $N_1(x, \epsilon) \subseteq A$ and $N_2(x, \epsilon) \subseteq B$. 
+    Let $A$ and $B$ be open sets. Let $x \in A \cap B$. Then $x \in A$ and $x \in B$. Thus, $\exists$ neighborhoods $N_1(x, \varepsilon_1)$ and $N_2(x, \varepsilon_2)$. Let $\varepsilon = min\{\varepsilon_1, \varepsilon_2\}$. Then $N_1(x, \varepsilon) \subseteq A$ and $N_2(x, \varepsilon) \subseteq B$. 
     
-    Thus, $N(x, \epsilon) \subseteq A \cap B$. Therefore, $A \cap B$ is open.
+    Thus, $N(x, \varepsilon) \subseteq A \cap B$. Therefore, $A \cap B$ is open.
 \end{proof}
 
 \begin{theorem}
