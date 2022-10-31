@@ -1,0 +1,52 @@
+\section{October 27}
+
+\subsection{Applications of Taylor's Theorem}
+\begin{definition}[Taylor polynomial]
+    We denote a Taylor Polynomial $P_n(x)$ as
+    $$P_n(x)=f\left(x_0\right)+f^{\prime}\left(x_0\right)\left(x-x_0\right)+\frac{f^{\prime \prime}\left(x_0\right)}{2}\left(x-x_0\right)^2+\frac{f^{(n)\left(x_0\right)}}{n !}\left(x-x_0\right)^n$$ 
+    and a remainder term $R_n(x)$ with some $c \in \R$ where $x_0 <= c <= x$ as 
+    $$R_n(x)=\frac{f^{(n+1)}(c)}{(n+1) !}\left(x-x_0\right)^{n+1}$$
+\end{definition}
+
+\noindent Let $f(x)=e^x$, $x_0=0$ and $n=5$.
+\begin{align*}
+    e^x &=f(0)+f^{\prime}(0) x+\frac{f^{\prime \prime}(0)}{2} x^2+\frac{f^{\prime \prime \prime}(0)}{3 !} x^3+\frac{f^{(4)}(0)}{4 !} x^4+\frac{f^{(5)}(0)}{5 !} x^5+\frac{f^{(6)}(0)}{6 !} x^6 \\
+    &=1+x+\frac{x^2}{2}+\frac{x^3}{3 !}+\frac{x^4}{4 !}+\frac{x^5}{5 !}+\frac{x^6}{6 !}
+\end{align*}
+You can place an upper bound on the remainder term on the interval $[-1,1]$ ($c=1$ maxes out $f^{\prime}(c)$ and $x=1$ maxes out $x^6$).
+$$\left|R_5(x)\right|=\left|\frac{f^{(6)}(c)}{6 !} x^6\right|=\frac{\left|f^6(c)\right|}{6 !}\left|x^6\right| \leq \frac{e \cdot 1}{6 !}$$
+
+\begin{example}
+    Estimate $\cos (1)$ to within $1 / 1000$ using a Taylor Polynomial.
+
+    \noindent Take $x_0=0$, on $[-1,1]$. We need $$\left|R_n(x)\right|=\left|\frac{f^{n+1}(c)}{(n+1) !} x^{n+1}\right| \leq \frac{1}{1000}$$
+    If you find the Taylor Polynomial of cosine to the 6th degree,
+    $$\cos (0) \approx 1-\frac{x^2}{2 !}+\frac{x^4}{4 !}-\frac{x^6}{6 !}$$
+    we find that
+    $$\left|-\frac{x^6}{6 !}\right| \leq \frac{1}{1000} \text { on }[-1,1]$$
+    Hence,
+    $$\cos (0) \approx 1-\frac{x^2}{2 !}+\frac{x^4}{4 !}-\frac{x^6}{6 !}$$
+    is a good enough approximation that estimates $\cos (x)$ on $[-1,1]$ within an error of $1 / 1000$.
+\end{example}
+
+\subsection{Riemann Integrals}
+\begin{definition}[Riemann integral]
+    Let $[a, b]$ be an interval in $\mathbb{R}$. A partition $P$ of $[a, b]$ is a finite set of points $\left\{x_0, x_1, \ldots, x_n\right\}$ such that $a=x_0<x_1<x_2<\cdots<x_n=b$. Let $P=\left\{x_0, x_1, \ldots, x_n\right\}$ be a partition of $[a, b]$, and let
+    \begin{align*}
+        &M_i(f)=\sup \left\{f(x):\left[x_{i-1}, x_i\right]\right\} \\
+        &m_i(f)=\inf \left\{f(x):\left[x_{i-1}, x_i\right]\right\}
+    \end{align*}
+    For example, $f(x)=x+3, x_0=1$ and $x_1=2$. Hence,
+    \begin{align*}
+        &M_1(f)=5 \\
+        &m_1(f)=4
+    \end{align*}
+    Let $\Delta x_i=x_i-x_{i-1}$. We then define $U(f, p)=\sum_{i=1}^n M_i \Delta x_i$ (the upper sum of $f$ with respect to $P$) and $L(f, p)=\sum_{i=1}^n m_i \Delta x_i$ (the lower sum of $f$ with respect to $P$). Now, define
+    \begin{align*}
+        &U(f)=\inf \{U(f, P): P \text { is a partition of }[a, b]\} \\
+        &L(f)=\sup \{L(f, P): P \text { is a partition of }[a, b]\}
+    \end{align*}
+    We say that $f$ is Riemann Integrable if and only if $U(f)=L(f)$. In this case, we write $$\int_a^b f(x) d x=U(f)=L(f)$$
+\end{definition}
+
+\noindent To show a function $f$ is Riemann Integrable on $[a, b)$ given $\varepsilon>0$, we only need to find one partition such that $$U(f, P)-L(f, P)<\varepsilon$$
