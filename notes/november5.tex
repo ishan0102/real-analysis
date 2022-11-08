@@ -1,0 +1,49 @@
+\section{November 5}
+
+\subsection{Tagged Partitions}
+\begin{definition}[Tagged partition]
+    $\dot{\mathcal{P}}$ is a tagged partition of the form $\{([x_{i - 1}, x_i], t_i)\}_{i = 1}^n$ where $t_i \in [x_{i - 1}, x_i]$. Let $\dot{\mathcal{P}}$ be a tagged partition of $[a, b]$. Then, define the Riemann sum of $f$ with respect to $\dot{\mathcal{P}}$ on $[a, b]$ as $$S(f, \dot{\mathcal{P}}) = \sum_{i = 1}^n f(t_i) \cdot (x_i - x_{i - 1})$$
+\end{definition}
+\begin{remark}
+    $||\dot{\mathcal{P}}|| = ||\mathcal{P}|| = \max\{x_1 - x_0, x_2 - x_1, \ldots, x_n - x_{n - 1}\}$
+\end{remark}
+
+\begin{definition}[Riemann integrable]
+    A function $f: [a, b] \to R$ is said to be Riemann integrable on $[a, b]$ if $\exists$ a number $L$ such that $\forall \varepsilon > 0$, $\exists \delta > 0$ such that if $\dot{\mathcal{P}}$ is any partition with $||\dot{\mathcal{P}}|| < \delta$, then $$\left| S(f, \dot{\mathcal{P}}) - L \right| < \varepsilon$$
+    In this case we say that $\int_a^b f = \int_a^b f(x) dx = L$.
+\end{definition}
+
+\begin{theorem}
+    Every constant function is Riemann integrable on $[a, b]$.
+\end{theorem}
+\begin{proof}
+    Given $\varepsilon > 0$, we need to find $\delta$ such that $||\dot{\mathcal{P}}|| < \delta \implies |S(f, \dot{\mathcal{P}} - k(b - a)| < t$. We have that
+    \begin{align*}
+        S(f, \dot{\mathcal{P}}) &= f(t_1) \cdot \Delta x_1 \\
+        &= k(b - a) \\
+        |S(f, \dot{\mathcal{P}}) - k(b - a)| &= |k(b - a) - k(b - a)| = 0 < \varepsilon
+    \end{align*}
+    So, we can choose some $\delta$ to satisfy this condition. Thus, every constant function is Riemann integrable.
+\end{proof}
+
+\begin{lemma}
+    Let $k \in R$ and $\dot{\mathcal{P}}$ be a tagged partition, then $$S(kf, \dot{\mathcal{P}}) = kS(f, \dot{\mathcal{P}})$$
+\end{lemma}
+\begin{theorem}
+    Let $k \in R$ and $f \in R[a, b]$, then $$\int_a^b kf = k \int_a^b f$$
+\end{theorem}
+\begin{proof}
+    Given $\varepsilon < 0$, we need to find $\delta$ such that $||\dot{\mathcal{P}}|| < \delta \implies |S(kf, \dot{\mathcal{P}}) - k \int_a^b f| < \varepsilon$. Since $f \in R[a, b]$, $\exists \delta$ such that $||\dot{\mathcal{P}}|| < \delta \implies |S(f, \dot{\mathcal{P}}) - \int_a^b f| < \frac{\varepsilon}{|k|}$. Then, $\forall \dot{\mathcal{P}}$ such that $||\dot{\mathcal{P}}|| < \delta$, we have that
+    \begin{align*}
+        |S(kf, \dot{\mathcal{P}}) - k \int_a^b f| &= |kS(f, \dot{\mathcal{P}}) - k \int_a^b f| \\
+        &= |kS(f, \dot{\mathcal{P}}) - \int_a^b kf| \\
+        &< \frac{\varepsilon}{|k|} \cdot |k| = \varepsilon
+    \end{align*}
+\end{proof}
+
+\begin{theorem}
+    (On exam 2) If $f, g \in R[a, b]$, then $$f + g \in R[a, b]$$
+\end{theorem}
+\begin{proof}
+    We can either find $p$ such that $U(f + g, \mathcal{P}) - L(f + g, \mathcal{P}) < \varepsilon$ to show that $\frac{\varepsilon}{2} + \frac{\varepsilon}{2} < \varepsilon$ OR we can find $|S(f + g, \dot{\mathcal{P}}) - \int_a^b f + \int_a^b g| < \varepsilon$ to show that $\frac{\varepsilon}{2} + \frac{\varepsilon}{2} < \varepsilon$.
+\end{proof}
