@@ -30,19 +30,22 @@
     Let $k \in R$ and $\dot{\mathcal{P}}$ be a tagged partition, then $$S(kf, \dot{\mathcal{P}}) = kS(f, \dot{\mathcal{P}})$$
 \end{lemma}
 \begin{theorem}
-    Let $k \in R$ and $f \in R[a, b]$, then $$\int_a^b kf = k \int_a^b f$$
+    Let $k \in R$ and $f \in \mathcal{R}[a, b]$, then $$\int_a^b kf = k \int_a^b f$$
 \end{theorem}
 \begin{proof}
-    Given $\varepsilon < 0$, we need to find $\delta$ such that $||\dot{\mathcal{P}}|| < \delta \implies |S(kf, \dot{\mathcal{P}}) - k \int_a^b f| < \varepsilon$. Since $f \in R[a, b]$, $\exists \delta$ such that $||\dot{\mathcal{P}}|| < \delta \implies |S(f, \dot{\mathcal{P}}) - \int_a^b f| < \frac{\varepsilon}{|k|}$. Then, $\forall \dot{\mathcal{P}}$ such that $||\dot{\mathcal{P}}|| < \delta$, we have that
+    Given $\varepsilon < 0$, we need to find $\delta$ such that $||\dot{\mathcal{P}}|| < \delta \implies |S(kf, \dot{\mathcal{P}}) - k \int_a^b f| < \varepsilon$. Since $f \in \mathcal{R}[a, b]$, $\exists \delta$ such that $||\dot{\mathcal{P}}|| < \delta \implies |S(f, \dot{\mathcal{P}}) - \int_a^b f| < \frac{\varepsilon}{|k|}$. Then, $\forall \dot{\mathcal{P}}$ such that $||\dot{\mathcal{P}}|| < \delta$, we have that
     \begin{align*}
-        |S(kf, \dot{\mathcal{P}}) - k \int_a^b f| &= |kS(f, \dot{\mathcal{P}}) - k \int_a^b f| \\
-        &= |kS(f, \dot{\mathcal{P}}) - \int_a^b kf| \\
+        \left|S(kf, \dot{\mathcal{P}}) - k \int_a^b f\right| &= \left|kS(f, \dot{\mathcal{P}}) - k \int_a^b f\right| \\
+        &= \left|kS(f, \dot{\mathcal{P}}) - \int_a^b kf\right| \\
         &< \frac{\varepsilon}{|k|} \cdot |k| = \varepsilon
     \end{align*}
 \end{proof}
+\begin{remark}
+    Note that $\mathcal{R}[a, b]$ is the set of all Riemann integrable functions on $[a, b]$.
+\end{remark}
 
 \begin{theorem}
-    (On exam 2) If $f, g \in R[a, b]$, then $$f + g \in R[a, b]$$
+    (On exam 2) If $f, g \in \mathcal{R}[a, b]$, then $$f + g \in \mathcal{R}[a, b]$$
 \end{theorem}
 \begin{proof}
     We can either find $p$ such that $U(f + g, \mathcal{P}) - L(f + g, \mathcal{P}) < \varepsilon$ to show that $\frac{\varepsilon}{2} + \frac{\varepsilon}{2} < \varepsilon$ OR we can find $|S(f + g, \dot{\mathcal{P}}) - \int_a^b f + \int_a^b g| < \varepsilon$ to show that $\frac{\varepsilon}{2} + \frac{\varepsilon}{2} < \varepsilon$.
