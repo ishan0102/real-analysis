@@ -42,9 +42,33 @@
 
 %%%%%%%%%% 6.3 %%%%%%%%%%
 \section*{6.3}
-\paragraph{13.} Try to use L'Hospital's Rule to find the limit of $\frac{\tan x}{\sec x}$ as $x \rightarrow(\pi / 2)-$. Then evaluate directly by changing to sines and cosines.
+\paragraph{13.} Try to use L'Hospital's Rule to find the limit of $\frac{\tan x}{\sec x}$ as $x \rightarrow(\pi / 2)^-$. Then evaluate directly by changing to sines and cosines.
+\begin{proof}
+    \begin{align*}
+        \lim_{x \rightarrow (\pi / 2)^-} \frac{\tan x}{\sec x} &= \lim_{x \rightarrow (\pi / 2)^-} \frac{\sec^2x}{\sec x \tan x} \\
+        &= \lim_{x \rightarrow (\pi / 2)^-} \frac{\sec x}{\tan x} \\
+        &= \lim_{x \rightarrow (\pi / 2)^-} \frac{\sec x \tan x}{\sec^2x} \\
+        &= \lim_{x \rightarrow (\pi / 2)^-} \frac{\tan x}{\sec x}
+    \end{align*}
+    After iteratively using L'Hospital's Rule, we find a cycle which means that we cannot use L'Hospital's Rule to find the limit. Instead, we can us sines and cosines.
+    \begin{align*}
+        \lim_{x \rightarrow (\pi / 2)^-} \frac{\tan x}{\sec x} &= \lim_{x \rightarrow (\pi / 2)^-} \frac{\frac{\sin x}{\cos x}}{\frac{1}{\cos x}} \\
+        &= \lim_{x \rightarrow (\pi / 2)^-} \sin x \\
+        &= 1
+    \end{align*}
+    Thus, $\lim_{x \rightarrow (\pi / 2)^-} \frac{\tan x}{\sec x} = 1$.
+\end{proof}
 
-\paragraph{14.} Show that if $c>0$, then $\lim _{x \rightarrow c} \frac{x^c-c^x}{x^x-c^c}=\frac{1-\ln c}{1+\ln c}$.
+\paragraph{14.} Show that if $c>0$, then $\lim_{x \rightarrow c} \frac{x^c-c^x}{x^x-c^c}=\frac{1-\ln c}{1+\ln c}$.
+\begin{proof}
+    \begin{align*}
+        \lim_{x \to c} \frac{x^c-c^x}{x^x-c^c} &= \lim_{x \to c} \frac{cx^{c - 1} - c^x \ln c}{x^x(\ln x + 1) - 0} \\
+        &= \frac{cc^{c - 1} - c^c \ln c}{c^c(\ln c + 1)} \\
+        &= \frac{c^c(1 - \ln c)}{c^c(1 + \ln c)} \\
+        &= \frac{1 - \ln c}{1 + \ln c}
+    \end{align*}
+    Thus, $\lim_{x \to c} \frac{x^c-c^x}{x^x-c^c} = \frac{1 - \ln c}{1 + \ln c}$.
+\end{proof}
 
 %%%%%%%%%% 6.4 %%%%%%%%%%
 \section*{6.4}
@@ -53,21 +77,89 @@ $$
 \left|\ln (1+x)-\left(x-\frac{x^2}{2}+\frac{x^3}{3}+\cdots+(-1)^{n-1} \frac{x^n}{n}\right)\right|<\frac{x^{n+1}}{n+1} .
 $$
 Use this to approximate $\ln 1.5$ with an error less than $0.01$. Less than $0.001$.
+\begin{proof}
+    We can start by finding the first few terms of the Taylor series of $\ln (1 + x)$. We need the derivatives of $\ln (1 + x)$ up to $n$.
+    \begin{align*}
+        f(x) &= \ln (1 + x) \implies f(0) = 0 \\
+        f'(x) &= \frac{1}{1 + x} \implies f'(0) = 1 \\
+        f''(x) &= -\frac{1}{(1 + x)^2} \implies f''(0) = -1 \\
+        \vdots \\
+        f^{(n)}(x) &= (-1)^{n - 1} \frac{(n - 1)!}{(1 + x)^n} \implies f^{(n)}(0) = (-1)^{n - 1} (n - 1)!
+    \end{align*}
+    Now, we can find the Taylor series of $\ln (1 + x)$.
+    \begin{align*}
+        \ln (1 + x) &= \sum_{n = 0}^{\infty} \frac{(-1)^{n - 1} (n - 1)!}{n!} x^n \\
+        &= x - \frac{x^2}{2} + \frac{x^3}{3} - \frac{x^4}{4} + \frac{x^5}{5} - \frac{x^6}{6} + \cdots
+    \end{align*}
+    Then, we have
+    \begin{align*}
+        \left|\ln(1 + x) - \left(x - \frac{x^2}{2} + \frac{x^3}{3} + \cdots + (-1)^{n - 1} \frac{x^n}{n}\right)\right| &= \left|x^{n + 1} \frac{f^{n + 1}(\varepsilon)}{(n + 1)!}\right| \\
+        &= \left|(-1)^n x^{n + 1} \frac{n!}{(n + 1)!(1 + \varepsilon)^{n + 1}}\right| \\
+        &= \left|\frac{x^{n + 1}}{(n + 1)(1 + \varepsilon)^{n + 1}}\right| \\
+        &< \frac{x^{n + 1}}{n + 1}
+    \end{align*}
+    Now, we can use this to approximate $\ln 1.5$. We can let $x = 0.5$ and bound our error with $$\frac{x^{n + 1}}{n + 1}$$
+    \begin{itemize}
+        \item Error $< 0.01$: $n = 4$
+        \begin{align*}
+            \frac{0.5^{5}}{5} &= 0.006 < 0.01 \\
+            \ln 1.5 &= 0.5 - \frac{0.5^2}{2} + \frac{0.5^3}{3} - \frac{0.5^4}{4} \approx 0.401
+        \end{align*}
+        \item Error $< 0.001$: $n = 7$
+        \begin{align*}
+            \frac{0.5^{8}}{8} &= 0.0005 < 0.001 \\
+            \ln 1.5 &= 0.5 - \frac{0.5^2}{2} + \frac{0.5^3}{3} - \frac{0.5^4}{4} + \frac{0.5^5}{5} - \frac{0.5^6}{6} + \frac{0.5^7}{7} \approx 0.405
+        \end{align*}
+    \end{itemize}
+\end{proof}
 
 \paragraph{13.} Calculate $e$ correct to 7 decimal places.
+\begin{proof}
+    We can use the Taylor series of $e^x$ to approximate $e$.
+    \begin{align*}
+        e^x &= \sum_{n = 0}^{\infty} \frac{x^n}{n!} \\
+        &= 1 + x + \frac{x^2}{2} + \frac{x^3}{3!} + \frac{x^4}{4!} + \frac{x^5}{5!} + \frac{x^6}{6!} + \frac{x^7}{7!} + \cdots
+    \end{align*}
+    We only need the first 11 terms of the Taylor series to get $e$ correct to 7 decimal places.
+    \begin{align*}
+        e &= 1 + 1 + \frac{1}{2} + \frac{1}{6} + \frac{1}{24} + \frac{1}{120} + \frac{1}{720} + \frac{1}{5040} + \frac{1}{40320} + \frac{1}{362880} + \frac{1}{3628800} \\
+        &= 2.7182818
+    \end{align*}
+\end{proof}
 
 %%%%%%%%%% 7.1 %%%%%%%%%%
 \section*{7.1}
 \paragraph{2.} If $f(x):=x^2$ for $x \in[0,4]$, calculate the following Riemann sums, where $\dot{\mathcal{P}}_i$ has the same partition points as in Exercise 1, and the tags are selected as indicated. $\mathcal{P}_2 := (0, 2, 3, 4)$.
 \begin{itemize}
     \item $\dot{\mathcal{P}}_2$ with the tags at the left endpoints of the subintervals.
+    \begin{align*} 
+        S(f, \dot{\mathcal{P}}) &=\sum_{i=1}^n f\left(t_i\right)\left(x_i-x_{i-1}\right) \\
+        &=f(0)\left(x_1-x_0\right)+f(2)\left(x_2-x_1\right)+f(3)\left(x_3-x_2\right) \\
+        &=0^2(2-0)+2^2(3-2)+3^2(4-3) \\
+        &=0 \cdot 2+4 \cdot 1+9 \cdot 1=13 
+    \end{align*}
     \item $\dot{\mathcal{P}}_2$ with the tags at the right endpoints of the subintervals.
+    \begin{align*}
+        S(f, \dot{\mathcal{P}}) &=\sum_{i=1}^n f\left(t_i\right)\left(x_i-x_{i-1}\right) \\
+        &=f(2)\left(x_1-x_0\right)+f(3)\left(x_2-x_1\right)+f(4)\left(x_3-x_2\right) \\
+        &=2^2(2-0)+3^2(3-2)+4^2(4-3) \\
+        &=4 \cdot 2+9 \cdot 1+16 \cdot 1=33
+    \end{align*}
 \end{itemize}
 
 \paragraph{6b.} Let $h(x):=2$ if $0 \leq x<1, h(1):=3$ and $h(x):=1$ if $1<x \leq 2$. Show that $h \in \mathcal{R}[0,2]$ and evaluate its integral.
+\begin{proof}
+
+\end{proof}
 
 \paragraph{8.} If $f \in \mathcal{R}[a, b]$ and $|f(x)| \leq M$ for all $x \in[a, b]$, show that $\left|\int_a^b f\right| \leq M(b-a)$.
+\begin{proof}
 
-\paragraph{10.} Let $g(x):=0$ if $x \in[0,1]$ is rational and $g(x):=1 / x$ if $x \in[0,1]$ is irrational. Explain why $g \notin \mathcal{R}[0,1]$. However, show that there exists a sequence $\left(\dot{\mathcal{P}}_n\right)$ of tagged partitions of $[a, b]$ such that $\left\|\dot{\mathcal{P}}_n\right\| \rightarrow 0$ and $\lim _n S\left(g ; \dot{\mathcal{P}}_n\right)$ exists.
+\end{proof}
+
+\paragraph{10.} Let $g(x):=0$ if $x \in[0,1]$ is rational and $g(x):=1 / x$ if $x \in[0,1]$ is irrational. Explain why $g \notin \mathcal{R}[0,1]$. However, show that there exists a sequence $\left(\dot{\mathcal{P}}_n\right)$ of tagged partitions of $[a, b]$ such that $\left\|\dot{\mathcal{P}}_n\right\| \rightarrow 0$ and $\lim_n S\left(g ; \dot{\mathcal{P}}_n\right)$ exists.
+\begin{proof}
+
+\end{proof}
 
 \end{document}
