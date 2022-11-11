@@ -154,12 +154,12 @@ Use this to approximate $\ln 1.5$ with an error less than $0.01$. Less than $0.0
 
 \paragraph{8.} If $f \in \mathcal{R}[a, b]$ and $|f(x)| \leq M$ for all $x \in[a, b]$, show that $\left|\int_a^b f\right| \leq M(b-a)$.
 \begin{proof}
-
+    We have that $-M \leq f(x) \leq M$ for all $x \in[a, b]$. Therefore, we can write $$-M(b - a) = \int_a^b -M \leq \int_a^b f \leq \int_a^b M = M(b - a)$$ Thus, $\left|\int_a^b f\right| \leq M(b - a)$.
 \end{proof}
 
-\paragraph{10.} Let $g(x):=0$ if $x \in[0,1]$ is rational and $g(x):=1 / x$ if $x \in[0,1]$ is irrational. Explain why $g \notin \mathcal{R}[0,1]$. However, show that there exists a sequence $\left(\dot{\mathcal{P}}_n\right)$ of tagged partitions of $[a, b]$ such that $\left\|\dot{\mathcal{P}}_n\right\| \rightarrow 0$ and $\lim_n S\left(g ; \dot{\mathcal{P}}_n\right)$ exists.
+\paragraph{10.} Let $g(x):=0$ if $x \in[0,1]$ is rational and $g(x):=1 / x$ if $x \in[0,1]$ is irrational. Explain why $g \notin \mathcal{R}[0,1]$. However, show that there exists a sequence $(\dot{\mathcal{P}}_n)$ of tagged partitions of $[a, b]$ such that $||\dot{\mathcal{P}}_n|| \rightarrow 0$ and $\lim_n S(g ; \dot{\mathcal{P}}_n)$ exists.
 \begin{proof}
-
+    Because $g(x)$ is not bounded on $[0, 1]$, $g \notin \mathcal{R}[0, 1]$. Now, let $$\dot{\mathcal{P}_n} = \{([\frac{i - 1}{n}, \frac{i}{n}], \frac{i}{n})\}_{i = 1}^n \forall n \in \mathbb{N}$$ Then, $||\dot{\mathcal{P}}_n|| = \frac{1}{n}$ so $\lim_{n \to \infty} ||\dot{\mathcal{P}}_n|| = \infty$. Now, $S(g, \dot{\mathcal{P}}_n) = \sum_{i = 1}^n \left(\frac{i}{n}\right) \left(\frac{i}{n} - \frac{i - 1}{n}\right) = 0$ since $g(x) = 0$ for all rational $x \in[0, 1]$. Thus, $\lim_n S(g, \dot{\mathcal{P}}_n) = 0$.
 \end{proof}
 
 \end{document}
