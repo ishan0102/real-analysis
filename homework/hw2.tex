@@ -91,7 +91,7 @@
 
 \paragraph{10.} Let $(x_n)$ be a bounded subsequence and for each $n \in \N$, let $s_n := \sup\{x_k : k \geq n\}$ and $S := \inf\{s_n\}$. Show that there exists a subsequence of $(x_n)$ that converges to $S$.
 \begin{proof}
-    For $\epsilon > 0$, there exists some $n \in \N$ such that $s_n < S + \epsilon$. We can choose $\epsilon = 1$ and $m_1$ such that $s_{m_1} - 1 < S + 1$ and $k_1 \geq m_1$ such that $s_{m_1} - 1 < x_{k_1} < s_{m_1}$ since $s_{m_1} = \sup\{x_n : k \geq m_1\}$.
+    For $\varepsilon > 0$, there exists some $n \in \N$ such that $s_n < S + \varepsilon$. We can choose $\varepsilon = 1$ and $m_1$ such that $s_{m_1} - 1 < S + 1$ and $k_1 \geq m_1$ such that $s_{m_1} - 1 < x_{k_1} < s_{m_1}$ since $s_{m_1} = \sup\{x_n : k \geq m_1\}$.
 
     Then, we can choose some $m_n > m_{n - 1}$ such that $S \leq s_{m_n} < S + \frac{1}{n}$ and $k_n \geq m_n$ and $k_n > k_{n - 1}$ such that $s_{m_n} - \frac{1}{n} < x_{k_n} < s_{m_n}$. Now, we have a subsequence $(x_{k_n})$ of $(x_n)$ where $|x_{k_n} - S| \leq \frac{1}{n}$. Finally, we know that $\lim_{n \to \infty} \frac{1}{n} = 0$. Thus, $\lim_{n \to \infty} x_{k_n} = S$.
 \end{proof}
@@ -105,18 +105,18 @@
 \paragraph{2.} Show directly from the definition that the following are Cauchy sequences.
 \begin{enumerate}[label=(\alph*)]
     \item $(\frac{n + 1}{n})$ \\\null\\
-    We want to show that $\exists N \in \N$ such that $m, n > N$ and $|S_m - S_n| < \epsilon$. Let there be some arbitrary $N$ such that $\frac{1}{N} = \frac{\epsilon}{2}$ and some $m > n \geq N$. Then,
+    We want to show that $\exists N \in \N$ such that $m, n > N$ and $|S_m - S_n| < \varepsilon$. Let there be some arbitrary $N$ such that $\frac{1}{N} = \frac{\varepsilon}{2}$ and some $m > n \geq N$. Then,
     \begin{align*}
         \left\lvert\frac{m + 1}{m} - \frac{n + 1}{n}\right\rvert &= \left\lvert\frac{1}{m} - \frac{1}{n}\right\rvert \\
         &\leq \frac{1}{m} + \frac{1}{n} \\
         &\leq \frac{2}{n} \\
         &\leq \frac{2}{N} \\
-        &< \epsilon
+        &< \varepsilon
     \end{align*}
     Thus, $(\frac{n + 1}{n})$ is a Cauchy sequence.
 
     \item $(1 + \frac{1}{2!} + \cdots + \frac{1}{n!})$
-    We want to show that $\exists N \in \N$ such that $m, n > N$ and $|S_m - S_n| < \epsilon$. Let there be some arbitrary $N$ such that $\frac{1}{2^N} < \epsilon$ and some $m > n \geq N$. Then,
+    We want to show that $\exists N \in \N$ such that $m, n > N$ and $|S_m - S_n| < \varepsilon$. Let there be some arbitrary $N$ such that $\frac{1}{2^N} < \varepsilon$ and some $m > n \geq N$. Then,
     \begin{align*}
         \left\lvert\left(1 + \frac{1}{2!} + \cdots + \frac{1}{m!}\right) - \left(1 + \frac{1}{2!} + \cdots + \frac{1}{n!}\right)\right\rvert &= \frac{1}{(n + 1)!} + \cdots + \frac{1}{m!} \\
         &\leq \frac{1}{2^{n + 1}} + \cdots + \frac{1}{2^m} \\
@@ -124,25 +124,25 @@
         &\leq \frac{1}{2^n} \left(\frac{1}{2} + \frac{1}{4} + \cdots\right) \\
         &= \frac{1}{2^n} * 1 \\
         &\leq \frac{1}{2^N} \\
-        &< \epsilon
+        &< \varepsilon
     \end{align*}
     Thus, $(1 + \frac{1}{2!} + \cdots + \frac{1}{n!})$ is a Cauchy sequence.
 \end{enumerate}
 
 \paragraph{7.} Let $(x_n)$ be a Cauchy sequence such that $x_n$ is an integer for every $n \in \N$. Show that $(x_n)$ is ultimately constant.
 \begin{proof}
-    Let $\epsilon = 1$. Then, there must exist some $N$ such that $m, n > N$ and $|x_m - x_n| < \epsilon$. However, since $x_m$ and $x_n$ are integers, $x_m = x_n$ in order to satisfy the Cauchy condition. Thus, $(x_n)$ is ultimately constant.
+    Let $\varepsilon = 1$. Then, there must exist some $N$ such that $m, n > N$ and $|x_m - x_n| < \varepsilon$. However, since $x_m$ and $x_n$ are integers, $x_m = x_n$ in order to satisfy the Cauchy condition. Thus, $(x_n)$ is ultimately constant.
 \end{proof}
 
 \paragraph{8.} Show directly that a bounded, monotone increasing sequence is a Cauchy sequence.
 \begin{proof}
-    Let there be some bounded, monotone increasing sequence $(x_n)$ that has some supremum $M$. We know that there exists some $n_0$ and $\epsilon > 0$ such that $M - \epsilon < x_{n_0} < M$. Since $(x_n)$ is increasing, we also know that there exists some $n_1$ and $n_2$ such that $x_{n_0} \leq x_{n_1} \leq x_{n_2}$. We can combine these inequalities to get that $M - \epsilon < x_{n_0} \leq x_{n_1} \leq x_{n_2} < M$.
+    Let there be some bounded, monotone increasing sequence $(x_n)$ that has some supremum $M$. We know that there exists some $n_0$ and $\varepsilon > 0$ such that $M - \varepsilon < x_{n_0} < M$. Since $(x_n)$ is increasing, we also know that there exists some $n_1$ and $n_2$ such that $x_{n_0} \leq x_{n_1} \leq x_{n_2}$. We can combine these inequalities to get that $M - \varepsilon < x_{n_0} \leq x_{n_1} \leq x_{n_2} < M$.
 
-    Now, we want to show that $|x_{n_1} - x_{n_2}| < \epsilon$ to satisfy the definition of a Cauchy sequence. Since we know that $M - \epsilon < x_{n_1} < M$ and $M - \epsilon < x_{n_2} < M$, we know that $-M < -x_{n_2} < \epsilon - M$. Then, we can combine our equations like so:
+    Now, we want to show that $|x_{n_1} - x_{n_2}| < \varepsilon$ to satisfy the definition of a Cauchy sequence. Since we know that $M - \varepsilon < x_{n_1} < M$ and $M - \varepsilon < x_{n_2} < M$, we know that $-M < -x_{n_2} < \varepsilon - M$. Then, we can combine our equations like so:
     \begin{align*}
-        M - \epsilon - M &< x_{n_1} - x_{n_2} < M + \epsilon - M \\
-        &\implies \epsilon < x_{n_1} - x_{n_2} < \epsilon \\
-        &\implies |x_{n_1} - x_{n_2}| < \epsilon
+        M - \varepsilon - M &< x_{n_1} - x_{n_2} < M + \varepsilon - M \\
+        &\implies \varepsilon < x_{n_1} - x_{n_2} < \varepsilon \\
+        &\implies |x_{n_1} - x_{n_2}| < \varepsilon
     \end{align*}
     Thus, $(x_n)$ is a Cauchy sequence.
 \end{proof}
@@ -171,17 +171,17 @@ We can use this new form to easily solve these inequalities.
 
 \paragraph{6.} Let $I$ be an interval in $\R$, let $f: I \to \R$, and let $c \in I$. Suppose that there exists constants $K$ and $L$ such that $|f(x) - L| \leq K|x - c|$ for $x \in I$. Show that $\lim_{x \to c} f(x) = L$.
 \begin{proof}
-    We want to show that $\epsilon > 0$ as we can find some $\delta > 0$ such that if $|x - c| < \delta$, then $|f(x) - L| < \epsilon$. Because $|f(x) - L| \leq K|x - c|$, we have $\delta = \frac{\epsilon}{K}$. If $|x - c| < \frac{\epsilon}{K}$, then $|f(x) - L| \leq K|x - c| < \epsilon$. Thus, $|f(x) - L| < \epsilon$, so $\lim_{x \to c} f(x) = L$.
+    We want to show that $\varepsilon > 0$ as we can find some $\delta > 0$ such that if $|x - c| < \delta$, then $|f(x) - L| < \varepsilon$. Because $|f(x) - L| \leq K|x - c|$, we have $\delta = \frac{\varepsilon}{K}$. If $|x - c| < \frac{\varepsilon}{K}$, then $|f(x) - L| \leq K|x - c| < \varepsilon$. Thus, $|f(x) - L| < \varepsilon$, so $\lim_{x \to c} f(x) = L$.
 \end{proof}
 
-\paragraph{9a.} Use either the $\epsilon-\delta$ definition of a limit or the Sequential Criterion for limits to establish that $\lim_{x \to 2} \frac{1}{1 - x} = -1$.
+\paragraph{9a.} Use either the $\varepsilon-\delta$ definition of a limit or the Sequential Criterion for limits to establish that $\lim_{x \to 2} \frac{1}{1 - x} = -1$.
 \begin{proof}
     We assume we have some $(s_n) \to 2$. Then, $$\lim_{n \to \infty} \frac{1}{1 - x} = \frac{1}{1 - 2} = -1$$ Then, by the Sequential Criterion for limits, we have that $\lim_{x \to 2} \frac{1}{1 - x} = -1$.
 \end{proof}
 
 \paragraph{10a.} Use the definition of the limit to show that $\lim_{x \to 2} (x^2 + 4x) = 12$.
 \begin{proof}
-    Let $\delta = \min\{1, \frac{epsilon}{9}\}$ and $\epsilon > 0$. We also have $x$ such that $|x - 2| < \delta$. We want to show that the difference at any two arbitrary points is less than $\epsilon$. Then,
+    Let $\delta = \min\{1, \frac{varepsilon}{9}\}$ and $\varepsilon > 0$. We also have $x$ such that $|x - 2| < \delta$. We want to show that the difference at any two arbitrary points is less than $\varepsilon$. Then,
     \begin{align*}
         |x^2 + 4x - 12| &= |(x - 2)(x + 6)| \\
         &\leq |x - 2||x + 6| \\
@@ -190,7 +190,7 @@ We can use this new form to easily solve these inequalities.
         &\leq \delta|\delta + 8| \\
         &\leq \delta(1 + 8) \\
         &= \delta(9) \\
-        &\leq \epsilon
+        &\leq \varepsilon
     \end{align*}
     Thus, $\lim_{x \to 2} (x^2 + 4x) = 12$.
 \end{proof}
@@ -199,7 +199,7 @@ We can use this new form to easily solve these inequalities.
 \begin{enumerate}[label=(\alph*)]
     \item Show that $f$ has a limit at $x = 0$.
     \begin{proof}
-        For some $\epsilon > 0$, choose $\delta = \epsilon$ such that $|x - 0| = |x| < \delta$. Then, $|f(x) - 0| = |f(x)| \leq |x| \leq \delta = \epsilon$. Thus, $f(x)$ has a limit at $x = 0$.
+        For some $\varepsilon > 0$, choose $\delta = \varepsilon$ such that $|x - 0| = |x| < \delta$. Then, $|f(x) - 0| = |f(x)| \leq |x| \leq \delta = \varepsilon$. Thus, $f(x)$ has a limit at $x = 0$.
     \end{proof}
 
     \item Use a sequential argument to show that if $c \neq 0$, then $f$ does not have a limit at $c$.
@@ -255,26 +255,26 @@ We can use this new form to easily solve these inequalities.
 \begin{proof}
     First, we will show that $\lim_{x \to 0} \cos(1/x)$ does not exist. Let $(x_n) = \frac{1}{n + \pi/2}$ and $(y_n) = \frac{1}{n + 2\pi}$. Then, $\lim_{n \to \infty} (x_n) = 0$ and $\lim_{n \to \infty} (y_n) = 0$. $\forall n \in \N$, $\cos(1/x_n) = \cos(n + \pi/2) = 0$ and $\cos(1/y_n) = \cos(n + 2\pi) = 1$. Thus, we have two convergent subsequences that do not converge to the same limit, so $\lim_{x \to 0} \cos(1/x)$ does not exist.
 
-    Now, we will show that $\lim_{x \to 0} x \cos(1/x) = 0$. Let $\epsilon > 0$. We know $\exists \delta = \epsilon$ such that $|x - 0| = |x| < \delta$. Then,
+    Now, we will show that $\lim_{x \to 0} x \cos(1/x) = 0$. Let $\varepsilon > 0$. We know $\exists \delta = \varepsilon$ such that $|x - 0| = |x| < \delta$. Then,
     \begin{align*}
         |x \cos(1/x) - 0| &= |x \cos(1/x)| \\
         &\leq |x| \\
         &\leq \delta \\
-        &= \epsilon
+        &= \varepsilon
     \end{align*}
     Thus, $\lim_{x \to 0} x \cos(1/x) = 0$.
 \end{proof}
 
 \paragraph{6.} Use the definition of the limit to prove that if $\lim_{x \to c} f = L$ and $\lim_{x \to c} g = M$, then $\lim_{x \to c} (f + g) = L + M$.
 \begin{proof}
-    Let $\epsilon > 0$. Then, we know there exists some $\delta_f, \delta_g > 0$ such that $|x - c| < \delta_f$ and $|x - c| < \delta_g \implies |f(x) - L| < \frac{\epsilon}{2}$ and $|g(x) - M| < \frac{\epsilon}{2}$.
+    Let $\varepsilon > 0$. Then, we know there exists some $\delta_f, \delta_g > 0$ such that $|x - c| < \delta_f$ and $|x - c| < \delta_g \implies |f(x) - L| < \frac{\varepsilon}{2}$ and $|g(x) - M| < \frac{\varepsilon}{2}$.
     
     We choose $\delta = \max\{\delta_f, \delta+g\}$. Then, for $|x - c| < \delta$, we have
     \begin{align*}
         |f(x) + g(x) - (L + M)| &= |(f(x) - L) + (g(x) - M)| \\
         &\leq |f(x) - L| + |g(x) - M| \\
-        &< \frac{\epsilon}{2} + \frac{\epsilon}{2} \\
-        &= \epsilon
+        &< \frac{\varepsilon}{2} + \frac{\varepsilon}{2} \\
+        &= \varepsilon
     \end{align*}
     Thus, $\lim_{x \to c} (f + g) = L + M$.
 \end{proof}
@@ -294,12 +294,12 @@ We can use this new form to easily solve these inequalities.
 
     \item $\lim_{x \to 0} x \sin(1/x^2)$ where $(x \neq 0)$.
     \begin{proof}
-        We have some $\epsilon > 0$ and $\delta = \epsilon$ such that $|x - 0| = \delta$. Then,
+        We have some $\varepsilon > 0$ and $\delta = \varepsilon$ such that $|x - 0| = \delta$. Then,
         \begin{align*}
             |x \sin(1/x^2) - 0| &= |x \sin(1/x^2)| \\
             &\leq |x| \\
             &\leq \delta \\
-            &= \epsilon
+            &= \varepsilon
         \end{align*}
         Thus, $\lim_{x \to 0} x \sin(1/x^2) = 0$.
     \end{proof}
@@ -311,12 +311,12 @@ We can use this new form to easily solve these inequalities.
 
     \item $\lim_{x \to 0} \sqrt{x} \sin(1/x^2)$ where $(x > 0)$.
     \begin{proof}
-        We have some $\epsilon > 0$ and $\delta = \epsilon$ such that $|\sqrt{x} - 0| = \delta$. Then,
+        We have some $\varepsilon > 0$ and $\delta = \varepsilon$ such that $|\sqrt{x} - 0| = \delta$. Then,
         \begin{align*}
             |\sqrt{x} \sin(1/x^2) - 0| &= |\sqrt{x} \sin(1/x^2)| \\
             &\leq |\sqrt{x}| \\
             &\leq \delta \\
-            &= \epsilon
+            &= \varepsilon
         \end{align*}
         Thus, $\lim_{x \to 0} \sqrt{x} \sin(1/x^2) = 0$.
     \end{proof}

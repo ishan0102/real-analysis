@@ -38,9 +38,9 @@
     Every Cauchy sequence is convergent.
 \end{theorem}
 \begin{proof}
-    $S_n$ is Cauchy, so $S = \{S_n \mid n \in \N\}$. By Bolzano-Weierstrass, $\exists$ an accumulation point $s$ of $S$. We claim that $S_n \rightarrow s$. Given $\epsilon > 0$, $\exists$ $N$ such that $m, n > N$. Then $|S_m - S_n| < \frac{\epsilon}{2}$. $(S - \frac{\epsilon}{2}, S + \frac{\epsilon}{2})$ contains an infinite number of points. 
+    $S_n$ is Cauchy, so $S = \{S_n \mid n \in \N\}$. By Bolzano-Weierstrass, $\exists$ an accumulation point $s$ of $S$. We claim that $S_n \rightarrow s$. Given $\varepsilon > 0$, $\exists$ $N$ such that $m, n > N$. Then $|S_m - S_n| < \frac{\varepsilon}{2}$. $(S - \frac{\varepsilon}{2}, S + \frac{\varepsilon}{2})$ contains an infinite number of points. 
     
-    $\exists m > N$ such that $S_m \in N(s, \frac{\epsilon}{2})$. But then, $|S_n - s| = |S_n - S_m + S_m - s| \leq |S_n - S_m| + |S_m - s| < \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon$. Therefore, $S_n \rightarrow s$.
+    $\exists m > N$ such that $S_m \in N(s, \frac{\varepsilon}{2})$. But then, $|S_n - s| = |S_n - S_m + S_m - s| \leq |S_n - S_m| + |S_m - s| < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon$. Therefore, $S_n \rightarrow s$.
 \end{proof}
 
 \begin{theorem}{}{}

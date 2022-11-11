@@ -5,9 +5,9 @@
     Let $lim_{x \to c} f(x) = L$, $lim_{x \to c} g(x) = M$. Then, $lim_{x \to c} (f + g)(x) = L + M$.
 \end{theorem}
 \begin{proof}[Proof (Definition 9.1)]
-    Given $\epsilon > 0$, let $\delta_1 > 0$ be such that $0 < |x - c| < \delta_1 \implies |f(x) - L| < \frac{\epsilon}{2}$. Let $\delta_2 > 0$ be such that $0 < |x - c| < \delta_2 \implies |g(x) - M| < \frac{\epsilon}{2}$.
+    Given $\varepsilon > 0$, let $\delta_1 > 0$ be such that $0 < |x - c| < \delta_1 \implies |f(x) - L| < \frac{\varepsilon}{2}$. Let $\delta_2 > 0$ be such that $0 < |x - c| < \delta_2 \implies |g(x) - M| < \frac{\varepsilon}{2}$.
 
-    Let $\delta = min\{\delta_1, \delta_2\}$. Then, for $0 < |x - c| < \delta$, we have $$|f(x) + g(x) - (L + M)| = |(f(x) - L) + (g(x) - M)| \leq |f(x) - L| + |g(x) - M| < \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon.$$
+    Let $\delta = min\{\delta_1, \delta_2\}$. Then, for $0 < |x - c| < \delta$, we have $$|f(x) + g(x) - (L + M)| = |(f(x) - L) + (g(x) - M)| \leq |f(x) - L| + |g(x) - M| < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon.$$
 \end{proof}
 \begin{proof}[Proof (Theorem 9.3)]
     Let $lim_{x \to c} f(x) = L$, $\lim_{x \to c} g(x) = M$, and $S_n$ be a sequence of real numbers such that $S_n \to c$. Then, $$\lim_{n \to \infty} (f + g)(S_n) = \lim_{n \to \infty} f(S_n) + g(S_n) = \lim_{n \to \infty} f(S_n) + \lim_{n \to \infty} g(S_n) = L + M$$ Thus, $\lim_{x \to c} (f + g)(x) = L + M$.
@@ -29,10 +29,10 @@
 
 \section{Continuity of Functions}
 \begin{definition}{Continuous function}{}
-    A function $f$ is continuous at $x = c$ if and only if $\lim_{x \to c} f(x) = f(c)$. Let $s$ be an accumulation point of the domain $f:D \to \R$. Then, $f$ is continuous at $s$ if and only if for each $\epsilon > 0$, $\exists \delta > 0$ such that whenever $0 < |x - s| < \delta$, $|f(x) - f(s)| < \epsilon$.
+    A function $f$ is continuous at $x = c$ if and only if $\lim_{x \to c} f(x) = f(c)$. Let $s$ be an accumulation point of the domain $f:D \to \R$. Then, $f$ is continuous at $s$ if and only if for each $\varepsilon > 0$, $\exists \delta > 0$ such that whenever $0 < |x - s| < \delta$, $|f(x) - f(s)| < \varepsilon$.
 \end{definition}
 \begin{note}
-    Let $f(x) = x\sin(\frac{1}{x})$ where $x \neq 0$, $f(0) = 0$. If we want to show that this function is continuous, we need to find some $\delta > 0$ such that $|x| < \delta \implies |f(x) - f(0)| < \epsilon$. Let $\delta = \epsilon$, then when $|x| < \delta$, $|f(x) - f(0)| = |x\sin(\frac{1}{x}) - 0| = |x\sin(\frac{1}{x})| \leq |x| < \epsilon$.
+    Let $f(x) = x\sin(\frac{1}{x})$ where $x \neq 0$, $f(0) = 0$. If we want to show that this function is continuous, we need to find some $\delta > 0$ such that $|x| < \delta \implies |f(x) - f(0)| < \varepsilon$. Let $\delta = \varepsilon$, then when $|x| < \delta$, $|f(x) - f(0)| = |x\sin(\frac{1}{x}) - 0| = |x\sin(\frac{1}{x})| \leq |x| < \varepsilon$.
 \end{note}
 
 \begin{theorem}{}{}

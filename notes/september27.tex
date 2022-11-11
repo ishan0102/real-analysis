@@ -2,10 +2,10 @@
 
 \section{Limits of Functions}
 \begin{definition}{Limit of a function}{}
-    Let $f:D \to \R$ and let $c$ be an accumulation point of the function. Then, $\lim_{x \to c} f(x) = L$ if and only if given $\epsilon > 0, \exists \delta > 0$ such that if $|x - c| < \delta$, then $|f(x) - L| < \epsilon$.
+    Let $f:D \to \R$ and let $c$ be an accumulation point of the function. Then, $\lim_{x \to c} f(x) = L$ if and only if given $\varepsilon > 0, \exists \delta > 0$ such that if $|x - c| < \delta$, then $|f(x) - L| < \varepsilon$.
 \end{definition}
 \begin{note}
-    Suppose we want to show that $\lim_{x \to 2} S_x + 1 = 11$. We are looking for some $\delta > 0$ such that $0 \leq |x  - 2| < \delta$ and $|S_x + 1 - 11| < \epsilon$. This is structured similarly to proofs of limits of sequences.
+    Suppose we want to show that $\lim_{x \to 2} S_x + 1 = 11$. We are looking for some $\delta > 0$ such that $0 \leq |x  - 2| < \delta$ and $|S_x + 1 - 11| < \varepsilon$. This is structured similarly to proofs of limits of sequences.
 
     Additionally, the limit must go to an accumulation point of the function because we cannot find the limit of a value outside the function's domain.
 \end{note}
@@ -14,38 +14,38 @@
     $\lim_{x \to 5} 10x + 2 = 52$.
 \end{theorem}
 \begin{proof}
-    We need to find some $\delta > 0$ such that whenever $0 < |x - 5| < \delta$, $|10x + 2 - 52| < \epsilon$.
+    We need to find some $\delta > 0$ such that whenever $0 < |x - 5| < \delta$, $|10x + 2 - 52| < \varepsilon$.
     \begin{align*}
-        |10x - 50| &< \epsilon \\
-        10|x - 5| &< \epsilon \\
-        |x - 5| &< \frac{\epsilon}{10}
+        |10x - 50| &< \varepsilon \\
+        10|x - 5| &< \varepsilon \\
+        |x - 5| &< \frac{\varepsilon}{10}
     \end{align*}
-    Given $\epsilon > 0$, let $\delta = \frac{\epsilon}{10}$. Then, whenever $0 < |x - 5| < \delta$, we have $|10x + 2 - 52| = |10x - 50| = 10|x - 5| < 10 * \frac{\epsilon}{10} = \epsilon$.
+    Given $\varepsilon > 0$, let $\delta = \frac{\varepsilon}{10}$. Then, whenever $0 < |x - 5| < \delta$, we have $|10x + 2 - 52| = |10x - 50| = 10|x - 5| < 10 * \frac{\varepsilon}{10} = \varepsilon$.
 \end{proof}
 
 \begin{theorem}{}{}
     $\lim_{x \to 3} x^2 + 2x + 6 = 21$.
 \end{theorem}
 \begin{proof}
-    We need to find some $\delta > 0$ such that whenever $0 < |x - 3| < \delta$, $|(x^2 + 2x + 6) - 21| < \epsilon$.
+    We need to find some $\delta > 0$ such that whenever $0 < |x - 3| < \delta$, $|(x^2 + 2x + 6) - 21| < \varepsilon$.
     \begin{align*}
-        |x^2 + 2x + 6 - 21| &< \epsilon \\
-        |x^2 + 2x - 15| &< \epsilon \\
-        |x + 5||x - 3| &< \epsilon
+        |x^2 + 2x + 6 - 21| &< \varepsilon \\
+        |x^2 + 2x - 15| &< \varepsilon \\
+        |x + 5||x - 3| &< \varepsilon
     \end{align*}
-    If $\delta < 1 \implies |x + 5||x - 3| < 9|x - 3| < \epsilon$. Thus $|x - 3| < \frac{\epsilon}{9}$. We let $\delta = \min\{1, \frac{\epsilon}{9}\}$.
+    If $\delta < 1 \implies |x + 5||x - 3| < 9|x - 3| < \varepsilon$. Thus $|x - 3| < \frac{\varepsilon}{9}$. We let $\delta = \min\{1, \frac{\varepsilon}{9}\}$.
 
-    Given $\epsilon > 0$, let $\delta = \min\{1, \frac{\epsilon}{9}\}$. Then, whenever $0 < |x - 3| < \delta$, we have that $|x + 5| < 9$, thus, $|(x^2 + 2x + 6) - 21| = |x^2 + 2x - 15| = |x + 5||x - 3| < \min\{1, \frac{\epsilon}{9}\} * \frac{\epsilon}{9} = \epsilon$.
+    Given $\varepsilon > 0$, let $\delta = \min\{1, \frac{\varepsilon}{9}\}$. Then, whenever $0 < |x - 3| < \delta$, we have that $|x + 5| < 9$, thus, $|(x^2 + 2x + 6) - 21| = |x^2 + 2x - 15| = |x + 5||x - 3| < \min\{1, \frac{\varepsilon}{9}\} * \frac{\varepsilon}{9} = \varepsilon$.
 \end{proof}
 \begin{note}
-    These proofs have two phases. First, we determine some $\delta$ as an upper bound. Then, we show how this choice of $\delta$ implies the limit is bounded by some $\epsilon$.
+    These proofs have two phases. First, we determine some $\delta$ as an upper bound. Then, we show how this choice of $\delta$ implies the limit is bounded by some $\varepsilon$.
 \end{note}
 
 \begin{theorem}{}{}
     Let $f:D \to \R$ and $c$ is an accumulation point of $D$. Then, $\lim_{x \to c} f(x) = L$ if and only if for every sequence $S_n \in D$ such that $S_n \to c$, $S_n \neq c \forall n$, then $f(S_n)$ converges to $L$.
 \end{theorem}
 \begin{proof}
-    $\lim_{x \to c} f(x) = L$ and $S_n \to L \implies f(S_n) \to L$. We need to find $N$ such that $n > N$ and $|f(S_n) - L| < \epsilon$. We know that $\exists \delta$ such that $0 < |x - c| < \delta \implies |f(x) - L| < \epsilon$ and $\exists N$ such that $n > N \implies |S_n - c| < \delta$. Thus, for $n > N$ we have $|f(S_n) - L| \in \epsilon$.
+    $\lim_{x \to c} f(x) = L$ and $S_n \to L \implies f(S_n) \to L$. We need to find $N$ such that $n > N$ and $|f(S_n) - L| < \varepsilon$. We know that $\exists \delta$ such that $0 < |x - c| < \delta \implies |f(x) - L| < \varepsilon$ and $\exists N$ such that $n > N \implies |S_n - c| < \delta$. Thus, for $n > N$ we have $|f(S_n) - L| \in \varepsilon$.
 
-    Suppose $L$ is not the limit of $f$ as $x$ approaches $c$. We must find $(S_n)$ that converges to $c$, but $f(S_n)$ does not converge to $L$ (contrapositive). $\exists \epsilon > 0$ such that $\forall \delta > 0, 0 < |x - c| < \delta \implies |f(x) - L| \geq \epsilon$. For each $n \in N, \exists S_n \in D$ such that $0 < |S_n - c| < \frac{1}{n}$ and $|f(S_n) - L| \geq \epsilon$. Then, $S_n \to c$, but $f(S_n) \not\to L$. This is a contradiction.
+    Suppose $L$ is not the limit of $f$ as $x$ approaches $c$. We must find $(S_n)$ that converges to $c$, but $f(S_n)$ does not converge to $L$ (contrapositive). $\exists \varepsilon > 0$ such that $\forall \delta > 0, 0 < |x - c| < \delta \implies |f(x) - L| \geq \varepsilon$. For each $n \in N, \exists S_n \in D$ such that $0 < |S_n - c| < \frac{1}{n}$ and $|f(S_n) - L| \geq \varepsilon$. Then, $S_n \to c$, but $f(S_n) \not\to L$. This is a contradiction.
 \end{proof}

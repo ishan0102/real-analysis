@@ -2,26 +2,26 @@
 
 \section{Limits of Sequences}
 \begin{definition}{Limit of a sequence}{}
-    A sequence $a_n$ is said to converge to a real number $s$, if for any $\epsilon > 0$, $\exists$ a real number $k$ such that for all $n \geq k$, the terms $a_n$ satisfy $|a_n - s| < \epsilon$.
+    A sequence $a_n$ is said to converge to a real number $s$, if for any $\varepsilon > 0$, $\exists$ a real number $k$ such that for all $n \geq k$, the terms $a_n$ satisfy $|a_n - s| < \varepsilon$.
 \end{definition}
 
 \begin{theorem}{}{}
     $\lim_{n \to \infty} \frac{1}{\sqrt{n}} = 0$.
 \end{theorem}
 \begin{proof}
-    We need to find some $N$ such that $n > N \forall \epsilon > 0$.
+    We need to find some $N$ such that $n > N \forall \varepsilon > 0$.
     \begin{align*}
-        | \frac{1}{\sqrt{n}} - 0 | &< \epsilon \\
-        \frac{1}{\sqrt{n}} &< \epsilon \\
-        \frac{1}{n} &< \epsilon^2 \\
-        n &> \frac{1}{\epsilon^2}
+        | \frac{1}{\sqrt{n}} - 0 | &< \varepsilon \\
+        \frac{1}{\sqrt{n}} &< \varepsilon \\
+        \frac{1}{n} &< \varepsilon^2 \\
+        n &> \frac{1}{\varepsilon^2}
     \end{align*}
     
-    Let $\epsilon > 0$ and $N = \frac{1}{\epsilon^2}$. Then, if $n > N$, we have that
+    Let $\varepsilon > 0$ and $N = \frac{1}{\varepsilon^2}$. Then, if $n > N$, we have that
     \begin{align*}
         | \frac{1}{\sqrt{n}} - 0 | &= \frac{1}{\sqrt{n}} \\
-        &< \frac{1}{\sqrt{\frac{1}{\epsilon^2}}} \\
-        &= \epsilon
+        &< \frac{1}{\sqrt{\frac{1}{\varepsilon^2}}} \\
+        &= \varepsilon
     \end{align*}
 
     Thus, $\lim_{n \to \infty} \frac{1}{\sqrt{n}} = 0$.
@@ -31,11 +31,11 @@
     $\lim_{n \to \infty} 1 + \frac{1}{2^n} = 1$.
 \end{theorem}
 \begin{proof}
-    Let $\epsilon > 0$ and $N = \frac{1}{\epsilon}$. Then, we have
+    Let $\varepsilon > 0$ and $N = \frac{1}{\varepsilon}$. Then, we have
     \begin{align*}
-        | 1 + \frac{1}{2^n} - 1 | &< \epsilon \\
-        | \frac{1}{2^n} | &= \frac{1}{2^n} < \frac{1}{n} < \frac{1}{\frac{1}{\epsilon}} < \epsilon \\
-        n &> \frac{1}{\epsilon}
+        | 1 + \frac{1}{2^n} - 1 | &< \varepsilon \\
+        | \frac{1}{2^n} | &= \frac{1}{2^n} < \frac{1}{n} < \frac{1}{\frac{1}{\varepsilon}} < \varepsilon \\
+        n &> \frac{1}{\varepsilon}
     \end{align*}
 
     Thus, $\lim_{n \to \infty} 1 + \frac{1}{2^n} = 1$.
@@ -45,7 +45,7 @@
     Every convergent sequence is bounded.
 \end{theorem}
 \begin{proof}
-    Let $S_n$ be a convergent sequence with a limit $s$ and $\epsilon = 1$. Then, there exists some $N$ such that $|S_n - s| < 1$ when $n > N$. That is, $|S_n| < |s| + 1$.
+    Let $S_n$ be a convergent sequence with a limit $s$ and $\varepsilon = 1$. Then, there exists some $N$ such that $|S_n - s| < 1$ when $n > N$. That is, $|S_n| < |s| + 1$.
 
     Let $M = \max\{S_1, S_2, \ldots, S_n, |s| + 1\}$. Then, $|S_n| \leq M$, so $S_n$ is bounded.
 \end{proof}
@@ -54,13 +54,13 @@
     If a sequence converges, its limit is unique.
 \end{theorem}
 \begin{proof}
-    Suppose a sequence $S_n$ converges to $s$ and $t$. Let $\epsilon > 0$. Then, $\exists N_1$ such that $|S_n - s| < \frac{\epsilon}{2}$. For $n > N_1$, $\exists N_2$ such that $|S_n - t| < \frac{\epsilon}{2}$. For $n > N_2$, let $N = m + \{N_1, N_2\}$. Then, for $n > N$, we have
+    Suppose a sequence $S_n$ converges to $s$ and $t$. Let $\varepsilon > 0$. Then, $\exists N_1$ such that $|S_n - s| < \frac{\varepsilon}{2}$. For $n > N_1$, $\exists N_2$ such that $|S_n - t| < \frac{\varepsilon}{2}$. For $n > N_2$, let $N = m + \{N_1, N_2\}$. Then, for $n > N$, we have
     \begin{align*}
         |s - t| &= |s + S_n - S_n - t| \\
         &= |s - S_n + S_n - t| \\
         &\leq |s - S_n| + |S_n - t| \\
-        &< \frac{\epsilon}{2} + \frac{\epsilon}{2} \\
-        |s - t| &= \epsilon
+        &< \frac{\varepsilon}{2} + \frac{\varepsilon}{2} \\
+        |s - t| &= \varepsilon
     \end{align*}
 
     Thus, the limit is unique.

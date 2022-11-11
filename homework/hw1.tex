@@ -97,9 +97,9 @@ Let $a, b \in \R$. Prove the following theorems:
     $$1 / (ab) = (1 / a)(1 / b)$$
 \end{proof}
 
-\paragraph{18.} If for every $\epsilon > 0$ we have $a \leq b + \epsilon$, then $a \leq b$.
+\paragraph{18.} If for every $\varepsilon > 0$ we have $a \leq b + \varepsilon$, then $a \leq b$.
 \begin{proof}
-    Suppose not. Suppose that $b < a$. Then, $0 < a - b$. Let $\epsilon = \frac{a - b}{2}$. Then,
+    Suppose not. Suppose that $b < a$. Then, $0 < a - b$. Let $\varepsilon = \frac{a - b}{2}$. Then,
     \begin{align*}
         a &\leq b + \frac{a - b}{2} \\
         a &\leq \frac{a + b}{2} \\
@@ -182,12 +182,12 @@ Let $a, b \in \R$. Prove the following theorems:
 \section*{Section 3.1}
 \paragraph{4.} For any $b \in \R$, prove that $\lim(b / n) = 0$. 
 \begin{proof}
-    If $b = 0$, the limit is obviously 0. When $b \neq 0$, we have that for any $\epsilon > 0$, $\frac{\epsilon}{|b|} > 0$. We know $\exists$ some $n_0$ such that $\frac{1}{n_0} < \frac{\epsilon}{|b|}$. $\forall n \geq n_0, \frac{1}{n} < \frac{\epsilon}{|b|}$, so $|\frac{b}{n} - 0| < \epsilon, \forall n \geq n_0$. Therefore, $\lim(b / n) = 0$.
+    If $b = 0$, the limit is obviously 0. When $b \neq 0$, we have that for any $\varepsilon > 0$, $\frac{\varepsilon}{|b|} > 0$. We know $\exists$ some $n_0$ such that $\frac{1}{n_0} < \frac{\varepsilon}{|b|}$. $\forall n \geq n_0, \frac{1}{n} < \frac{\varepsilon}{|b|}$, so $|\frac{b}{n} - 0| < \varepsilon, \forall n \geq n_0$. Therefore, $\lim(b / n) = 0$.
 \end{proof}
 
 \paragraph{8.} Prove that $\lim(x_n) = 0$ if and only if $\lim(|x_n|) = 0$. Give an example to show that the converegence of $(|x_n|)$ need not imply the convergence of $(x_n)$. 
 \begin{proof}
-    $|x_n - 0| = ||x_n| - 0|$. Thus, for $\epsilon > 0, |x_n - 0| < \epsilon$ if and only if $||x_n| - 0| < \epsilon$. This implies that $\lim(x_n) = 0$ if and only if $\lim(|x_n|) = 0$.
+    $|x_n - 0| = ||x_n| - 0|$. Thus, for $\varepsilon > 0, |x_n - 0| < \varepsilon$ if and only if $||x_n| - 0| < \varepsilon$. This implies that $\lim(x_n) = 0$ if and only if $\lim(|x_n|) = 0$.
 
     An example of this is the sequence $x_n = \{1, -1, 1, -1, \dots\}$. This sequence is not convergent, but $|x_n| = \{1, 1, 1, 1, \dots\}$ is convergent.
 \end{proof}
@@ -215,9 +215,9 @@ Let $a, b \in \R$. Prove the following theorems:
     \textbf{Theorem 3.2.3} cannot be used here because it only applies when both sequences converge. We know that $a_n$ is convergent, but $b_n$ is not necessarily convergent since not all bounded sequences converge.
 \end{remark}
 
-\paragraph{22.} Suppose that $(x_n)$ is a convergent sequence and $(y_n)$ is such that for any $\epsilon > 0$ there exists $M$ such that $|x_n - y_n| < \epsilon$ for all $n \geq M$. Does it follow that $(y_n)$ is convergent?
+\paragraph{22.} Suppose that $(x_n)$ is a convergent sequence and $(y_n)$ is such that for any $\varepsilon > 0$ there exists $M$ such that $|x_n - y_n| < \varepsilon$ for all $n \geq M$. Does it follow that $(y_n)$ is convergent?
 \begin{proof}
-    We have that $|x_n - y_n| < \epsilon = |(y_n - x_n) - 0| < \epsilon$. This means that $\lim(y_n - x_n) = 0$. We also know that $y_n = (y_n - x_n) + x_n$. Because $x_n$ is convergent, this means that $|(y_n - x_n) + x_n| < \epsilon \implies |y_n| < \epsilon$ so $(y_n)$ is convergent.
+    We have that $|x_n - y_n| < \varepsilon = |(y_n - x_n) - 0| < \varepsilon$. This means that $\lim(y_n - x_n) = 0$. We also know that $y_n = (y_n - x_n) + x_n$. Because $x_n$ is convergent, this means that $|(y_n - x_n) + x_n| < \varepsilon \implies |y_n| < \varepsilon$ so $(y_n)$ is convergent.
 \end{proof}
 
 \end{document}

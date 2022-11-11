@@ -51,10 +51,10 @@
 
 \paragraph{7.} Let $f: \mathbb{R} \rightarrow \mathbb{R}$ be continuous at $c$ and let $f(c)>0$. Show that there exists a neighborhood $V_\delta(c)$ of $c$ such that if $x \in V_\delta(c)$, then $f(x)>0$.
 \begin{proof}
-    Let $\epsilon = \frac{f(c)}{2} > 0$. Then, let there be some $\delta > 0$ such that there exists some $V_\delta(c) = (c - \delta, c + \delta)$. Then, let $x \in V_\delta(c) = (c - \delta, c + \delta)$. Then,
+    Let $\varepsilon = \frac{f(c)}{2} > 0$. Then, let there be some $\delta > 0$ such that there exists some $V_\delta(c) = (c - \delta, c + \delta)$. Then, let $x \in V_\delta(c) = (c - \delta, c + \delta)$. Then,
     \begin{align*}
-        x \in (c - \delta, c + \delta) &\implies |f(x) - f(c)| < \epsilon \\
-        &\implies -\epsilon < f(x) - f(c) < \epsilon \\
+        x \in (c - \delta, c + \delta) &\implies |f(x) - f(c)| < \varepsilon \\
+        &\implies -\varepsilon < f(x) - f(c) < \varepsilon \\
         &\implies f(c) - \frac{f(c)}{2} < f(x) \\
         &\implies f(x) > 0
     \end{align*}

@@ -54,7 +54,7 @@ Because rationals are not complete, there is no upper bound for $T$.
 \begin{proof}
     Let $\sup A = a$ and $\sup B = b$. Then if $z \in C, z = x + y$ for some $x \in A, y \in B$. Then,
     $$ z = x + y \leq a + b = \sup A + \sup B $$
-    By the completeness axiom, $\exists$ a least upper bound of $C, c = \sup C$. It must be that $c \leq a + b$, so we must show $c \geq a + b$. Let $\epsilon > 0$. Since $a = \sup A$, $a - \epsilon$ is not an upper bound for $A$. $\exists x \in A$ such that $a - \epsilon < x$. Likewise, $\exists y \in B$ such that $b - \epsilon < y$. Then,
-    $$ (a - \epsilon) + (b - \epsilon) = a + b - 2 * \epsilon < x + y \leq c $$
-    Thus, $a + b < c + 2 * \epsilon \forall \epsilon > 0$. So, $a + b \leq c \therefore c = a + b$.
+    By the completeness axiom, $\exists$ a least upper bound of $C, c = \sup C$. It must be that $c \leq a + b$, so we must show $c \geq a + b$. Let $\varepsilon > 0$. Since $a = \sup A$, $a - \varepsilon$ is not an upper bound for $A$. $\exists x \in A$ such that $a - \varepsilon < x$. Likewise, $\exists y \in B$ such that $b - \varepsilon < y$. Then,
+    $$ (a - \varepsilon) + (b - \varepsilon) = a + b - 2 * \varepsilon < x + y \leq c $$
+    Thus, $a + b < c + 2 * \varepsilon \forall \varepsilon > 0$. So, $a + b \leq c \therefore c = a + b$.
 \end{proof}
