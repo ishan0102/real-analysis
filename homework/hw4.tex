@@ -149,7 +149,15 @@ Use this to approximate $\ln 1.5$ with an error less than $0.01$. Less than $0.0
 
 \paragraph{6b.} Let $h(x):=2$ if $0 \leq x<1, h(1):=3$ and $h(x):=1$ if $1<x \leq 2$. Show that $h \in \mathcal{R}[0,2]$ and evaluate its integral.
 \begin{proof}
-
+    If we define the integral as the area under the curve, we can estimate that the integral of $h$ is $L = 3$. Now, let $\mathcal{P}_n = \{[0, 2/n], [2/n, 4/n], \ldots, [2/(n - 1), n/2] \}$. Then, the Riemann integral is given by
+    \begin{align*}
+        S(f, \mathcal{P}_n) &= \sum_{i = 1}^n f(x_i) \Delta x_i \\
+        &= \sum_{i = 1}^{n/2} 2 \cdot 2/n + \sum_{i = n/2 + 1}^n 1 \cdot 2/n \\
+        &= 2 \cdot 2/n \cdot n/2 + 1 \cdot 2/n \cdot n/2 \\
+        &= 2 + 1 \\
+        &= 3
+    \end{align*}
+    Then, for any $\varepsilon > 0$, $|S(f, \mathcal{P}_n) - L| = |3 - 3| = 0 < \varepsilon$. Thus, $h$ is Riemann integrable on $[0, 2]$ and the integral of $h$ is $3$.
 \end{proof}
 
 \paragraph{8.} If $f \in \mathcal{R}[a, b]$ and $|f(x)| \leq M$ for all $x \in[a, b]$, show that $\left|\int_a^b f\right| \leq M(b-a)$.
