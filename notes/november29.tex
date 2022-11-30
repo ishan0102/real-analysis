@@ -8,7 +8,7 @@
 \noindent Then, the following are equivalent:
 \begin{itemize}
     \item $f$ is not uniformly continuous on $A$.
-    \item $\exists \varepsilon > 0$ such that $\exists \delta > 0$ and $\exists x, y \in A$ such that $|x - y| < delta$ and $|f(x) - f(y)| \geq \varepsilon$.
+    \item $\exists \varepsilon > 0$ such that $\exists \delta > 0$ and $\exists x, y \in A$ such that $|x - y| < \delta$ and $|f(x) - f(y)| \geq \varepsilon$.
     \item $\exists \varepsilon > 0$ and sequences $(x_n), (y_n)$ such that $\lim (x_n) - (y_n) = 0$ and $|f(x_n) - f(y_n)| \geq \varepsilon$.
 \end{itemize}
 \begin{example}
@@ -23,5 +23,5 @@
     
     Then, by the Bolzano-Weierstrass theorem, there exists a subsequence $({x_n}_k)$ that converges to some element say $z$. Since $I$ is closed, $z \in I$. 
     
-    Furthermore, ${y_n}_k$ converges to $z$ since $|{y_n}_k - z| \leq |{y_n}_k - {x_n}_k| + |{x_n}_k - z|$. Since $f$ is continuous, $f({x_n}_k)$ and $f({y_n}_k)$ converge to $f(z)$. But, this is impossible since $|f({x_n}_k) - f({y_n}_k)| \geq \varepsilon$. This is a contradiction. Thus, $f$ is uniformly continuous on $I$.
+    Furthermore, $({y_n}_k)$ converges to $z$ since $|({y_n}_k) - z| \leq |({y_n}_k) - ({x_n}_k)| + |({x_n}_k) - z|$. Since $f$ is continuous, $f({x_n}_k)$ and $f({y_n}_k)$ converge to $f(z)$. But, this is impossible since $|f({x_n}_k) - f({y_n}_k)| \geq \varepsilon$. This is a contradiction. Thus, $f$ is uniformly continuous on $I$.
 \end{proof}
