@@ -1,0 +1,34 @@
+\section{December 1}
+
+\subsection{Fundamental Theorem of Calculus}
+\begin{theorem}[Fundamental theorem of calculus]
+    Let $f$ be a bounded Riemann integrable function on $[a, b]$. For each $x \in [a, b]$, let $$F(x) = \int_a^x f(t) \, dt$$ Then, $F(x)$ is uniformly continuous on $[a, b]$. Furthermore, if $f$ is continuous and $c \ in [a, b]$, $F$ is differentiable and $$F'(c) = f(c)$$
+\end{theorem}
+\begin{proof}
+    Since $f$ is bounded, $\exists B \in \R$ such that $|f| \leq B \forall x \in [a, b]$. Let $\varepsilon > 0$< then if $x, y \in [a, b]$ and $|y - x| < \frac{\varepsilon}{B}$, we have that $$|F(y) - F(x)| = \left|\int_a^y f - \int_a^x f\right| = \left|\int_x^y f\right| \leq \int_x^y |f| \leq \int_x^y B = B(y - x) < B \frac{\varepsilon}{B}< \varepsilon$$ Thus, $F$ is uniformly continuous on $[a, b]$.
+
+    Now suppose $f$ is continuous on $[a, b]$. Given $\varepsilon > 0 \exists \delta > 0$ such that $|f(t) - f(c)| < \varepsilon$ whenever $|t - c| < \delta$. Note $f(c)$ is a constant so we may write $$f(c) = \frac{1}{x - c} \int_c^x f(c) \, dt \text{ where } x \neq c$$
+    
+    Thus, $\forall x \in [a, b]$ with $0 < |x - c| < \delta$, we have
+    \begin{align*}
+        \left|\frac{f(x) - f(c)}{x - c} - f(c)\right| &= \left|\frac{1}{x - c} \left[\int_a^x f - \int_a^c f\right] - f(c) \right| \\
+        &= \left|\frac{1}{x - c} \int_c^x f - \frac{1}{x - c} \int_c^x f(c) \, dt\right| \\
+        &= \left|\frac{1}{x - c} \int_c^x f(t) - f(c) \, dt\right| \\
+        &= \frac{1}{x - c} \left|\int_c^x f(t) - f(c) \, dt\right| \\
+        &\leq \frac{1}{x - c} \int_c^x |f(t) - f(c)| \, dt \\
+        &< \frac{1}{x - c} \varepsilon |x - c| = \varepsilon
+    \end{align*}
+    Thus, $$F'(c) = \lim_{x \to c} \frac{F(x) - F(c)}{x - c} = \lim_{x \to c} \frac{f(x) - f(c)}{x - c} = f(c)$$
+\end{proof}
+\pagebreak
+
+\begin{theorem}
+    If $f$ is differentiable on a closed interval $[a, b]$ and $f'$ is Riemann integrable, then $$\int_a^b f' \, dx = f(b) - f(a)$$
+\end{theorem}
+\begin{proof}
+    Let $\mathcal{P} = \{x_0, \ldots, x_n\}$ be a partition of $[a, b]$ by applying the Mean Value Theorem to each subinterval $[x_{i - 1}, x_i]$. We obtain points $t_i \in [x_{i - 1}, x_i]$ such that $$f(x_i) - f(x_{i - 1}) = f'(t_i) (x_i - x_{i - 1})$$
+
+    Then, we have $$f(b) - f(a) = \sum_{i = 1}^n f(x_i) - f(x_{i - 1}) = \sum_{i = 1}^n f'(t_i) (x_i - x_{i - 1})$$
+
+    Since $m_i(f') \leq f'(t_i) \leq M_i(f')$ we have that $L(f', p) \leq f(b) - f(a) \leq U(f', p)$. Then, $L(f') \leq f(b) - f(a) \leq U(f')$. Since $f'$ is Riemann integrable, $$L(f') = U(f') = f(b) - f(a) = \int_a^b f' \, dx$$
+\end{proof}
