@@ -1,0 +1,27 @@
+\chapter{November 29}
+
+\section{Uniform Continuity}
+\begin{definition}{Uniform continuity}{}
+    Let $A \in \R$ and $f: A \to \R$. $f$ is uniformly continuous on $A$ if $\forall \varepsilon > 0$, $\exists \delta > 0$ such that $\forall x, y \in A, |x - y| < \delta \implies |f(x) - f(y)| < \varepsilon$.
+\end{definition}
+
+\noindent Then, the following are equivalent:
+\begin{itemize}
+    \item $f$ is not uniformly continuous on $A$.
+    \item $\exists \varepsilon > 0$ such that $\exists \delta > 0$ and $\exists x, y \in A$ such that $|x - y| < \delta$ and $|f(x) - f(y)| \geq \varepsilon$.
+    \item $\exists \varepsilon > 0$ and sequences $(x_n), (y_n)$ such that $\lim (x_n) - (y_n) = 0$ and $|f(x_n) - f(y_n)| \geq \varepsilon$.
+\end{itemize}
+\begin{example}{}{}
+    $f(x) = \frac{1}{x}, (x_n) = \frac{1}{n}, (y_n) = \frac{1}{n + 1}$. Then, $\lim (x_n) - (y_n) = \frac{1}{n} - \frac{1}{n + 1} = \frac{1}{n(n + 1)} \to 0$. However, $|f(x_n) - f(y_n)| = |n - (n + 1)| = |-1| = 1$. So, $f$ is not uniformly continuous.
+\end{example}
+
+\begin{theorem}{Uniform continuity theorem}{}
+    Let $I$ be a closed bounded interval and let $f: I \to \R$ be a continuous function. Then, $f$ is uniformly continuous on $I$.
+\end{theorem}
+\begin{proof}
+    Suppose $f$ is not uniformly continuous on $I$. $\exists \varepsilon > 0$ and two sequences $(x_n), (y_n)$ such that $|(x_n) - (y_n)| < \frac{1}{n}$ and $|f(x_n) - f(y_n)| \geq \varepsilon$. Since $I$ is bounded, $(x_n)$ is bounded. 
+    
+    Then, by the Bolzano-Weierstrass theorem, there exists a subsequence $({x_n}_k)$ that converges to some element say $z$. Since $I$ is closed, $z \in I$. 
+    
+    Furthermore, $({y_n}_k)$ converges to $z$ since $|({y_n}_k) - z| \leq |({y_n}_k) - ({x_n}_k)| + |({x_n}_k) - z|$. Since $f$ is continuous, $f({x_n}_k)$ and $f({y_n}_k)$ converge to $f(z)$. But, this is impossible since $|f({x_n}_k) - f({y_n}_k)| \geq \varepsilon$. This is a contradiction. Thus, $f$ is uniformly continuous on $I$.
+\end{proof}
