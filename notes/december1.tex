@@ -2,7 +2,7 @@
 
 \subsection{Fundamental Theorem of Calculus}
 \begin{theorem}[Fundamental theorem of calculus]
-    Let $f$ be a bounded Riemann integrable function on $[a, b]$. For each $x \in [a, b]$, let $$F(x) = \int_a^x f(t) \, dt$$ Then, $F(x)$ is uniformly continuous on $[a, b]$. Furthermore, if $f$ is continuous and $c \ in [a, b]$, $F$ is differentiable and $$F'(c) = f(c)$$
+    Let $f$ be a bounded Riemann integrable function on $[a, b]$. For each $x \in [a, b]$, let $$F(x) = \int_a^x f(t) \, dt$$ Then, $F(x)$ is uniformly continuous on $[a, b]$. Furthermore, if $f$ is continuous and $c \in [a, b]$, $F$ is differentiable and $$F'(c) = f(c)$$
 \end{theorem}
 \begin{proof}
     Since $f$ is bounded, $\exists B \in \R$ such that $|f| \leq B \forall x \in [a, b]$. Let $\varepsilon > 0$< then if $x, y \in [a, b]$ and $|y - x| < \frac{\varepsilon}{B}$, we have that $$|F(y) - F(x)| = \left|\int_a^y f - \int_a^x f\right| = \left|\int_x^y f\right| \leq \int_x^y |f| \leq \int_x^y B = B(y - x) < B \frac{\varepsilon}{B}< \varepsilon$$ Thus, $F$ is uniformly continuous on $[a, b]$.
